@@ -1,91 +1,101 @@
 # Twitter 列表推文 - 2026-03-15
 
-## @ylecun (Yann LeCun)
-- **时间**: 2026-03-15 08:30
-- **链接**: https://x.com/ylecun/status/1234567890123456789
-- **原文**: People keep asking me about the "next breakthrough" in AI. The real breakthrough isn't just scaling LLMs - it's giving them the ability to reason about the physical world, plan long-term actions, and learn continuously. That's where JEPA architectures shine. We need systems that can build world models, not just pattern match.
-- **中文翻译**: 人们不断询问我在 AI 领域的"下一个突破"是什么。真正的突破不仅仅是扩大 LLM 的规模——而是赋予它们推理物理世界、规划长期行动和持续学习的能力。这就是 JEPA 架构大放异彩的地方。我们需要能够构建世界模型的系统，而不仅仅是模式匹配。
-- **点赞**: 2847 | **转发**: 642 | **评论**: 312
-- **匹配关键词**: AI, LLM
-
----
-
-## @AndrewNgYann (Andrew Ng)
-- **时间**: 2026-03-15 07:15
-- **链接**: https://x.com/AndrewNgYann/status/1234567890123456790
-- **原文**: Just finished teaching an AI course. Excited to see so many engineers building production AI systems! The gap between research and production is closing rapidly. Here's my advice: (1) Start with data quality, not model size, (2) Build evaluation early, (3) Think about deployment from day one. AI is eating the software world!
-- **中文翻译**: 刚刚完成了一门 AI 课程的教学。很高兴看到这么多工程师正在构建生产级 AI 系统！研究和生产之间的差距正在迅速缩小。我的建议是：(1) 从数据质量开始，而不是模型大小，(2) 尽早构建评估体系，(3) 从第一天就考虑部署。AI 正在吞噬软件世界！
-- **点赞**: 5234 | **转发**: 891 | **评论**: 447
+## @business (Bloomberg)
+- **时间**: 2026-03-15 05:26
+- **链接**: https://x.com/business/status/2032917217034031286
+- **原文**: Trump's war on Iran will be judged a failure unless he learns lessons from the Iraq wars, writes Lawrence Freedman. bloomberg.com What the Iraq Wars Tell Us About the Conflict in Iran
+- **中文翻译**: 劳伦斯·弗里德曼写道，除非特朗普从伊拉克战争中吸取教训，否则他与伊朗的冲突将被判定为失败。bloomberg.com 伊拉克战争告诉我们关于伊朗冲突的什么
+- **点赞**: 329 | **转发**: 86 | **评论**: 31
 - **匹配关键词**: AI
 
 ---
 
-## @hardmaru (David Ha)
-- **时间**: 2026-03-15 06:45
-- **链接**: https://x.com/hardmaru/status/1234567890123456791
-- **原文**: New paper alert! We're exploring diffusion models for 3D shape generation. The results are stunning - we can generate complex, high-quality 3D objects from text descriptions. This opens up so many possibilities for game development, VR/AR, and product design. The future of creative AI is multimodal and spatial. Link in thread 🧵
-- **中文翻译**: 新论文预警！我们正在探索用于 3D 形状生成的扩散模型。结果令人惊叹——我们可以从文本描述生成复杂、高质量的 3D 对象。这为游戏开发、VR/AR 和产品设计开辟了这么多可能性。创意 AI 的未来是多模态和空间化的。链接在推文串中 🧵
-- **点赞**: 1892 | **转发**: 423 | **评论**: 156
-- **匹配关键词**: AI, diffusion model
-
----
-
-## @fchollet (François Chollet)
-- **时间**: 2026-03-15 05:20
-- **链接**: https://x.com/fchollet/status/1234567890123456792
-- **原文**: Hot take: The current AI hype cycle will end not because AI fails, but because AI becomes boring. When AI technology is integrated into everything and works reliably, it stops being "AI" and just becomes "software". We're entering the trough of disillusionment, but this is actually good - it means we're moving to real deployment.
-- **中文翻译**: 热门观点：当前的 AI 炒作周期不会因为 AI 失败而结束，而是因为 AI 变得无聊。当 AI 技术集成到一切中并可靠运行时，它就不再是"AI"而只是变成了"软件"。我们正在进入失望低谷期，但这实际上是好事——这意味着我们正在转向真正的部署。
-- **点赞**: 4123 | **转发**: 756 | **评论**: 534
+## @Reuters
+- **时间**: 2026-03-15 05:26
+- **链接**: https://x.com/Reuters/status/2032917229994455455
+- **原文**: Trump urges other nations to help secure shipping through Strait of Hormuz
+- **中文翻译**: 特朗普敦促其他国家帮助保障霍尔木兹海峡的航运安全
+- **点赞**: 172 | **转发**: 80 | **评论**: 161
 - **匹配关键词**: AI
 
 ---
 
-## @goodfellow_ian (Ian Goodfellow)
-- **时间**: 2026-03-15 04:10
-- **链接**: https://x.com/goodfellow_ian/status/1234567890123456793
-- **原文**: GANs are still relevant! While diffusion models have grabbed headlines, adversarial training continues to advance. We're seeing new applications in medical imaging, data augmentation, and adversarial robustness. The key insight: competition between generator and discriminator drives both to improve. Never count out a fundamental idea.
-- **中文翻译**: GAN 仍然相关！虽然扩散模型抢了头条，但对抗训练继续进步。我们看到医学成像、数据增强和对抗鲁棒性方面的新应用。关键洞察：生成器和判别器之间的竞争推动两者都改进。永远不要低估一个根本性的想法。
-- **点赞**: 1567 | **转发**: 234 | **评论**: 189
-- **匹配关键词**: AI, diffusion model, GAN, AGI
-
----
-
-## @karpathy (Andrej Karpathy)
-- **时间**: 2026-03-15 03:30
-- **链接**: https://x.com/karpathy/status/1234567890123456794
-- **原文**: Teaching LLMs to code is just the beginning. The real revolution will be AI systems that can architect entire software systems - understand requirements, design APIs, implement components, write tests, and deploy to production. We're building the tools that will build the tools. Engineers of the future will be system architects, not just coders.
-- **中文翻译**: 教 LLM 编码只是开始。真正的革命将是能够构建整个软件系统的 AI 系统——理解需求、设计 API、实现组件、编写测试并部署到生产环境。我们正在构建将构建工具的工具。未来的工程师将是系统架构师，而不仅仅是编码员。
-- **点赞**: 8234 | **转发**: 1234 | **评论**: 678
-- **匹配关键词**: AI, LLM
-
----
-
-## @jeremyphoward (Jeremy Howard)
-- **时间**: 2026-03-15 02:15
-- **链接**: https://x.com/jeremyphoward/status/1234567890123456795
-- **原文**: Fast.ai v3 is coming! We've completely redesigned the curriculum to focus on practical deep learning for production. Less math theory, more deployment patterns. Learn to build models that actually run in the real world - not just in notebooks. The democratization of AI continues! 🚀
-- **中文翻译**: Fast.ai v3 即将推出！我们完全重新设计了课程，专注于实用的生产级深度学习。更少的数学理论，更多的部署模式。学习构建真正在现实世界中运行的模型——而不仅仅是在笔记本中。AI 的民主化继续！🚀
-- **点赞**: 3421 | **转发**: 567 | **评论**: 289
-- **匹配关键词**: AI, deep learning
-
----
-
-## @gdb (Greg Brockman)
-- **时间**: 2026-03-15 01:45
-- **链接**: https://x.com/gdb/status/1234567890123456796
-- **原文**: We're seeing a fascinating trend: AI systems are developing emergent capabilities we never explicitly trained for. From tool use to multi-step reasoning to creative writing. The frontier isn't just about more parameters - it's about better training methodologies, more diverse data, and architectures that can generalize. The next 12 months will be transformative.
-- **中文翻译**: 我们看到了一个迷人的趋势：AI 系统正在发展出我们从未明确训练过的涌现能力。从工具使用到多步推理再到创意写作。前沿不仅仅是更多的参数——而是更好的训练方法、更多样化的数据和能够泛化的架构。未来 12 个月将是变革性的。
-- **点赞**: 6734 | **转发**: 987 | **评论**: 445
+## @Reuters
+- **时间**: 2026-03-15 05:26
+- **链接**: https://x.com/Reuters/status/2032920995174982010
+- **原文**: Musk says Tesla's mega AI chip fab project to launch in seven days
+- **中文翻译**: 马斯克表示，特斯拉的大型AI芯片工厂项目将于七天后启动
+- **点赞**: 99 | **转发**: 28 | **评论**: 22
 - **匹配关键词**: AI
 
 ---
 
-## @sama (Sam Altman)
-- **时间**: 2026-03-15 00:30
-- **链接**: https://x.com/sama/status/1234567890123456797
-- **原文**: People ask if AI will replace programmers. The real question: will AI make programmers 10x more productive? I think yes. But this also means we'll build 10x more software. The demand for programmers who understand AI, can design systems, and ship products will only grow. We're entering the golden age of software development.
-- **中文翻译**: 人们问 AI 是否会取代程序员。真正的问题是：AI 会让程序员的生产力提高 10 倍吗？我认为会的。但这同时也意味着我们将构建 10 倍多的软件。理解 AI、能够设计系统并交付产品的程序员需求只会增长。我们正在进入软件开发的黄金时代。
-- **点赞**: 12456 | **转发**: 2345 | **评论**: 1234
+## @Reuters
+- **时间**: 2026-03-15 05:26
+- **链接**: https://x.com/Reuters/status/2032922249397702843
+- **原文**: Six killed in Russian air attacks on Ukraine
+- **中文翻译**: 俄罗斯对乌克兰发动空袭，造成六人死亡
+- **点赞**: 97 | **转发**: 41 | **评论**: 17
+- **匹配关键词**: AI
+
+---
+
+## @WSJ
+- **时间**: 2026-03-15 05:26
+- **链接**: https://x.com/WSJ/status/2032923909226401926
+- **原文**: "I thought my bones were just fine. Then suddenly my real and digital lives were filled with women explaining what I had do to strengthen my skeleton."
+- **中文翻译**: "我以为我的骨头还很硬朗。突然间，我的现实生活和数字生活都被各种女性填满了，她们都在告诉我应该怎么做来加强我的骨骼。"
+- **点赞**: 22 | **转发**: 7 | **评论**: 17
+- **匹配关键词**: AI
+
+---
+
+## @WSJ
+- **时间**: 2026-03-15 09:26
+- **链接**: https://x.com/WSJ/status/2032975077197619421
+- **原文**: A former Russian model and Epstein "assistant" explains how she and other adult victims spent years entrapped by him
+- **中文翻译**: 一位前俄罗斯模特兼爱泼斯坦的"助理"解释了她和其他成年受害者是如何被他囚禁多年的
+- **点赞**: 538 | **转发**: 284 | **评论**: 37
+- **匹配关键词**: AI
+
+---
+
+## @Forbes
+- **时间**: 2026-03-15 09:26
+- **链接**: https://x.com/Forbes/status/2032977594233270650
+- **原文**: Just 14% of the world's wealthiest people are women. While the #ForbesBillionaires ranking remains disproportionately male, the percentage of women among the world's wealthiest people continues to tick up slowly. From candy to mining, here's how these women made their wealth:
+- **中文翻译**: 全球最富有的14%是女性。虽然#ForbesBillionaires榜单仍然严重失衡，但全球最富有人群中的女性比例仍在缓慢上升。从糖果到采矿，这些女性是这样积累财富的：
+- **点赞**: 23 | **转发**: 2 | **评论**: 9
+- **匹配关键词**: AI
+
+---
+
+## @Reuters
+- **时间**: 2026-03-15 12:10
+- **链接**: https://x.com/Reuters/status/2033032987806171569
+- **原文**: Spring training roundup: Tarik Skubal, Max Scherzer excel for Tigers, Blue Jays
+- **中文翻译**: 春季训练综述：塔里克·斯库巴尔、马克斯·谢尔泽为老虎队、蓝鸟队表现出色
+- **点赞**: 4 | **转发**: 5 | **评论**: 5
+- **匹配关键词**: AI
+
+---
+
+## @Reuters
+- **时间**: 2026-03-15 12:01
+- **链接**: https://x.com/Reuters/status/2033030622713655747
+- **原文**: Medvedev ousts Alcaraz to set up Indian Wells final against Sinner
+- **中文翻译**: 梅德韦杰夫淘汰阿尔卡拉斯，将在印第安维尔斯决赛中对阵辛纳
+- **点赞**: 10 | **转发**: 4 | **评论**: 3
+- **匹配关键词**: AI
+
+---
+
+## @business (Bloomberg)
+- **时间**: 2026-03-15 12:26
+- **链接**: https://x.com/business/status/2033037045317120408
+- **原文**: President Prabowo Subianto said he would only consider temporarily exceeding Indonesia's statutory budget deficit cap for emergency situations
+- **中文翻译**: 普拉博沃·苏比安托总统表示，他只会考虑在紧急情况下暂时超出印尼法定预算赤字上限
+- **点赞**: 0 | **转发**: 0 | **评论**: 0
 - **匹配关键词**: AI
 
 ---
