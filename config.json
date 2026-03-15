@@ -1,0 +1,22 @@
+{
+  "twitter": {
+    "lists": [
+      {
+        "name": "AI & Tech",
+        "url": "https://x.com/i/lists/2031372145008484665"
+      }
+    ]
+  },
+  "github": {
+    "repo": "ransomzhang/daily-x",
+    "branch": "main"
+  },
+  "vercel": {
+    "project": "daily-x",
+    "outputDir": "public"
+  },
+  "report": {
+    "retentionDays": 7,
+    "language": "zh-CN"
+  }
+}

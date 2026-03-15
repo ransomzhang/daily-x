@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter 日报</title>
+  <meta name="description" content="Twitter 列表每日精选推文日报">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: linear-gradient(135deg, rgba(30, 30, 50, 0.8), rgba(20, 20, 35, 0.9));
+      --bg-card-hover: linear-gradient(135deg, rgba(40, 40, 65, 0.9), rgba(25, 25, 45, 0.95));
+      --border-card: rgba(100, 100, 180, 0.15);
+      --border-card-hover: rgba(120, 120, 200, 0.3);
+      --text-primary: #e8e8f0;
+      --text-secondary: #9090b0;
+      --text-muted: #606080;
+      --accent-blue: #6C8EF2;
+      --accent-purple: #9B6EF3;
+      --accent-gradient: linear-gradient(135deg, #6C8EF2, #9B6EF3);
+      --link-color: #7BA4F7;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+      --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5);
+      --radius: 16px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 600px 400px at 20% 20%, rgba(108, 142, 242, 0.06), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 80%, rgba(155, 110, 243, 0.05), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 80px; height: 2px;
+      background: var(--accent-gradient);
+      border-radius: 1px;
+    }
+
+    .header-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .header .subtitle {
+      font-size: 15px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .stats-bar {
+      display: inline-flex;
+      gap: 24px;
+      margin-top: 20px;
+      padding: 8px 20px;
+      background: rgba(108, 142, 242, 0.06);
+      border: 1px solid rgba(108, 142, 242, 0.12);
+      border-radius: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stats-bar .num {
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    /* Report cards */
+    .report-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 22px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .report-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(108, 142, 242, 0.3), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .report-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-card-hover);
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .report-card:hover::before { opacity: 1; }
+
+    .report-date-badge {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .report-info { flex: 1; min-width: 0; }
+
+    .report-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-today {
+      display: inline-block;
+      padding: 2px 10px;
+      background: rgba(108, 142, 242, 0.15);
+      border: 1px solid rgba(108, 142, 242, 0.3);
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent-blue);
+    }
+
+    .report-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .report-arrow {
+      font-size: 20px;
+      color: var(--text-muted);
+      transition: all var(--transition);
+      flex-shrink: 0;
+    }
+
+    .report-card:hover .report-arrow {
+      color: var(--accent-blue);
+      transform: translateX(4px);
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-icon { font-size: 48px; margin-bottom: 16px; }
+    .empty-hint { font-size: 13px; margin-top: 8px; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .report-card {
+      animation: fadeInUp 0.4s ease forwards;
+      opacity: 0;
+    }
+
+    .report-card:nth-child(1) { animation-delay: 0.05s; }
+    .report-card:nth-child(2) { animation-delay: 0.1s; }
+    .report-card:nth-child(3) { animation-delay: 0.15s; }
+    .report-card:nth-child(4) { animation-delay: 0.2s; }
+    .report-card:nth-child(5) { animation-delay: 0.25s; }
+    .report-card:nth-child(6) { animation-delay: 0.3s; }
+    .report-card:nth-child(7) { animation-delay: 0.35s; }
+
+    @media (max-width: 600px) {
+      .container { padding: 40px 12px 60px; }
+      .header h1 { font-size: 28px; }
+      .report-card { padding: 16px 18px; gap: 14px; }
+      .report-date-badge { width: 44px; height: 44px; font-size: 18px; border-radius: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-icon">📡</div>
+      <h1>Twitter 日报</h1>
+      <p class="subtitle">每日精选推文 · 自动翻译</p>
+      <div class="stats-bar">
+        <span>📊 <span class="num">1</span> 份日报</span>
+        <span>🕐 保留 7 天</span>
+      </div>
+    </header>
+
+    <main>
+      
+      <a href="reports/2026-03-15.html" class="report-card">
+        <div class="report-date-badge">15</div>
+        <div class="report-info">
+          <div class="report-title">2026 年 3 月 15 日 周日 <span class="badge-today">今天</span></div>
+          <div class="report-subtitle">Twitter 列表日报</div>
+        </div>
+        <div class="report-arrow">→</div>
+      </a>
+    </main>
+
+    <footer class="footer">
+      <p>由 Twitter 日报 Skill 自动生成</p>
+    </footer>
+  </div>
+</body>
+</html>
