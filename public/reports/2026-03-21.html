@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter 日报 - 2026-03-21</title>
+  <meta name="description" content="2026-03-21 Twitter 列表精选推文日报">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: linear-gradient(135deg, rgba(30, 30, 50, 0.8), rgba(20, 20, 35, 0.9));
+      --bg-card-hover: linear-gradient(135deg, rgba(40, 40, 65, 0.9), rgba(25, 25, 45, 0.95));
+      --border-card: rgba(100, 100, 180, 0.15);
+      --border-card-hover: rgba(120, 120, 200, 0.3);
+      --text-primary: #e8e8f0;
+      --text-secondary: #9090b0;
+      --text-muted: #606080;
+      --accent-blue: #6C8EF2;
+      --accent-purple: #9B6EF3;
+      --accent-gradient: linear-gradient(135deg, #6C8EF2, #9B6EF3);
+      --accent-glow: rgba(108, 142, 242, 0.15);
+      --link-color: #7BA4F7;
+      --stat-like: #F06292;
+      --stat-retweet: #4DD0A0;
+      --stat-comment: #64B5F6;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+      --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5);
+      --radius: 16px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 600px 400px at 20% 20%, rgba(108, 142, 242, 0.06), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 80%, rgba(155, 110, 243, 0.05), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding: 12px 0;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(108, 142, 242, 0.08);
+      border: 1px solid rgba(108, 142, 242, 0.15);
+      border-radius: 10px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all var(--transition);
+    }
+
+    .nav-link:hover {
+      background: rgba(108, 142, 242, 0.15);
+      border-color: rgba(108, 142, 242, 0.3);
+    }
+
+    .nav-link.disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .nav-home { font-size: 14px; }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100px; height: 2px;
+      background: var(--accent-gradient);
+      border-radius: 1px;
+    }
+
+    .header-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-blue);
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stats-bar .num {
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    .tweet-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tweet-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(108, 142, 242, 0.3), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-card-hover);
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .tweet-card:hover::before { opacity: 1; }
+
+    .tweet-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tweet-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: white;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .tweet-author-info { flex: 1; min-width: 0; }
+
+    .tweet-display-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tweet-username {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .tweet-time {
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .tweet-content { margin-bottom: 14px; }
+
+    .tweet-original {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-translation {
+      font-size: 15px;
+      color: var(--text-primary);
+      line-height: 1.8;
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+
+    .tweet-translation::before {
+      content: '🇨🇳';
+      margin-right: 6px;
+      font-size: 13px;
+    }
+
+    .tweet-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-stats {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+    }
+
+    .tweet-stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .tweet-stat.like:hover { color: var(--stat-like); }
+    .tweet-stat.retweet:hover { color: var(--stat-retweet); }
+    .tweet-stat.comment:hover { color: var(--stat-comment); }
+
+    .tweet-link {
+      font-size: 12px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.8;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-link:hover { opacity: 1; text-decoration: underline; }
+
+    .keyword-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .keyword-tag {
+      display: inline-block;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 10px;
+      color: var(--accent-blue);
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .keyword-tag::before {
+      content: '#';
+      opacity: 0.6;
+      margin-right: 1px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 16px 12px 60px; }
+      .header h1 { font-size: 22px; }
+      .tweet-card { padding: 18px; }
+      .stats-bar { gap: 16px; }
+      .top-nav { flex-wrap: wrap; gap: 8px; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tweet-card {
+      animation: fadeInUp 0.4s ease forwards;
+      opacity: 0;
+    }
+
+    .tweet-card:nth-child(1) { animation-delay: 0.05s; }
+    .tweet-card:nth-child(2) { animation-delay: 0.1s; }
+    .tweet-card:nth-child(3) { animation-delay: 0.15s; }
+    .tweet-card:nth-child(4) { animation-delay: 0.2s; }
+    .tweet-card:nth-child(5) { animation-delay: 0.25s; }
+    .tweet-card:nth-child(6) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="top-nav">
+      <a href="2026-03-20.html" class="nav-link">← 前一天</a>
+      <a href="../index.html" class="nav-link nav-home">📋 首页</a>
+      <a href="#" class="nav-link disabled">后一天 →</a>
+    </nav>
+
+    <header class="header">
+      <div class="header-label">📡 Daily Report</div>
+      <h1>2026 年 3 月 21 日 周六</h1>
+      <p class="subtitle">Twitter 列表日报 · 自动翻译</p>
+      <div class="stats-bar">
+        <span>📝 共 <span class="num">6</span> 条推文</span>
+        <span>🕐 过去 24 小时</span>
+        <span>📦 生成于 2026-03-21 09:26</span>
+      </div>
+    </header>
+
+    <main id="tweets-container">
+      
+
+<div class="tweet-card">
+  <div class="tweet-author">
+    <div class="tweet-avatar">R</div>
+    <div class="tweet-author-info">
+      <div class="tweet-display-name">Reuters</div>
+      <div class="tweet-username">@Reuters</div>
+    </div>
+    <div class="tweet-time">09:10</div>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-original">US House Democrat blasts Commerce's 'highly concerning' $1.6 billion USA Rare Earth deal</div>
+    <div class="tweet-translation">美国众议院民主党人猛烈批评商务部这笔"令人高度担忧"的16亿美元美国稀土交易</div>
+  </div>
+  <div class="keyword-tags">
+    <span class="keyword-tag">USA</span>
+  </div>
+  <div class="tweet-footer">
+    <div class="tweet-stats">
+      <span class="tweet-stat like">❤️ 4</span>
+      <span class="tweet-stat retweet">🔄 4</span>
+      <span class="tweet-stat comment">💬 2</span>
+    </div>
+    <a href="https://x.com/Reuters/status/2035162002364981752" class="tweet-link" target="_blank">查看原文 ↗</a>
+  </div>
+</div>
+
+<div class="tweet-card">
+  <div class="tweet-author">
+    <div class="tweet-avatar">R</div>
+    <div class="tweet-author-info">
+      <div class="tweet-display-name">Reuters</div>
+      <div class="tweet-username">@Reuters</div>
+    </div>
+    <div class="tweet-time">09:20</div>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-original">President Trump said he did not want a ceasefire in the US-Israeli war on Iran</div>
+    <div class="tweet-translation">特朗普总统表示，他不希望在美国与以色列对伊朗的战争中实现停火</div>
+  </div>
+  <div class="keyword-tags">
+    <span class="keyword-tag">Trump</span>
+  </div>
+  <div class="tweet-footer">
+    <div class="tweet-stats">
+      <span class="tweet-stat like">❤️ 137</span>
+      <span class="tweet-stat retweet">🔄 46</span>
+      <span class="tweet-stat comment">💬 58</span>
+    </div>
+    <a href="https://x.com/Reuters/status/2035126739773378839" class="tweet-link" target="_blank">查看原文 ↗</a>
+  </div>
+</div>
+
+<div class="tweet-card">
+  <div class="tweet-author">
+    <div class="tweet-avatar">C</div>
+    <div class="tweet-author-info">
+      <div class="tweet-display-name">CNBC</div>
+      <div class="tweet-username">@CNBC</div>
+    </div>
+    <div class="tweet-time">09:16</div>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-original">Trump says he doesn't want Iran war ceasefire, but is considering 'winding down' military ops</div>
+    <div class="tweet-translation">特朗普表示他不希望伊朗战争停火，但正在考虑"逐步减少"军事行动</div>
+  </div>
+  <div class="keyword-tags">
+    <span class="keyword-tag">Trump</span>
+  </div>
+  <div class="tweet-footer">
+    <div class="tweet-stats">
+      <span class="tweet-stat like">❤️ 14</span>
+      <span class="tweet-stat retweet">🔄 5</span>
+      <span class="tweet-stat comment">💬 9</span>
+    </div>
+    <a href="https://x.com/CNBC/status/2035125963135066244" class="tweet-link" target="_blank">查看原文 ↗</a>
+  </div>
+</div>
+
+<div class="tweet-card">
+  <div class="tweet-author">
+    <div class="tweet-avatar">B</div>
+    <div class="tweet-author-info">
+      <div class="tweet-display-name">Bloomberg</div>
+      <div class="tweet-username">@business</div>
+    </div>
+    <div class="tweet-time">08:55</div>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-original">President Trump rejected the idea of a ceasefire and again bristled at NATO allies for not helping to unblock the Strait of Hormuz, as officials say the US is considering a plan to seize Iran's oil export hub on Kharg Island</div>
+    <div class="tweet-translation">特朗普总统拒绝停火建议，并再次对北约盟友未能帮助解除霍尔木兹海峡封锁表示不满。据官员称，美国正在考虑夺取伊朗石油出口中心哈格岛的计划</div>
+  </div>
+  <div class="keyword-tags">
+    <span class="keyword-tag">Trump</span>
+  </div>
+  <div class="tweet-footer">
+    <div class="tweet-stats">
+      <span class="tweet-stat like">❤️ 79</span>
+      <span class="tweet-stat retweet">🔄 28</span>
+      <span class="tweet-stat comment">💬 31</span>
+    </div>
+    <a href="https://x.com/business/status/2035098043469517311" class="tweet-link" target="_blank">查看原文 ↗</a>
+  </div>
+</div>
+
+<div class="tweet-card">
+  <div class="tweet-author">
+    <div class="tweet-avatar">B</div>
+    <div class="tweet-author-info">
+      <div class="tweet-display-name">Bloomberg</div>
+      <div class="tweet-username">@business</div>
+    </div>
+    <div class="tweet-time">04:56</div>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-original">Canadian stocks erased all of their gains for the year as shares of gold producers tumbled and traders bet that central banks may not rush to cut interest rates due to the inflationary effects of the Iran war</div>
+    <div class="tweet-translation">加拿大股市回吐了今年全部涨幅，因为黄金生产商股价暴跌，交易员押注各国央行可能不会急于降息，因为伊朗战争带来了通胀压力</div>
+  </div>
+  <div class="keyword-tags">
+    <span class="keyword-tag">gold</span>
+  </div>
+  <div class="tweet-footer">
+    <div class="tweet-stats">
+      <span class="tweet-stat like">❤️ 21</span>
+      <span class="tweet-stat retweet">🔄 5</span>
+      <span class="tweet-stat comment">💬 3</span>
+    </div>
+    <a href="https://x.com/business/status/2035098156279398650" class="tweet-link" target="_blank">查看原文 ↗</a>
+  </div>
+</div>
+
+<div class="tweet-card">
+  <div class="tweet-author">
+    <div class="tweet-avatar">T</div>
+    <div class="tweet-author-info">
+      <div class="tweet-display-name">The Economist</div>
+      <div class="tweet-username">@TheEconomist</div>
+    </div>
+    <div class="tweet-time">04:55</div>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-original">The Iran war is hurting Donald Trump. An unpopular conflict and costly fuel could hobble his presidency</div>
+    <div class="tweet-translation">伊朗战争正在伤害特朗普。一场不得人心的战争和昂贵的燃料可能会阻碍他的总统任期</div>
+  </div>
+  <div class="keyword-tags">
+    <span class="keyword-tag">Trump</span>
+  </div>
+  <div class="tweet-footer">
+    <div class="tweet-stats">
+      <span class="tweet-stat like">❤️ 703</span>
+      <span class="tweet-stat retweet">🔄 297</span>
+      <span class="tweet-stat comment">💬 60</span>
+    </div>
+    <a href="https://x.com/TheEconomist/status/2035097824363172063" class="tweet-link" target="_blank">查看原文 ↗</a>
+  </div>
+</div>
+
+    </main>
+
+    <footer class="footer">
+      <p>由 Twitter 日报 Skill 自动生成 · 2026-03-21 09:26 (UTC+8)</p>
+    </footer>
+  </div>
+</body>
+</html>
