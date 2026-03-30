@@ -1,74 +1,111 @@
 # Twitter 列表推文 - 2026-03-30
 
-## @The Times and The Sunday Times (The Times and The Sunday Times)
-- **时间**: 2026-03-30 09:52
-- **链接**: https://x.com/thetimes/status/2038434208310321245
-- **原文**: Iran war latest: Trump claims Tehran is 'agreeing' to US peace plan
-- **中文翻译**: 伊朗战争最新消息：特朗普声称德黑兰正在"同意"美国和平计划
-- **点赞**: 0 | **转发**: 0 | **评论**: 0
+## @business (Bloomberg)
+- **时间**: 2026-03-31 04:46 (UTC+8)
+- **链接**: https://x.com/business/status/2038749774615044454
+- **原文**: Donald Trump's chaotic turnabouts amid the escalating war with Iran are accelerating, and now include US threats to bomb civilian infrastructure.
+- **中文翻译**: 随着美伊战争持续升级，Donald Trump 的反复无常愈发剧烈，目前甚至包括美国威胁轰炸民用基础设施。
+- **点赞**: 4 | **转发**: 5 | **评论**: 2
 - **匹配关键词**: Trump
 
 ---
-## @Reuters (Reuters)
-- **时间**: 2026-03-30 09:49
-- **链接**: https://x.com/Reuters/status/2038433542691017170
-- **原文**: The UN peacekeeping mission in Lebanon said a peacekeeper was killed when a projectile exploded at one of its positions near the southern Lebanese village of Adchit al-Qusayr
-- **中文翻译**: 联合国驻黎巴嫩维和部队表示，一枚炮弹在黎巴嫩南部村庄阿德希特库赛尔附近的一个阵地爆炸，造成一名维和人员死亡
-- **点赞**: 4 | **转发**: 0 | **评论**: 1
-- **匹配关键词**: USA
+
+## @business (Bloomberg)
+- **时间**: 2026-03-31 04:42 (UTC+8)
+- **链接**: https://x.com/business/status/2038748839516008731
+- **原文**: Gold held two days of gains, after the Federal Reserve said long-term US inflation expectations appeared to be in check even as the war continues in the Middle East
+- **中文翻译**: 黄金连续两天上涨，此前美联储表示尽管中东战争持续，但美国长期通胀预期似乎仍在可控范围内。
+- **点赞**: 6 | **转发**: 3 | **评论**: 0
+- **匹配关键词**: gold, Fed
 
 ---
-## @Bloomberg (Bloomberg)
-- **时间**: 2026-03-30 09:47
-- **链接**: https://x.com/business/status/2038432981535076830
-- **原文**: Iran war latest: - Trump says Iran gave US most of 15 demands to end war - Oil advanced as Houthi militants in Yemen entered conflict - Aluminum stocks soar after two key producers hit - Pakistan is ready to facilitate peace talks - S&P 500 futures, shares in Tokyo and Seoul
-- **中文翻译**: 伊朗战争最新消息：- 特朗普称伊朗已接受结束战争的15项要求中的大部分 - 随着也门胡塞武装加入冲突，油价上涨 - 两大主要产油国受袭后铝价飙升 - 巴基斯坦准备促成和谈 - 标普500期货、东京和首尔股市上涨
-- **点赞**: 15 | **转发**: 2 | **评论**: 6
+
+## @Forbes (Forbes)
+- **时间**: 2026-03-31 04:36 (UTC+8)
+- **链接**: https://x.com/Forbes/status/2038718154642248067
+- **原文**: How much is President Donald Trump's net worth?
+- **中文翻译**: Donald Trump 总统的净资产是多少？
+- **点赞**: 43 | **转发**: 13 | **评论**: 23
 - **匹配关键词**: Trump
 
 ---
-## @Bloomberg (Bloomberg)
-- **时间**: 2026-03-30 04:44
-- **链接**: https://x.com/business/status/2038346478616187112
-- **原文**: A survey by Duke University's Business School and Fed banks find economic prospects are seen improving.
-- **中文翻译**: 杜克大学商学院和美联储银行的调查发现，经济前景预期正在改善。
-- **点赞**: 27 | **转发**: 7 | **评论**: 4
+
+## @YahooFinance (Yahoo Finance)
+- **时间**: 2026-03-31 03:01 (UTC+8)
+- **链接**: https://x.com/YahooFinance/status/2038694278675746958
+- **原文**: Fed Chair Jerome Powell reaffirms his belief in an independent Fed to the students of Harvard University.
+- **中文翻译**: 美联储主席 Jerome Powell 向哈佛大学学生重申，他相信美联储应保持独立性。
+- **点赞**: 39 | **转发**: 10 | **评论**: 3
 - **匹配关键词**: Fed
 
 ---
-## @The Wall Street Journal (The Wall Street Journal)
-- **时间**: 2026-03-30 01:50
-- **链接**: https://x.com/WSJ/status/2038308050168140163
-- **原文**: AI pioneer Jeff Dean is a rare tech leader who has been publicly criticizing actions by the Trump administration.
-- **中文翻译**: AI先驱杰夫·迪恩是一位罕见公开批评特朗普政府行动的科技领袖。
-- **点赞**: 50 | **转发**: 15 | **评论**: 17
-- **匹配关键词**: Trump
 
----
-## @Bloomberg (Bloomberg)
-- **时间**: 2026-03-29 23:55
-- **链接**: https://x.com/business/status/2038229727404523729
-- **原文**: The very voters who tend to rescue Susan Collins are the voters Graham Platner may have the hardest time attracting, writes @RonBrownstein
-- **中文翻译**: 罗恩·布朗斯坦写道，正是那些倾向于支持苏珊·柯林斯的选民，可能才是格雷厄姆·普拉特纳最难以吸引的群体
-- **点赞**: 29 | **转发**: 17 | **评论**: 11
+## @Reuters (Reuters)
+- **时间**: 2026-03-31 02:59 (UTC+8)
+- **链接**: https://x.com/Reuters/status/2038693765641056608
+- **原文**: Israel blocked Jerusalem's Catholic cardinal from marking Palm Sunday at the Church of the Holy Sepulchre, citing security concerns, sparking an international outcry that led Prime Minister Netanyahu to reverse the ban for the remainder of Holy Week
+- **中文翻译**: 以色列以安全为由阻止耶路撒冷天主教枢机主教在圣墓教堂主持圣枝主日仪式，引发国际强烈抗议，最终内塔尼亚胡总理撤销禁令，允许圣周其余时间正常进行。
+- **点赞**: 21 | **转发**: 11 | **评论**: 7
 - **匹配关键词**: USA
 
 ---
-## @The Economist (The Economist)
-- **时间**: 2026-03-29 23:55
-- **链接**: https://x.com/TheEconomist/status/2038229725739426159
-- **原文**: As the political costs of the war in Iran mount, Donald Trump will come under growing pressure. His choices are to escalate, or talk. The less bad option is to seek serious negotiations
-- **中文翻译**: 随着伊朗战争的政治成本不断增加，唐纳德·特朗普将面临越来越大的压力。他的选择是升级战争，或者谈判。不那么糟糕的选项是寻求认真谈判
-- **点赞**: 39 | **转发**: 14 | **评论**: 17
+
+## @business (Bloomberg)
+- **时间**: 2026-03-31 02:58 (UTC+8)
+- **链接**: https://x.com/business/status/2038693653934129336
+- **原文**: Russia's delivery of crude to fuel-starved Cuba temporarily staves off a full-blown humanitarian crisis, with other countries trying to parse Donald Trump's decision to allow the shipment to reach the island
+- **中文翻译**: 俄罗斯向燃料匮乏的古巴运送原油，暂时避免了全面人道主义危机的爆发，各国正试图解读 Donald Trump 允许该船抵达古巴的决定背后的意图。
+- **点赞**: 34 | **转发**: 12 | **评论**: 9
 - **匹配关键词**: Trump
 
 ---
-## @Financial Times (Financial Times)
-- **时间**: 2026-03-29 23:52
-- **链接**: https://x.com/FT/status/2038228540085182920
-- **原文**: Iran war exposes split in Trump's base at conservative activists' conference
-- **中文翻译**: 伊朗战争在保守派活动人士大会上暴露了特朗普支持者的分歧
-- **点赞**: 99 | **转发**: 21 | **评论**: 21
+
+## @business (Bloomberg)
+- **时间**: 2026-03-30 23:51 (UTC+8)
+- **链接**: https://x.com/business/status/2038646483638006024
+- **原文**: The sale of a crude oil tanker seized by the Trump administration in December has hit a snag after the owner of the vessel moved to block it
+- **中文翻译**: 特朗普政府去年12月扣押的一艘原油油轮在出售时遭遇障碍，船东已采取法律行动试图阻止交易。
+- **点赞**: 21 | **转发**: 6 | **评论**: 3
+- **匹配关键词**: Trump
+
+---
+
+## @business (Bloomberg)
+- **时间**: 2026-03-30 23:45 (UTC+8)
+- **链接**: https://x.com/business/status/2038645058086347057
+- **原文**: Here are the key takeaways from Federal Reserve Chair Jerome Powell's remarks at an economics class at Harvard University
+- **中文翻译**: 以下是美联储主席 Jerome Powell 在哈佛大学经济学课上的讲话要点。
+- **点赞**: 34 | **转发**: 11 | **评论**: 2
+- **匹配关键词**: Fed
+
+---
+
+## @CNBC (CNBC)
+- **时间**: 2026-03-30 22:19 (UTC+8)
+- **链接**: https://x.com/CNBC/status/2038623419047018922
+- **原文**: Watch Fed Chair Jerome Powell speak live to an economics class at Harvard
+- **中文翻译**: 直播：美联储主席 Jerome Powell 在哈佛大学经济学课上发表讲话
+- **点赞**: 18 | **转发**: 9 | **评论**: 4
+- **匹配关键词**: Fed
+
+---
+
+## @business (Bloomberg)
+- **时间**: 2026-03-30 19:35 (UTC+8)
+- **链接**: https://x.com/business/status/2038582211205611688
+- **原文**: Egyptian President Abdel-Fattah El-Sisi appealed to his US counterpart Donald Trump to find a way to end an Iran war that's sent global energy prices soaring and threatens developing nations' economies.
+- **中文翻译**: 埃及总统 Abdel-Fattah El-Sisi 呼吁美国 counterpart Donald Trump 想办法结束伊朗战争，这场战争已导致全球能源价格飙升，威胁到发展中国家的经济。
+- **点赞**: 52 | **转发**: 20 | **评论**: 9
+- **匹配关键词**: Trump
+
+---
+
+## @TheEconomist (The Economist)
+- **时间**: 2026-03-30 19:35 (UTC+8)
+- **链接**: https://x.com/TheEconomist/status/2038582041218834578
+- **原文**: Donald Trump may be tempted by dramatic escalation in the hope of compelling Iran to reopen the Strait of Hormuz. But none of his options looks like a potential knockout blow
+- **中文翻译**: Donald Trump 可能会被戏剧性升级局势的诱惑所吸引，希望迫使伊朗重新开放霍尔木兹海峡。但他的任何选项都不像是能一击制胜的方案。
+- **点赞**: 85 | **转发**: 25 | **评论**: 19
 - **匹配关键词**: Trump
 
 ---
