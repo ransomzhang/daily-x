@@ -1,4 +1,5 @@
 {
+  "projectDir": "/Users/zhangransom/workspace/daily-x",
   "twitter": {
     "lists": [
       {
@@ -18,5 +19,11 @@
   "report": {
     "retentionDays": 7,
     "language": "zh-CN"
+  },
+  "scraping": {
+    "cdpPort": 9222,
+    "memberCacheDays": 7,
+    "userDataDir": "/tmp/chrome-twitter-debug-profile",
+    "chromePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
   }
 }
