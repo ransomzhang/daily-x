@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Twitter 日报 - 2026-03-27</title>
-  <meta name="description" content="2026-03-27 Twitter 列表精选推文日报">
+  <title>Twitter 日报 - 2026-04-04</title>
+  <meta name="description" content="2026-04-04 Twitter 列表精选推文日报">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -32,9 +32,7 @@
       --radius: 16px;
       --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-primary);
@@ -43,7 +41,6 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
-
     body::before {
       content: '';
       position: fixed;
@@ -55,7 +52,6 @@
       pointer-events: none;
       z-index: 0;
     }
-
     .container {
       max-width: 760px;
       margin: 0 auto;
@@ -63,8 +59,6 @@
       position: relative;
       z-index: 1;
     }
-
-    /* Top nav */
     .top-nav {
       display: flex;
       align-items: center;
@@ -72,7 +66,6 @@
       margin-bottom: 32px;
       padding: 12px 0;
     }
-
     .nav-link {
       display: inline-flex;
       align-items: center;
@@ -87,27 +80,18 @@
       font-weight: 500;
       transition: all var(--transition);
     }
-
     .nav-link:hover {
       background: rgba(108, 142, 242, 0.15);
       border-color: rgba(108, 142, 242, 0.3);
     }
-
-    .nav-link.disabled {
-      opacity: 0.3;
-      pointer-events: none;
-    }
-
+    .nav-link.disabled { opacity: 0.3; pointer-events: none; }
     .nav-home { font-size: 14px; }
-
-    /* Header */
     .header {
       text-align: center;
       margin-bottom: 40px;
       padding-bottom: 28px;
       position: relative;
     }
-
     .header::after {
       content: '';
       position: absolute;
@@ -117,7 +101,6 @@
       background: var(--accent-gradient);
       border-radius: 1px;
     }
-
     .header-label {
       display: inline-flex;
       align-items: center;
@@ -131,7 +114,6 @@
       color: var(--accent-blue);
       margin-bottom: 16px;
     }
-
     .header h1 {
       font-size: 28px;
       font-weight: 700;
@@ -141,13 +123,11 @@
       background-clip: text;
       margin-bottom: 8px;
     }
-
     .header .subtitle {
       font-size: 14px;
       color: var(--text-secondary);
       font-weight: 300;
     }
-
     .stats-bar {
       display: flex;
       justify-content: center;
@@ -156,14 +136,7 @@
       font-size: 13px;
       color: var(--text-muted);
     }
-
-    .stats-bar .num {
-      font-weight: 600;
-      color: var(--text-secondary);
-      font-size: 15px;
-    }
-
-    /* Tweet Card */
+    .stats-bar .num { font-weight: 600; color: var(--text-secondary); font-size: 15px; }
     .tweet-card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
@@ -176,7 +149,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .tweet-card::before {
       content: '';
       position: absolute;
@@ -186,23 +158,14 @@
       opacity: 0;
       transition: opacity var(--transition);
     }
-
     .tweet-card:hover {
       background: var(--bg-card-hover);
       border-color: var(--border-card-hover);
       box-shadow: var(--shadow-card-hover);
       transform: translateY(-1px);
     }
-
     .tweet-card:hover::before { opacity: 1; }
-
-    .tweet-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
+    .tweet-author { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
     .tweet-avatar {
       width: 40px; height: 40px;
       border-radius: 50%;
@@ -216,31 +179,11 @@
       flex-shrink: 0;
       text-transform: uppercase;
     }
-
     .tweet-author-info { flex: 1; min-width: 0; }
-
-    .tweet-display-name {
-      font-weight: 600;
-      font-size: 14px;
-      color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .tweet-username {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .tweet-time {
-      font-size: 12px;
-      color: var(--text-muted);
-      flex-shrink: 0;
-    }
-
+    .tweet-display-name { font-weight: 600; font-size: 14px; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tweet-username { font-size: 12px; color: var(--text-muted); }
+    .tweet-time { font-size: 12px; color: var(--text-muted); flex-shrink: 0; }
     .tweet-content { margin-bottom: 14px; }
-
     .tweet-original {
       font-size: 13px;
       color: var(--text-secondary);
@@ -249,20 +192,13 @@
       padding-bottom: 10px;
       border-bottom: 1px solid rgba(100, 100, 180, 0.08);
     }
-
     .tweet-translation {
       font-size: 15px;
       color: var(--text-primary);
       line-height: 1.8;
       font-family: 'Noto Sans SC', sans-serif;
     }
-
-    .tweet-translation::before {
-      content: '🇨🇳';
-      margin-right: 6px;
-      font-size: 13px;
-    }
-
+    .tweet-translation::before { content: '🇨🇳'; margin-right: 6px; font-size: 13px; }
     .tweet-footer {
       display: flex;
       align-items: center;
@@ -271,44 +207,14 @@
       padding-top: 12px;
       border-top: 1px solid rgba(100, 100, 180, 0.08);
     }
-
-    .tweet-stats {
-      display: flex;
-      gap: 18px;
-      font-size: 12px;
-    }
-
-    .tweet-stat {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      color: var(--text-muted);
-      transition: color var(--transition);
-    }
-
+    .tweet-stats { display: flex; gap: 18px; font-size: 12px; }
+    .tweet-stat { display: flex; align-items: center; gap: 4px; color: var(--text-muted); transition: color var(--transition); }
     .tweet-stat.like:hover { color: var(--stat-like); }
     .tweet-stat.retweet:hover { color: var(--stat-retweet); }
     .tweet-stat.comment:hover { color: var(--stat-comment); }
-
-    .tweet-link {
-      font-size: 12px;
-      color: var(--link-color);
-      text-decoration: none;
-      font-weight: 500;
-      opacity: 0.8;
-      transition: opacity var(--transition);
-    }
-
+    .tweet-link { font-size: 12px; color: var(--link-color); text-decoration: none; font-weight: 500; opacity: 0.8; transition: opacity var(--transition); }
     .tweet-link:hover { opacity: 1; text-decoration: underline; }
-
-    /* Keyword Tags */
-    .keyword-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 12px;
-    }
-
+    .keyword-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
     .keyword-tag {
       display: inline-block;
       padding: 2px 10px;
@@ -320,21 +226,8 @@
       border: 1px solid rgba(108, 142, 242, 0.2);
       letter-spacing: 0.3px;
     }
-
-    .keyword-tag::before {
-      content: '#';
-      opacity: 0.6;
-      margin-right: 1px;
-    }
-
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-
+    .keyword-tag::before { content: '#'; opacity: 0.6; margin-right: 1px; }
+    .footer { text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 13px; }
     @media (max-width: 600px) {
       .container { padding: 16px 12px 60px; }
       .header h1 { font-size: 22px; }
@@ -342,17 +235,14 @@
       .stats-bar { gap: 16px; }
       .top-nav { flex-wrap: wrap; gap: 8px; }
     }
-
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .tweet-card {
       animation: fadeInUp 0.4s ease forwards;
       opacity: 0;
     }
-
     .tweet-card:nth-child(1) { animation-delay: 0.05s; }
     .tweet-card:nth-child(2) { animation-delay: 0.1s; }
     .tweet-card:nth-child(3) { animation-delay: 0.15s; }
@@ -368,24 +258,23 @@
 <body>
   <div class="container">
     <nav class="top-nav">
-      <a href="2026-03-26.html" class="nav-link">← 前一天</a>
+      <a href="2026-04-03.html" class="nav-link">← 前一天</a>
       <a href="../index.html" class="nav-link nav-home">📋 首页</a>
       <a href="#" class="nav-link disabled">后一天 →</a>
     </nav>
 
     <header class="header">
       <div class="header-label">📡 Daily Report</div>
-      <h1>2026 年 3 月 27 日 周五</h1>
+      <h1>2026 年 4 月 4 日 周六</h1>
       <p class="subtitle">Twitter 列表日报 · 自动翻译</p>
       <div class="stats-bar">
-        <span>📝 共 <span class="num">6</span> 条推文</span>
+        <span>📝 共 <span class="num">9</span> 条推文</span>
         <span>🕐 过去 24 小时</span>
-        <span>📦 生成于 2026-03-27 06:50</span>
+        <span>📦 生成于 2026-04-04 07:48</span>
       </div>
     </header>
 
     <main id="tweets-container">
-      
 
 <div class="tweet-card">
   <div class="tweet-author">
@@ -394,22 +283,92 @@
       <div class="tweet-display-name">Reuters</div>
       <div class="tweet-username">@Reuters</div>
     </div>
-    <div class="tweet-time">22:50</div>
+    <div class="tweet-time">23:25</div>
   </div>
   <div class="tweet-content">
-    <div class="tweet-original">Ex-NFL QB Robert Griffin III makes Team USA flag football team http://reut.rs/4mdtcT7</div>
-    <div class="tweet-translation">前NFL四分卫罗伯特·格里芬三世入选美国队旗橄榄球队</div>
+    <div class="tweet-original">Stronger, broader hiring could ease Fed job market worries http://reut.rs/4seE18G</div>
+    <div class="tweet-translation">更广泛、更强劲的招聘活动可能缓解市场对美联储就业市场的担忧</div>
   </div>
-  <div class="keyword-tags">
-    <span class="keyword-tag">USA</span>
-  </div>
+  <div class="keyword-tags"><span class="keyword-tag">Fed</span></div>
   <div class="tweet-footer">
     <div class="tweet-stats">
-      <span class="tweet-stat like">❤️ 0</span>
-      <span class="tweet-stat retweet">🔄 1</span>
+      <span class="tweet-stat like">❤️ 7</span>
+      <span class="tweet-stat retweet">🔄 0</span>
       <span class="tweet-stat comment">💬 0</span>
     </div>
-    <a href="https://x.com/Reuters/status/2037301137963962818" class="tweet-link" target="_blank">查看原文 ↗</a>
+    <a href="https://x.com/Reuters/status/2040209009177710810" class="tweet-link" target="_blank">查看原文 ↗</a>
+  </div>
+</div>
+
+<div class="tweet-card">
+  <div class="tweet-author">
+    <div class="tweet-avatar">E</div>
+    <div class="tweet-author-info">
+      <div class="tweet-display-name">The Economist</div>
+      <div class="tweet-username">@TheEconomist</div>
+    </div>
+    <div class="tweet-time">23:20</div>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-original">China thinks it can exploit America. Weakened in Iran, Donald Trump may be easier to negotiate with. Yet China's optimism is tempered by anxiety</div>
+    <div class="tweet-translation">中国认为自己可以借此利用美国。在伊朗问题上的失利让特朗普更容易谈判，但中国的乐观情绪中也夹杂着忧虑</div>
+  </div>
+  <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+  <div class="tweet-footer">
+    <div class="tweet-stats">
+      <span class="tweet-stat like">❤️ 21</span>
+      <span class="tweet-stat retweet">🔄 6</span>
+      <span class="tweet-stat comment">💬 14</span>
+    </div>
+    <a href="https://x.com/TheEconomist/status/2040207754569130137" class="tweet-link" target="_blank">查看原文 ↗</a>
+  </div>
+</div>
+
+<div class="tweet-card">
+  <div class="tweet-author">
+    <div class="tweet-avatar">R</div>
+    <div class="tweet-author-info">
+      <div class="tweet-display-name">Reuters</div>
+      <div class="tweet-username">@Reuters</div>
+    </div>
+    <div class="tweet-time">23:00</div>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-original">Trump issues executive order to bolster college sports rules http://reut.rs/41efaqr</div>
+    <div class="tweet-translation">特朗普发布行政令以加强大学体育规则</div>
+  </div>
+  <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+  <div class="tweet-footer">
+    <div class="tweet-stats">
+      <span class="tweet-stat like">❤️ 12</span>
+      <span class="tweet-stat retweet">🔄 5</span>
+      <span class="tweet-stat comment">💬 11</span>
+    </div>
+    <a href="https://x.com/Reuters/status/2040202928787505295" class="tweet-link" target="_blank">查看原文 ↗</a>
+  </div>
+</div>
+
+<div class="tweet-card">
+  <div class="tweet-author">
+    <div class="tweet-avatar">B</div>
+    <div class="tweet-author-info">
+      <div class="tweet-display-name">Bloomberg</div>
+      <div class="tweet-username">@business</div>
+    </div>
+    <div class="tweet-time">22:25</div>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-original">President Donald Trump on Friday issued a memo ordering that the remaining Department of Homeland Security employees be paid during a record-long partial government shutdown impacting the agency.</div>
+    <div class="tweet-translation">美国总统特朗普周五发布备忘录，命令国土安全部剩余员工在该部门受到史上最长部分政府停摆影响期间照常领薪</div>
+  </div>
+  <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+  <div class="tweet-footer">
+    <div class="tweet-stats">
+      <span class="tweet-stat like">❤️ 26</span>
+      <span class="tweet-stat retweet">🔄 9</span>
+      <span class="tweet-stat comment">💬 4</span>
+    </div>
+    <a href="https://x.com/business/status/2040193907657429285" class="tweet-link" target="_blank">查看原文 ↗</a>
   </div>
 </div>
 
@@ -420,22 +379,68 @@
       <div class="tweet-display-name">Yahoo News</div>
       <div class="tweet-username">@YahooNews</div>
     </div>
-    <div class="tweet-time">22:49</div>
+    <div class="tweet-time">22:20</div>
   </div>
   <div class="tweet-content">
-    <div class="tweet-original">Breaking News: The U.S. Treasury Department plans to put President Trump's signature on all new U.S. paper currency, the agency announced on Thursday. http://yhoo.it/4rZPF7j</div>
-    <div class="tweet-translation">突发新闻：美国财政部周四宣布，计划在所有新版美元纸币上印上特朗普总统的签名</div>
+    <div class="tweet-original">A coalition of Democratic state attorneys general announced on Friday they are filing a lawsuit challenging President Trump's new executive order tightening rules on mail-in voting. The lawsuit being filed in federal court in Boston added to the rising number of legal challenges to Trump's policies.</div>
+    <div class="tweet-translation">一个由民主党州检察长组成的联盟周五宣布，将就特朗普收紧邮寄投票规则的新行政令提起诉讼。该诉讼将在波士顿联邦法院提交，成为对特朗普政策的众多法律挑战之一</div>
   </div>
-  <div class="keyword-tags">
-    <span class="keyword-tag">Trump</span>
-  </div>
+  <div class="keyword-tags"><span class="keyword-tag">Fed</span><span class="keyword-tag">Trump</span></div>
   <div class="tweet-footer">
     <div class="tweet-stats">
-      <span class="tweet-stat like">❤️ 2</span>
-      <span class="tweet-stat retweet">🔄 1</span>
+      <span class="tweet-stat like">❤️ 4</span>
+      <span class="tweet-stat retweet">🔄 2</span>
       <span class="tweet-stat comment">💬 1</span>
     </div>
-    <a href="https://x.com/YahooNews/status/2037301012479029556" class="tweet-link" target="_blank">查看原文 ↗</a>
+    <a href="https://x.com/YahooNews/status/2040192654399414481" class="tweet-link" target="_blank">查看原文 ↗</a>
+  </div>
+</div>
+
+<div class="tweet-card">
+  <div class="tweet-author">
+    <div class="tweet-avatar">Y</div>
+    <div class="tweet-author-info">
+      <div class="tweet-display-name">Yahoo News</div>
+      <div class="tweet-username">@YahooNews</div>
+    </div>
+    <div class="tweet-time">22:00</div>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-original">President Trump on Friday requested a 10% cut in non-defense, discretionary spending for the 2027 fiscal year, and an increase to defense spending by $500 billion, according to a White House budget document.</div>
+    <div class="tweet-translation">据白宫预算文件显示，特朗普总统周五要求2027财年非国防可支配开支削减10%，同时将国防开支增加5000亿美元</div>
+  </div>
+  <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+  <div class="tweet-footer">
+    <div class="tweet-stats">
+      <span class="tweet-stat like">❤️ 4</span>
+      <span class="tweet-stat retweet">🔄 1</span>
+      <span class="tweet-stat comment">💬 0</span>
+    </div>
+    <a href="https://x.com/YahooNews/status/2040187663961981014" class="tweet-link" target="_blank">查看原文 ↗</a>
+  </div>
+</div>
+
+<div class="tweet-card">
+  <div class="tweet-author">
+    <div class="tweet-avatar">Y</div>
+    <div class="tweet-author-info">
+      <div class="tweet-display-name">Yahoo News</div>
+      <div class="tweet-username">@YahooNews</div>
+    </div>
+    <div class="tweet-time">21:40</div>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-original">President Trump says the end of the Iran war is 'very close.' What has it accomplished?</div>
+    <div class="tweet-translation">特朗普表示伊朗战争的结束"近在咫尺"。但这场战争究竟取得了什么成果？</div>
+  </div>
+  <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+  <div class="tweet-footer">
+    <div class="tweet-stats">
+      <span class="tweet-stat like">❤️ 1</span>
+      <span class="tweet-stat retweet">🔄 1</span>
+      <span class="tweet-stat comment">💬 2</span>
+    </div>
+    <a href="https://x.com/YahooNews/status/2040182586715099537" class="tweet-link" target="_blank">查看原文 ↗</a>
   </div>
 </div>
 
@@ -446,49 +451,20 @@
       <div class="tweet-display-name">Bloomberg</div>
       <div class="tweet-username">@business</div>
     </div>
-    <div class="tweet-time">22:47</div>
+    <div class="tweet-time">20:34</div>
   </div>
   <div class="tweet-content">
-    <div class="tweet-original">Donald Trump said he would sign an executive order to pay TSA officers, although it's unclear what legal authority he has to circumvent Congress, which broadly controls federal spending</div>
-    <div class="tweet-translation">特朗普表示他将签署行政命令为TSA官员支付工资，尽管目前尚不清楚他有何法律权力绕过控制联邦支出的国会</div>
+    <div class="tweet-original">President Donald Trump's $2.2 trillion budget plan is just an opening bid as Congress begins to decide on spending and cutting programs</div>
+    <div class="tweet-translation">随着国会开始决定各项开支与削减计划，特朗普2.2万亿美元预算案仅仅是一个开场报价</div>
   </div>
-  <div class="keyword-tags">
-    <span class="keyword-tag">Fed</span>
-    <span class="keyword-tag">Trump</span>
-  </div>
+  <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
   <div class="tweet-footer">
     <div class="tweet-stats">
-      <span class="tweet-stat like">❤️ 3</span>
-      <span class="tweet-stat retweet">🔄 4</span>
-      <span class="tweet-stat comment">💬 4</span>
+      <span class="tweet-stat like">❤️ 46</span>
+      <span class="tweet-stat retweet">🔄 11</span>
+      <span class="tweet-stat comment">💬 6</span>
     </div>
-    <a href="https://x.com/business/status/2037300337296519634" class="tweet-link" target="_blank">查看原文 ↗</a>
-  </div>
-</div>
-
-<div class="tweet-card">
-  <div class="tweet-author">
-    <div class="tweet-avatar">R</div>
-    <div class="tweet-author-info">
-      <div class="tweet-display-name">Reuters</div>
-      <div class="tweet-username">@Reuters</div>
-    </div>
-    <div class="tweet-time">14:20</div>
-  </div>
-  <div class="tweet-content">
-    <div class="tweet-original">Russia allocated about $11.8 billion in federal cash to develop four occupied Ukrainian territories between 2024 and 2026, nearly triple the combined amount allocated to about 20 other Russian regions targeted for priority projects, Reuters found reut.rs/4uU9Upt</div>
-    <div class="tweet-translation">路透社调查发现，俄罗斯在2024年至2026年间拨出约118亿美元联邦资金用于开发四个被占领的乌克兰领土，约为约20个被列为优先项目的其他俄罗斯地区总和的三倍</div>
-  </div>
-  <div class="keyword-tags">
-    <span class="keyword-tag">Fed</span>
-  </div>
-  <div class="tweet-footer">
-    <div class="tweet-stats">
-      <span class="tweet-stat like">❤️ 30</span>
-      <span class="tweet-stat retweet">🔄 28</span>
-      <span class="tweet-stat comment">💬 12</span>
-    </div>
-    <a href="https://x.com/Reuters/status/2037172746384281811" class="tweet-link" target="_blank">查看原文 ↗</a>
+    <a href="https://x.com/business/status/2040166135337820314" class="tweet-link" target="_blank">查看原文 ↗</a>
   </div>
 </div>
 
@@ -499,55 +475,27 @@
       <div class="tweet-display-name">Bloomberg</div>
       <div class="tweet-username">@business</div>
     </div>
-    <div class="tweet-time">14:20</div>
+    <div class="tweet-time">16:37</div>
   </div>
   <div class="tweet-content">
-    <div class="tweet-original">Treasuries fell amid a global government bond selloff stoked by rising oil prices as US President Donald Trump threatened Iran with an escalation in American military action. bloomberg.com Bonds Fall as Oil Resumes Rise and Auction Faces Balky Investors 来自 bloomberg.com</div>
-    <div class="tweet-translation">随着油价上涨引发全球政府债券抛售，美国总统特朗普威胁伊朗升级军事行动，美国国债下跌</div>
+    <div class="tweet-original">Some undocumented immigrants who were separated from their family members during Trump's first term in office have been detained again and are being held in violation of a 2023 federal court settlement, the ACLU said in a court filing.</div>
+    <div class="tweet-translation">ACLU在一份法庭文件中称，部分在特朗普第一任期内与家人分离的无证移民已被再次拘留，其处境违反了2023年的一项联邦法院和解协议</div>
   </div>
-  <div class="keyword-tags">
-    <span class="keyword-tag">Trump</span>
-  </div>
+  <div class="keyword-tags"><span class="keyword-tag">Fed</span><span class="keyword-tag">Trump</span></div>
   <div class="tweet-footer">
     <div class="tweet-stats">
-      <span class="tweet-stat like">❤️ 14</span>
-      <span class="tweet-stat retweet">🔄 14</span>
-      <span class="tweet-stat comment">💬 4</span>
+      <span class="tweet-stat like">❤️ 18</span>
+      <span class="tweet-stat retweet">🔄 13</span>
+      <span class="tweet-stat comment">💬 11</span>
     </div>
-    <a href="https://x.com/business/status/2037172740260606017" class="tweet-link" target="_blank">查看原文 ↗</a>
-  </div>
-</div>
-
-<div class="tweet-card">
-  <div class="tweet-author">
-    <div class="tweet-avatar">R</div>
-    <div class="tweet-author-info">
-      <div class="tweet-display-name">Reuters Open Interest (ROI)</div>
-      <div class="tweet-username">@ReutersOI</div>
-    </div>
-    <div class="tweet-time">11:35</div>
-  </div>
-  <div class="tweet-content">
-    <div class="tweet-original">Oil prices jump again, Trump reschedules his China visit, and a California court rules against Meta and Alphabet. Tune in to today's episode of the Morning Bid with Mike Dolan and Anna Szymanski https://reut.rs/4lXHHdC</div>
-    <div class="tweet-translation">油价再次飙升，特朗普重新安排访华行程，加州法院对Meta和Alphabet作出不利裁决</div>
-  </div>
-  <div class="keyword-tags">
-    <span class="keyword-tag">Trump</span>
-  </div>
-  <div class="tweet-footer">
-    <div class="tweet-stats">
-      <span class="tweet-stat like">❤️ 22</span>
-      <span class="tweet-stat retweet">🔄 10</span>
-      <span class="tweet-stat comment">💬 5</span>
-    </div>
-    <a href="https://x.com/ReutersOI/status/2037131334552850842" class="tweet-link" target="_blank">查看原文 ↗</a>
+    <a href="https://x.com/business/status/2040106315842715988" class="tweet-link" target="_blank">查看原文 ↗</a>
   </div>
 </div>
 
     </main>
 
     <footer class="footer">
-      <p>由 Twitter 日报 Skill 自动生成 · 2026-03-27 06:50 (UTC+8)</p>
+      <p>由 Twitter 日报 Skill 自动生成 · 2026-04-04 07:48 (UTC+8)</p>
     </footer>
   </div>
 </body>
