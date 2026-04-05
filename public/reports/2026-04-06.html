@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter 日报 - 2026-04-06</title>
+  <meta name="description" content="{{DATE}} Twitter 列表精选推文日报">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: linear-gradient(135deg, rgba(30, 30, 50, 0.8), rgba(20, 20, 35, 0.9));
+      --bg-card-hover: linear-gradient(135deg, rgba(40, 40, 65, 0.9), rgba(25, 25, 45, 0.95));
+      --border-card: rgba(100, 100, 180, 0.15);
+      --border-card-hover: rgba(120, 120, 200, 0.3);
+      --text-primary: #e8e8f0;
+      --text-secondary: #9090b0;
+      --text-muted: #606080;
+      --accent-blue: #6C8EF2;
+      --accent-purple: #9B6EF3;
+      --accent-gradient: linear-gradient(135deg, #6C8EF2, #9B6EF3);
+      --accent-glow: rgba(108, 142, 242, 0.15);
+      --link-color: #7BA4F7;
+      --stat-like: #F06292;
+      --stat-retweet: #4DD0A0;
+      --stat-comment: #64B5F6;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+      --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5);
+      --radius: 16px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 600px 400px at 20% 20%, rgba(108, 142, 242, 0.06), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 80%, rgba(155, 110, 243, 0.05), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Top nav */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding: 12px 0;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(108, 142, 242, 0.08);
+      border: 1px solid rgba(108, 142, 242, 0.15);
+      border-radius: 10px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all var(--transition);
+    }
+
+    .nav-link:hover {
+      background: rgba(108, 142, 242, 0.15);
+      border-color: rgba(108, 142, 242, 0.3);
+    }
+
+    .nav-link.disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .nav-home { font-size: 14px; }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100px; height: 2px;
+      background: var(--accent-gradient);
+      border-radius: 1px;
+    }
+
+    .header-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-blue);
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stats-bar .num {
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    /* Tweet Card */
+    .tweet-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tweet-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(108, 142, 242, 0.3), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-card-hover);
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .tweet-card:hover::before { opacity: 1; }
+
+    .tweet-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tweet-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: white;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .tweet-author-info { flex: 1; min-width: 0; }
+
+    .tweet-display-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tweet-username {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .tweet-time {
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .tweet-content { margin-bottom: 14px; }
+
+    .tweet-original {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-translation {
+      font-size: 15px;
+      color: var(--text-primary);
+      line-height: 1.8;
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+
+    .tweet-translation::before {
+      content: '🇨🇳';
+      margin-right: 6px;
+      font-size: 13px;
+    }
+
+    .tweet-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-stats {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+    }
+
+    .tweet-stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .tweet-stat.like:hover { color: var(--stat-like); }
+    .tweet-stat.retweet:hover { color: var(--stat-retweet); }
+    .tweet-stat.comment:hover { color: var(--stat-comment); }
+
+    .tweet-link {
+      font-size: 12px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.8;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-link:hover { opacity: 1; text-decoration: underline; }
+
+    /* Keyword Tags */
+    .keyword-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .keyword-tag {
+      display: inline-block;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 10px;
+      color: var(--accent-blue);
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .keyword-tag::before {
+      content: '#';
+      opacity: 0.6;
+      margin-right: 1px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 16px 12px 60px; }
+      .header h1 { font-size: 22px; }
+      .tweet-card { padding: 18px; }
+      .stats-bar { gap: 16px; }
+      .top-nav { flex-wrap: wrap; gap: 8px; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tweet-card {
+      animation: fadeInUp 0.4s ease forwards;
+      opacity: 0;
+    }
+
+    .tweet-card:nth-child(1) { animation-delay: 0.05s; }
+    .tweet-card:nth-child(2) { animation-delay: 0.1s; }
+    .tweet-card:nth-child(3) { animation-delay: 0.15s; }
+    .tweet-card:nth-child(4) { animation-delay: 0.2s; }
+    .tweet-card:nth-child(5) { animation-delay: 0.25s; }
+    .tweet-card:nth-child(6) { animation-delay: 0.3s; }
+    .tweet-card:nth-child(7) { animation-delay: 0.35s; }
+    .tweet-card:nth-child(8) { animation-delay: 0.4s; }
+    .tweet-card:nth-child(9) { animation-delay: 0.45s; }
+    .tweet-card:nth-child(10) { animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="top-nav">
+      <a href="2026-04-05.html" class="nav-link ">← 前一天</a>
+      <a href="../index.html" class="nav-link nav-home">📋 首页</a>
+      <a href="#" class="nav-link disabled">后一天 →</a>
+    </nav>
+
+    <header class="header">
+      <div class="header-label">📡 Daily Report</div>
+      <h1>2026 年 4 月 6 日 周一</h1>
+      <p class="subtitle">Twitter 列表日报 · 自动翻译</p>
+      <div class="stats-bar">
+        <span>📝 共 <span class="num">25</span> 条推文</span>
+        <span>🕐 过去 24 小时</span>
+        <span>📦 生成于 2026-04-06 06:50</span>
+      </div>
+    </header>
+
+    <main id="tweets-container">
+      
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">R</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Reuters</div>
+        <div class="tweet-username">@Reuters</div>
+      </div>
+      <div class="tweet-time">22:50</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">WARNING: GRAPHIC CONTENT</div>
+      <div class="tweet-translation">【警告：包含暴力内容】特朗普总统在社交媒体上发布了一条充满脏话的帖子，称如果霍尔木兹海峡不被重新开放，美国将在周二瞄准伊朗的发电厂和桥梁。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 1</span>
+        <span class="tweet-stat retweet">🔄 0</span>
+        <span class="tweet-stat comment">💬 0</span>
+      </div>
+      <a href="https://x.com/Reuters/status/2040924945484767728" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">R</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Reuters</div>
+        <div class="tweet-username">@Reuters</div>
+      </div>
+      <div class="tweet-time">22:35</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Trump gives Iran until Tuesday night to open Strait of Hormuz, WSJ reports http://reut.rs/3Okxdsc</div>
+      <div class="tweet-translation">特朗普向伊朗发出最后通牒，要求其在周二晚之前开放霍尔木兹海峡，《华尔街日报》报道。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 17</span>
+        <span class="tweet-stat retweet">🔄 12</span>
+        <span class="tweet-stat comment">💬 18</span>
+      </div>
+      <a href="https://x.com/Reuters/status/2040921201506205920" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">B</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Bloomberg</div>
+        <div class="tweet-username">@business</div>
+      </div>
+      <div class="tweet-time">22:34</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Gold fell, after US President Donald Trump renewed threats to destroy Iran's power plants and Tehran showed little sign of accepting American demands to end the war in the Middle East</div>
+      <div class="tweet-translation">黄金下跌，此前美国总统特朗普重申威胁要摧毁伊朗发电厂，而德黑兰几乎没有表现出接受美国要求结束中东战争的迹象。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">gold</span><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 19</span>
+        <span class="tweet-stat retweet">🔄 3</span>
+        <span class="tweet-stat comment">💬 5</span>
+      </div>
+      <a href="https://x.com/business/status/2040920992378196130" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">C</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">CNBC</div>
+        <div class="tweet-username">@CNBC</div>
+      </div>
+      <div class="tweet-time">22:12</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Oil prices rise as Trump warns Iran to open Strait of Hormuz by Tuesday or face 'hell'</div>
+      <div class="tweet-translation">油价上涨，特朗普警告伊朗在周二前开放霍尔木兹海峡，否则将面临"地狱"般的打击。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 22</span>
+        <span class="tweet-stat retweet">🔄 10</span>
+        <span class="tweet-stat comment">💬 15</span>
+      </div>
+      <a href="https://x.com/CNBC/status/2040915595013554300" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">R</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Reuters</div>
+        <div class="tweet-username">@Reuters</div>
+      </div>
+      <div class="tweet-time">22:00</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">'He has a very difficult balancing act.' @andrew_r_gray says Mark Rutte is stuck between his support for Donald Trump and European allies who don't want to be pulled into the Iran war. Listen to the story on today's Reuters World News podcast https://reut.rs/4c9fuMo</div>
+      <div class="tweet-translation">"他面临着非常困难的平衡。" 安德鲁·格雷指出，马克·吕特被困在支持特朗普与不想被卷入伊朗战争的欧洲盟友之间。敬请收听今日路透社世界新闻播客。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 28</span>
+        <span class="tweet-stat retweet">🔄 8</span>
+        <span class="tweet-stat comment">💬 14</span>
+      </div>
+      <a href="https://x.com/Reuters/status/2040912422349758726" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">W</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">The Wall Street Journal</div>
+        <div class="tweet-username">@WSJ</div>
+      </div>
+      <div class="tweet-time">21:53</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">One reader scoffed that if you want to get rid of the gimme putt, "remind me not to play a round with you"</div>
+      <div class="tweet-translation">一位读者嘲讽道，如果你想戒掉那种短推 gimme putt（傻瓜推杆），"提醒我别跟你一起打球"。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Fed</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 5</span>
+        <span class="tweet-stat retweet">🔄 1</span>
+        <span class="tweet-stat comment">💬 3</span>
+      </div>
+      <a href="https://x.com/WSJ/status/2040910766799306771" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">T</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">The Economist</div>
+        <div class="tweet-username">@TheEconomist</div>
+      </div>
+      <div class="tweet-time">21:40</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Above all, it seems that voters want someone who stands up to Donald Trump. Mark Carney has acknowledged that he would not have become prime minister or Liberal leader, had it not been for the Trumpian threats to Canada's prosperity</div>
+      <div class="tweet-translation">最重要的是，选民们似乎希望有人能够对抗特朗普。马克·卡尼承认，若非特朗普对加拿大繁荣的威胁，他不会成为首相或自由党领袖。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 50</span>
+        <span class="tweet-stat retweet">🔄 17</span>
+        <span class="tweet-stat comment">💬 17</span>
+      </div>
+      <a href="https://x.com/TheEconomist/status/2040907360894382405" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">B</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Bloomberg</div>
+        <div class="tweet-username">@business</div>
+      </div>
+      <div class="tweet-time">21:02</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Trump's regulators are reshaping rules that trigger debanking, potentially making it harder to eject clients over suspicious behavior</div>
+      <div class="tweet-translation">特朗普的监管机构正在重塑引发"去银行化"的规则，可能会使因可疑行为驱逐客户变得更加困难。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 13</span>
+        <span class="tweet-stat retweet">🔄 3</span>
+        <span class="tweet-stat comment">💬 4</span>
+      </div>
+      <a href="https://x.com/business/status/2040897953863250246" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">T</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">The Economist</div>
+        <div class="tweet-username">@TheEconomist</div>
+      </div>
+      <div class="tweet-time">21:00</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Donald Trump's politics depends on the strength that comes from winning. If he seems a loser, expect him to exact retribution. A weaker president could become a more dangerous one</div>
+      <div class="tweet-translation">特朗普的政治依赖于胜利带来的强势。如果他看起来像个输家，预期他会进行报复。一个更弱的总统可能会变成一个更危险的总统。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 130</span>
+        <span class="tweet-stat retweet">🔄 44</span>
+        <span class="tweet-stat comment">💬 32</span>
+      </div>
+      <a href="https://x.com/TheEconomist/status/2040897366253859049" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">B</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Bloomberg</div>
+        <div class="tweet-username">@business</div>
+      </div>
+      <div class="tweet-time">20:17</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">President Trump's warning that he may significantly escalate the war in Iran, potentially worsening an energy-price shock that's already upending the global economic outlook, is shadowing stock, bond and oil markets.</div>
+      <div class="tweet-translation">特朗普总统警告可能大幅升级伊朗战争，这可能加剧已经颠覆全球经济前景的能源价格冲击，正在笼罩股票、债券和石油市场。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 117</span>
+        <span class="tweet-stat retweet">🔄 40</span>
+        <span class="tweet-stat comment">💬 12</span>
+      </div>
+      <a href="https://x.com/business/status/2040886460887322654" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">H</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Handelsblatt</div>
+        <div class="tweet-username">@handelsblatt</div>
+      </div>
+      <div class="tweet-time">20:12</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Opec+ berät über höhere Ölförderung – Wohl nur auf dem Papier +++ Trump pocht auf sein Ultimatum – Drohung an den Iran +++ Kuwait wirft Iran Drohnenangriff auf Regierungskomplex vor +++ Der Newsblog.</div>
+      <div class="tweet-translation">OPEC+商议提高石油产量——恐怕只是纸上谈兵+++ 特朗普坚持最后通牒——威胁伊朗+++ 科威特指责伊朗用无人机袭击政府大楼+++ 新闻博客。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 3</span>
+        <span class="tweet-stat retweet">🔄 0</span>
+        <span class="tweet-stat comment">💬 1</span>
+      </div>
+      <a href="https://x.com/handelsblatt/status/2040885307910898096" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">Y</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Yahoo Finance</div>
+        <div class="tweet-username">@YahooFinance</div>
+      </div>
+      <div class="tweet-time">20:06</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">The bond market is helping resolve the Fed's interest rate dilemma</div>
+      <div class="tweet-translation">债券市场正在帮助解决美联储的利率困境。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Fed</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 17</span>
+        <span class="tweet-stat retweet">🔄 1</span>
+        <span class="tweet-stat comment">💬 4</span>
+      </div>
+      <a href="https://x.com/YahooFinance/status/2040883705023955434" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">T</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">The Economist</div>
+        <div class="tweet-username">@TheEconomist</div>
+      </div>
+      <div class="tweet-time">19:40</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Inflation is the issue that American voters care about most. The unpopular war in Iran is expected to drive it up. That might explain why Donald Trump's approval rating has reached a new low</div>
+      <div class="tweet-translation">通货膨胀是美国选民最关心的问题。不受欢迎的伊朗战争预计将推动通胀上升。这或许能解释为什么特朗普的支持率已降至新低。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 98</span>
+        <span class="tweet-stat retweet">🔄 32</span>
+        <span class="tweet-stat comment">💬 28</span>
+      </div>
+      <a href="https://x.com/TheEconomist/status/2040877166775140728" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">F</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Financial Times</div>
+        <div class="tweet-username">@FT</div>
+      </div>
+      <div class="tweet-time">19:25</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">For Brené Brown, the researcher who has made her name and career out of embracing empathy and vulnerability, the new Trump era of confrontational language and macho posturing is a source of personal sorrow.</div>
+      <div class="tweet-translation">对于布琳·布朗——这位以拥抱同理心和脆弱性而成名的研究者——来说，特朗普时代对抗性语言和硬汉姿态是一种个人悲伤的来源。但这也对商业不利吗？</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 34</span>
+        <span class="tweet-stat retweet">🔄 3</span>
+        <span class="tweet-stat comment">💬 11</span>
+      </div>
+      <a href="https://x.com/FT/status/2040873562257441203" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">Y</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Yahoo News</div>
+        <div class="tweet-username">@YahooNews</div>
+      </div>
+      <div class="tweet-time">19:00</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">President Donald Trump announced early Sunday that the U.S. had rescued an aviator nearly two days after he was shot down over Iran.  The extraction came after a frantic search in what appears to be a... https://yahoo.com/news/articles/know-rescue-us-aviator-shot-143911127.html?taid=69d282fdf98744000124f05d&utm_campaign=trueanthem&utm_medium=social&utm_source=twitter…</div>
+      <div class="tweet-translation">唐纳德·特朗普总统周日早间宣布，美国在一名飞行员被击落在伊朗上空近两天后将其救回。这次营救行动是在一场疯狂的搜寻之后进行的，似乎是……</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 6</span>
+        <span class="tweet-stat retweet">🔄 0</span>
+        <span class="tweet-stat comment">💬 0</span>
+      </div>
+      <a href="https://x.com/YahooNews/status/2040867119416463661" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">B</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Bloomberg</div>
+        <div class="tweet-username">@business</div>
+      </div>
+      <div class="tweet-time">18:50</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Trump Escalates Threats to Bomb Iran's Power Plants After Rescue</div>
+      <div class="tweet-translation">营救行动后，特朗普升级威胁，要轰炸伊朗发电厂。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 99</span>
+        <span class="tweet-stat retweet">🔄 24</span>
+        <span class="tweet-stat comment">💬 23</span>
+      </div>
+      <a href="https://x.com/business/status/2040864748900675947" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">W</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">The Wall Street Journal</div>
+        <div class="tweet-username">@WSJ</div>
+      </div>
+      <div class="tweet-time">18:27</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Thousands of striking beef plant workers in Colorado have agreed to return to work, ending a three-week strike at a facility owned by JBS, the world's largest meatpacker</div>
+      <div class="tweet-translation">科罗拉多州数千名罢工的牛肉加工厂工人已同意返回工作岗位，结束了全球最大肉类包装商 JBS 旗下工厂为期三周的罢工。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">USA</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 25</span>
+        <span class="tweet-stat retweet">🔄 8</span>
+        <span class="tweet-stat comment">💬 7</span>
+      </div>
+      <a href="https://x.com/WSJ/status/2040858953655935226" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">R</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Reuters</div>
+        <div class="tweet-username">@Reuters</div>
+      </div>
+      <div class="tweet-time">18:15</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Trump says deal with Iran possible by Monday, Fox News reports http://reut.rs/41PTocO</div>
+      <div class="tweet-translation">据福克斯新闻报道，特朗普表示与伊朗可能在周一之前达成协议。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 56</span>
+        <span class="tweet-stat retweet">🔄 19</span>
+        <span class="tweet-stat comment">💬 36</span>
+      </div>
+      <a href="https://x.com/Reuters/status/2040855775422136772" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">F</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Forbes</div>
+        <div class="tweet-username">@Forbes</div>
+      </div>
+      <div class="tweet-time">18:15</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Iranian Officials Now Threatening To Close Bab Al-Mandeb Strait After Trump Threats</div>
+      <div class="tweet-translation">在特朗普发出威胁后，伊朗官员现在威胁要关闭曼德海峡。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 936</span>
+        <span class="tweet-stat retweet">🔄 301</span>
+        <span class="tweet-stat comment">💬 49</span>
+      </div>
+      <a href="https://x.com/Forbes/status/2040855771898876048" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">Y</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Yahoo Finance</div>
+        <div class="tweet-username">@YahooFinance</div>
+      </div>
+      <div class="tweet-time">18:06</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">During a conversation with @ElizabethGoreUS, host of The Big Idea podcast, beauty influencer Mikayla Nogueira emphasized that "social media was everything," underscoring the importance of growth and effective use.</div>
+      <div class="tweet-translation">在与"大创意"播客主持人伊丽莎白·戈尔交谈时，美妆博主米凯拉·诺格拉强调"社交媒体就是一切"，强调了增长和有效使用的重要性。她说，企业利用不足，而用户"想要被投喂"。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Fed</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 10</span>
+        <span class="tweet-stat retweet">🔄 2</span>
+        <span class="tweet-stat comment">💬 3</span>
+      </div>
+      <a href="https://x.com/YahooFinance/status/2040853507230552493" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">E</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Edward Wong</div>
+        <div class="tweet-username">@ewong</div>
+      </div>
+      <div class="tweet-time">18:04</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">NEW from @nytimes: Trump revels in threats to commit war crimes by destroying Iran's civilian infrastructure and sending it back to the "Stone Ages." He and his aides scorn laws on using force — obvious from strikes on civilian boats to Hegseth's talk of "no quarter" in Iran.</div>
+      <div class="tweet-translation">来自《纽约时报》的最新消息：特朗普对威胁犯下战争罪——摧毁伊朗民用基础设施、将其打回"石器时代"——津津乐道。他和他的助手蔑视使用武力的法律——从袭击民用船只到赫格塞斯谈及的伊朗"不留活口"可见一斑。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 501</span>
+        <span class="tweet-stat retweet">🔄 346</span>
+        <span class="tweet-stat comment">💬 160</span>
+      </div>
+      <a href="https://x.com/ewong/status/2040853123204264268" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">F</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Forbes</div>
+        <div class="tweet-username">@Forbes</div>
+      </div>
+      <div class="tweet-time">18:00</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">#Forbes250: From the golden age of television to the streaming era, these women didn't just shape entertainment. They built empires.</div>
+      <div class="tweet-translation">#Forbes250：从电视黄金时代到流媒体时代，这些女性不仅塑造了娱乐业，她们建立了帝国。金牌制作人珊达·瑞姆斯：《丑闻》、《布里杰顿》和《实习医生格蕾》背后的电视女王，将热门作品转型为多平台制作帝国。奥普拉·温弗瑞：</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">gold</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 17</span>
+        <span class="tweet-stat retweet">🔄 6</span>
+        <span class="tweet-stat comment">💬 11</span>
+      </div>
+      <a href="https://x.com/Forbes/status/2040852090051010860" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">T</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">The Economist</div>
+        <div class="tweet-username">@TheEconomist</div>
+      </div>
+      <div class="tweet-time">18:00</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">America has no easy way to reopen the Strait of Hormuz. But Iran may not be able to force Donald Trump to end the war by keeping it shut</div>
+      <div class="tweet-translation">美国没有简单的方法重新开放霍尔木兹海峡。但伊朗可能也无法通过持续封锁来迫使特朗普结束战争。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 84</span>
+        <span class="tweet-stat retweet">🔄 23</span>
+        <span class="tweet-stat comment">💬 24</span>
+      </div>
+      <a href="https://x.com/TheEconomist/status/2040852068512972836" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">R</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Reuters</div>
+        <div class="tweet-username">@Reuters</div>
+      </div>
+      <div class="tweet-time">18:00</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">' You'll be living in Hell!' Donald Trump threatens military strikes on Iran's bridges and power plans if the Strait of Hormuz doesn't open. Listen on today's Reuters World News podcast https://reut.rs/41beDFT</div>
+      <div class="tweet-translation">"你们将生活在地狱中！" 特朗普威胁称，如果霍尔木兹海峡不开放，将对伊朗的桥梁和发电厂发动军事打击。敬请收听今日路透社世界新闻播客。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 100</span>
+        <span class="tweet-stat retweet">🔄 35</span>
+        <span class="tweet-stat comment">💬 76</span>
+      </div>
+      <a href="https://x.com/Reuters/status/2040852023092904158" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+  <div class="tweet-card">
+    <div class="tweet-author">
+      <div class="tweet-avatar">R</div>
+      <div class="tweet-author-info">
+        <div class="tweet-display-name">Reuters</div>
+        <div class="tweet-username">@Reuters</div>
+      </div>
+      <div class="tweet-time">17:50</div>
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-original">Trump gives Iran until Tuesday night to open Strait of Hormuz, WSJ reports http://reut.rs/4ty92FO</div>
+      <div class="tweet-translation">特朗普向伊朗发出最后通牒，要求其在周二晚之前开放霍尔木兹海峡，《华尔街日报》报道。</div>
+    </div>
+    <div class="keyword-tags"><span class="keyword-tag">Trump</span></div>
+    <div class="tweet-footer">
+      <div class="tweet-stats">
+        <span class="tweet-stat like">❤️ 149</span>
+        <span class="tweet-stat retweet">🔄 44</span>
+        <span class="tweet-stat comment">💬 64</span>
+      </div>
+      <a href="https://x.com/Reuters/status/2040849497232674954" class="tweet-link" target="_blank">查看原文 ↗</a>
+    </div>
+  </div>
+    </main>
+
+    <footer class="footer">
+      <p>由 Twitter 日报 Skill 自动生成 · {{GENERATED_TIME}} (UTC+8)</p>
+    </footer>
+  </div>
+</body>
+</html>
