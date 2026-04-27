@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-14T23:30:14.382Z",
+  "updatedAt": "2026-04-27T23:24:05.462Z",
   "lists": [
     {
       "name": "要查看键盘快捷键，按下问号查看键盘快捷键",
@@ -10,40 +10,36 @@
           "displayName": "blueforestxd"
         },
         {
-          "username": "Reuters",
-          "displayName": "Reuters"
+          "username": "CNBC",
+          "displayName": "CNBC"
         },
         {
           "username": "thetimes",
           "displayName": "thetimes"
         },
         {
-          "username": "japantimes",
-          "displayName": "japantimes"
-        },
-        {
-          "username": "etnow",
-          "displayName": "etnow"
-        },
-        {
-          "username": "CNBC",
-          "displayName": "CNBC"
-        },
-        {
           "username": "business",
           "displayName": "business"
-        },
-        {
-          "username": "YahooNews",
-          "displayName": "YahooNews"
         },
         {
           "username": "TheEconomist",
           "displayName": "TheEconomist"
         },
         {
+          "username": "YahooNews",
+          "displayName": "YahooNews"
+        },
+        {
           "username": "WSJ",
           "displayName": "WSJ"
+        },
+        {
+          "username": "Reuters",
+          "displayName": "Reuters"
+        },
+        {
+          "username": "Forbes",
+          "displayName": "Forbes"
         }
       ]
     }
