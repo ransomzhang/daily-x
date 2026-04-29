@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter 日报 - 2026-04-29</title>
+  <meta name="description" content="{{DATE}} Twitter 列表精选推文日报">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: linear-gradient(135deg, rgba(30, 30, 50, 0.8), rgba(20, 20, 35, 0.9));
+      --bg-card-hover: linear-gradient(135deg, rgba(40, 40, 65, 0.9), rgba(25, 25, 45, 0.95));
+      --border-card: rgba(100, 100, 180, 0.15);
+      --border-card-hover: rgba(120, 120, 200, 0.3);
+      --text-primary: #e8e8f0;
+      --text-secondary: #9090b0;
+      --text-muted: #606080;
+      --accent-blue: #6C8EF2;
+      --accent-purple: #9B6EF3;
+      --accent-gradient: linear-gradient(135deg, #6C8EF2, #9B6EF3);
+      --accent-glow: rgba(108, 142, 242, 0.15);
+      --link-color: #7BA4F7;
+      --stat-like: #F06292;
+      --stat-retweet: #4DD0A0;
+      --stat-comment: #64B5F6;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+      --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5);
+      --radius: 16px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 600px 400px at 20% 20%, rgba(108, 142, 242, 0.06), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 80%, rgba(155, 110, 243, 0.05), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Top nav */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding: 12px 0;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(108, 142, 242, 0.08);
+      border: 1px solid rgba(108, 142, 242, 0.15);
+      border-radius: 10px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all var(--transition);
+    }
+
+    .nav-link:hover {
+      background: rgba(108, 142, 242, 0.15);
+      border-color: rgba(108, 142, 242, 0.3);
+    }
+
+    .nav-link.disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .nav-home { font-size: 14px; }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100px; height: 2px;
+      background: var(--accent-gradient);
+      border-radius: 1px;
+    }
+
+    .header-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-blue);
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stats-bar .num {
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    /* Tweet Card */
+    .tweet-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tweet-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(108, 142, 242, 0.3), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-card-hover);
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .tweet-card:hover::before { opacity: 1; }
+
+    .tweet-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tweet-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: white;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .tweet-author-info { flex: 1; min-width: 0; }
+
+    .tweet-display-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tweet-username {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .tweet-time {
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .tweet-content { margin-bottom: 14px; }
+
+    .tweet-original {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-translation {
+      font-size: 15px;
+      color: var(--text-primary);
+      line-height: 1.8;
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+
+    .tweet-translation::before {
+      content: '🇨🇳';
+      margin-right: 6px;
+      font-size: 13px;
+    }
+
+    .tweet-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-stats {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+    }
+
+    .tweet-stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .tweet-stat.like:hover { color: var(--stat-like); }
+    .tweet-stat.retweet:hover { color: var(--stat-retweet); }
+    .tweet-stat.comment:hover { color: var(--stat-comment); }
+
+    .tweet-link {
+      font-size: 12px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.8;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-link:hover { opacity: 1; text-decoration: underline; }
+
+    /* Keyword Tags */
+    .keyword-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .keyword-tag {
+      display: inline-block;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 10px;
+      color: var(--accent-blue);
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .keyword-tag::before {
+      content: '#';
+      opacity: 0.6;
+      margin-right: 1px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 16px 12px 60px; }
+      .header h1 { font-size: 22px; }
+      .tweet-card { padding: 18px; }
+      .stats-bar { gap: 16px; }
+      .top-nav { flex-wrap: wrap; gap: 8px; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tweet-card {
+      animation: fadeInUp 0.4s ease forwards;
+      opacity: 0;
+    }
+
+    .tweet-card:nth-child(1) { animation-delay: 0.05s; }
+    .tweet-card:nth-child(2) { animation-delay: 0.1s; }
+    .tweet-card:nth-child(3) { animation-delay: 0.15s; }
+    .tweet-card:nth-child(4) { animation-delay: 0.2s; }
+    .tweet-card:nth-child(5) { animation-delay: 0.25s; }
+    .tweet-card:nth-child(6) { animation-delay: 0.3s; }
+    .tweet-card:nth-child(7) { animation-delay: 0.35s; }
+    .tweet-card:nth-child(8) { animation-delay: 0.4s; }
+    .tweet-card:nth-child(9) { animation-delay: 0.45s; }
+    .tweet-card:nth-child(10) { animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="top-nav">
+      <a href="2026-04-28.html" class="nav-link ">← 前一天</a>
+      <a href="../index.html" class="nav-link nav-home">📋 首页</a>
+      <a href="#" class="nav-link disabled">后一天 →</a>
+    </nav>
+
+    <header class="header">
+      <div class="header-label">📡 Daily Report</div>
+      <h1>2026 年 4 月 29 日 周三</h1>
+      <p class="subtitle">Twitter 列表日报 · 自动翻译</p>
+      <div class="stats-bar">
+        <span>📝 共 <span class="num">42</span> 条推文</span>
+        <span>🕐 过去 24 小时</span>
+        <span>📦 生成于 2026-4-29 08:50:50</span>
+      </div>
+    </header>
+
+    <main id="tweets-container">
+      <div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">B</div><div class="tweet-author-info"><div class="tweet-display-name">Bloomberg</div><div class="tweet-username">@business</div></div><div class="tweet-time">00:14</div></div><div class="tweet-content"><div class="tweet-original">Uncertainty around the economic outlook and a leadership transition at the US central bank loom large over this week's meeting of Federal Reserve officials, who are expected to leave interest rates unchanged on Wednesday</div><div class="tweet-translation">经济前景的不确定性和美国央行的领导层更替笼罩着本周美联储官员的会议，预计他们将在周三维持利率不变</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/business/status/2049281222531043537" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">F</div><div class="tweet-author-info"><div class="tweet-display-name">Financial Times</div><div class="tweet-username">@FT</div></div><div class="tweet-time">00:13</div></div><div class="tweet-content"><div class="tweet-original">US federal prosecutors have indicted the former FBI director over a photograph of seashells arranged in a pattern that read '86 47', which prosecutors interpreted as an 'intent to do harm'. https://ft.trib.al/ttgYKLV</div><div class="tweet-translation">美国联邦检察官起诉了前FBI局长，原因是他在社交媒体上发布了一张贝壳排列成&quot;86 47&quot;图案的照片，检察官将其解读为&quot;有伤害意图&quot;。 https://ft.trib.al/ttgYKLV</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/FT/status/2049280962270253226" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">R</div><div class="tweet-author-info"><div class="tweet-display-name">Reuters</div><div class="tweet-username">@Reuters</div></div><div class="tweet-time">23:35</div></div><div class="tweet-content"><div class="tweet-original">Trump hits back at German chancellor after Iran criticism http://reut.rs/3OWli3Y</div><div class="tweet-translation">特朗普在伊朗问题上遭德国总理批评后予以回击 http://reut.rs/3OWli3Y</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/Reuters/status/2049271231036174411" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">Y</div><div class="tweet-author-info"><div class="tweet-display-name">Yahoo News</div><div class="tweet-username">@YahooNews</div></div><div class="tweet-time">23:20</div></div><div class="tweet-content"><div class="tweet-original">The State Department said Tuesday that it is preparing a limited release of commemorative U.S. passports celebrating America's 250th birthday that feature a picture of President Donald Trump, who would be the first living president to be featured in the travel document.  The  The</div><div class="tweet-translation">国务院周二表示，正在准备限量发行纪念美国250周年生日的纪念护照，护照上印有唐纳德·特朗普总统的照片，他将成为首位出现在旅行证件上的在世总统。</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/YahooNews/status/2049267459266347085" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">F</div><div class="tweet-author-info"><div class="tweet-display-name">Financial Times</div><div class="tweet-username">@FT</div></div><div class="tweet-time">23:14</div></div><div class="tweet-content"><div class="tweet-original">Goldman stops bankers using Anthropic's Claude in Hong Kong</div><div class="tweet-translation">高盛禁止驻港银行员工使用Anthropic的Claude</div></div><div class="keyword-tags"><span class="keyword-tag">gold</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/FT/status/2049266145891344593" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">B</div><div class="tweet-author-info"><div class="tweet-display-name">Bloomberg</div><div class="tweet-username">@business</div></div><div class="tweet-time">23:05</div></div><div class="tweet-content"><div class="tweet-original">Key congressional Republicans are poised to break with Donald Trump on his proposed 44% raise for the Pentagon, a rare act of defiance that signals his weakening grip on Washington</div><div class="tweet-translation">国会共和党核心议员准备在特朗普提出的五角大楼44%加薪方案上与他决裂，这一罕见的违抗举动表明他对华盛顿的控制力正在减弱</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/business/status/2049263680282403304" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">B</div><div class="tweet-author-info"><div class="tweet-display-name">Bloomberg</div><div class="tweet-username">@business</div></div><div class="tweet-time">23:01</div></div><div class="tweet-content"><div class="tweet-original">Bank groups said that although the Fed's eased capital plans are a major improvement over previous versions, the recent proposals still need changes to help avoid risk assessments they say may hinder banks' ability to boost lending</div><div class="tweet-translation">银行集团表示，尽管美联储放宽的资本计划相比之前版本有重大改进，但近期提案仍需修改，以避免他们认为可能阻碍银行放贷能力的风险评估</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/business/status/2049262731002339355" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">T</div><div class="tweet-author-info"><div class="tweet-display-name">The Economist</div><div class="tweet-username">@TheEconomist</div></div><div class="tweet-time">23:00</div></div><div class="tweet-content"><div class="tweet-original">OPEC has long been a bugbear of Donald Trump; he has repeatedly blamed it for pushing up oil prices. Deserting it may endear the UAE to the American president</div><div class="tweet-translation">石油输出国组织(OPEC)一直是唐纳德·特朗普的眼中钉；他反复指责该组织推高油价。脱离OPEC可能会让阿联酋博得美国总统的好感</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/TheEconomist/status/2049262449438683409" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">Y</div><div class="tweet-author-info"><div class="tweet-display-name">Yahoo News</div><div class="tweet-username">@YahooNews</div></div><div class="tweet-time">23:00</div></div><div class="tweet-content"><div class="tweet-original">President Donald Trump said Tuesday that the United States has no closer friend than Britain, as he welcomed King Charles III to the White House on a state visit clouded by tensions over the Iran war.  Speaking after a pomp-filled welcome on the South Lawn featuring a 21-gun  在充满仪式感的南草坪欢迎仪式后——包含21响礼炮</div><div class="tweet-translation">唐纳德·特朗普总统周二表示，美国没有比英国更亲密的朋友，他在白宫欢迎国王查尔斯三世进行国事访问，但此行因伊朗战争的紧张局势蒙上阴影。</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/YahooNews/status/2049262447974838380" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">B</div><div class="tweet-author-info"><div class="tweet-display-name">Bloomberg</div><div class="tweet-username">@business</div></div><div class="tweet-time">22:48</div></div><div class="tweet-content"><div class="tweet-original">Gold steadied after a two-day drop as investor focus remained on talks between the US and Iran, with the indefinite closure of the Strait of Hormuz continuing to heighten inflation risks</div><div class="tweet-translation">黄金价格在连续两天下跌后趋于稳定，投资者的注意力仍集中在美国和伊朗之间的谈判上，霍尔木兹海峡的无限期关闭持续加剧通胀风险</div></div><div class="keyword-tags"><span class="keyword-tag">gold</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/business/status/2049259579041521861" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">C</div><div class="tweet-author-info"><div class="tweet-display-name">CNN International</div><div class="tweet-username">@cnni</div></div><div class="tweet-time">22:48</div></div><div class="tweet-content"><div class="tweet-original">Both Melania Trump and Queen Camilla are playing supporting roles during this state visit, which comes at a time of strained relations between the UK and the US over the war with Iran. https://cnn.it/422J5Cp</div><div class="tweet-translation">梅拉尼娅·特朗普和卡米拉王后都在此次国事访问中扮演配角，此次访问正值英美因伊朗战争关系紧张之际。 https://cnn.it/422J5Cp</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/cnni/status/2049259414251524151" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">R</div><div class="tweet-author-info"><div class="tweet-display-name">Reuters</div><div class="tweet-username">@Reuters</div></div><div class="tweet-time">22:45</div></div><div class="tweet-content"><div class="tweet-original">Trump says Iran wants US to open Hormuz Strait as soon as possible http://reut.rs/42yGqAz</div><div class="tweet-translation">特朗普称伊朗希望美国尽快开放霍尔木兹海峡 http://reut.rs/42yGqAz</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/Reuters/status/2049258655359393946" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">E</div><div class="tweet-author-info"><div class="tweet-display-name">Entertainment Tonight</div><div class="tweet-username">@etnow</div></div><div class="tweet-time">22:27</div></div><div class="tweet-content"><div class="tweet-original">The FCC is challenging ABC's TV licenses, ordering an unprecedented review of its owned-and-operated stations. The move is said to be connected to an investigation into parent company Disney's DEI policies, but comes just as President Donald Trump and his wife, Melania, call for</div><div class="tweet-translation">美国联邦通信委员会(FCC)正在挑战ABC的电视牌照，下令对其自有运营的电视台进行史无前例的审查。此举据称与对母公司迪士尼多元化政策的调查有关，但正值唐纳德·特朗普总统及其夫人梅拉尼娅呼吁</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/etnow/status/2049254306591944797" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">W</div><div class="tweet-author-info"><div class="tweet-display-name">The Wall Street Journal</div><div class="tweet-username">@WSJ</div></div><div class="tweet-time">22:21</div></div><div class="tweet-content"><div class="tweet-original">Boise Cascade pleaded guilty to a federal charge of selling Chinese plywood that was sneaked into Florida to avoid duties.</div><div class="tweet-translation">Boise Cascade公司对一项联邦指控认罪，该指控涉及销售将中国胶合板走私至佛罗里达州以逃避关税的行为。</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/WSJ/status/2049252591666696597" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">Y</div><div class="tweet-author-info"><div class="tweet-display-name">Yahoo News</div><div class="tweet-username">@YahooNews</div></div><div class="tweet-time">22:20</div></div><div class="tweet-content"><div class="tweet-original">After a joke by late-night host Jimmy Kimmel drew calls from the White House for ABC to fire the comedian, the U.S. Federal Communications Commission on Tuesday ordered an early license review ‌of the network's television stations.  The standoff between President Donald Trump's  唐纳德·特朗普总统与</div><div class="tweet-translation">在深夜节目主持人吉米·金梅尔的一个笑话引发白宫要求ABC解雇这位喜剧演员之后，美国联邦通信委员会周二下令对该电视台的电视频道进行提前牌照审查。</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/YahooNews/status/2049252362485678262" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">C</div><div class="tweet-author-info"><div class="tweet-display-name">CNBC</div><div class="tweet-username">@CNBC</div></div><div class="tweet-time">22:10</div></div><div class="tweet-content"><div class="tweet-original">S&amp;P 500 futures are flat as Wall Street looks ahead to 'Mag 7' earnings and Fed decision: Live updates</div><div class="tweet-translation">标普500期货持平，华尔街期待&quot;七巨头&quot;财报和美联储决议：实时更新</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/CNBC/status/2049250029450195071" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">T</div><div class="tweet-author-info"><div class="tweet-display-name">The Economist</div><div class="tweet-username">@TheEconomist</div></div><div class="tweet-time">22:00</div></div><div class="tweet-content"><div class="tweet-original">It would be easy for farmers to blame Donald Trump for their hardships. After all, he campaigned on promises to bring down prices and revive the heartland. But rural America does not http://econ.st/4cQ2k7j  Photo: Getty Images  图片：Getty Images</div><div class="tweet-translation">农民很容易将他们的困境归咎于唐纳德·特朗普。毕竟，他竞选时承诺降低物价和振兴腹地。但美国农村地区并没有 http://econ.st/4cQ2k7j</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/TheEconomist/status/2049247372069188025" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">F</div><div class="tweet-author-info"><div class="tweet-display-name">Financial Times</div><div class="tweet-username">@FT</div></div><div class="tweet-time">21:59</div></div><div class="tweet-content"><div class="tweet-original">The new passport, a limited edition commemorating the country's 250th anniversary, will feature the US president's portrait overlaid on the Declaration of Independence on the inside cover, with his signature in gold at the bottom. https://ft.trib.al/4KHN6zz</div><div class="tweet-translation">这款新护照是纪念美国250周年的限量版，内封将印有美国总统肖像，叠加在《独立宣言》背景上，底部以金色字体附有其签名。 https://ft.trib.al/4KHN6zz</div></div><div class="keyword-tags"><span class="keyword-tag">gold</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/FT/status/2049247056972157070" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">R</div><div class="tweet-author-info"><div class="tweet-display-name">Reuters</div><div class="tweet-username">@Reuters</div></div><div class="tweet-time">21:45</div></div><div class="tweet-content"><div class="tweet-original">Exclusive: Trump approval sinks to new low as war with Iran drives cost-of-living concerns http://reut.rs/4sXT2vT</div><div class="tweet-translation">独家：特朗普支持率跌至新低，与伊朗的战争加剧生活成本担忧 http://reut.rs/4sXT2vT</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/Reuters/status/2049243568443691310" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">B</div><div class="tweet-author-info"><div class="tweet-display-name">Bloomberg</div><div class="tweet-username">@business</div></div><div class="tweet-time">21:43</div></div><div class="tweet-content"><div class="tweet-original">Robinhood's stock slumped Tuesday after the firm said expenses jumped 18% in the first quarter and warned that its &quot;Trump account&quot; push would require an additional $100 million investment</div><div class="tweet-translation">Robinhood股价周二下跌，此前该公司表示第一季度支出增长18%，并警告其&quot;特朗普账户&quot;推广将需要额外1亿美元投资</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/business/status/2049243028863238649" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">B</div><div class="tweet-author-info"><div class="tweet-display-name">Bloomberg</div><div class="tweet-username">@business</div></div><div class="tweet-time">21:31</div></div><div class="tweet-content"><div class="tweet-original">A powerful band of thunderstorms threatening softball-sized hail, tornadoes and dangerous winds are menacing Dallas and the US South, grounding hundreds of flights and knocking out power to thousands</div><div class="tweet-translation">一股强大的雷暴带威胁着达拉斯和美国南部地区，可能带来垒球大小的冰雹、龙卷风和危险大风，已导致数百架航班停飞，数千人断电</div></div><div class="keyword-tags"><span class="keyword-tag">USA</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/business/status/2049240114237190314" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">B</div><div class="tweet-author-info"><div class="tweet-display-name">Bloomberg</div><div class="tweet-username">@business</div></div><div class="tweet-time">21:29</div></div><div class="tweet-content"><div class="tweet-original">A federal judge rejected FTX co-founder Sam Bankman-Fried's do-it-yourself motion for a new trial based on what the former crypto king claimed was new evidence</div><div class="tweet-translation">一名联邦法官驳回了FTX联合创始人萨姆·班克曼-弗里德自行提交的新审判动议，这位前加密货币之王声称其掌握新证据</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/business/status/2049239520298570117" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">R</div><div class="tweet-author-info"><div class="tweet-display-name">Reuters</div><div class="tweet-username">@Reuters</div></div><div class="tweet-time">21:25</div></div><div class="tweet-content"><div class="tweet-original">US to produce passports bearing Trump's image http://reut.rs/4cD8Jno</div><div class="tweet-translation">美国将发行印有特朗普头像的护照 http://reut.rs/4cD8Jno</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/Reuters/status/2049238537791324249" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">F</div><div class="tweet-author-info"><div class="tweet-display-name">Forbes</div><div class="tweet-username">@Forbes</div></div><div class="tweet-time">21:25</div></div><div class="tweet-content"><div class="tweet-original">White House Captions Photo Of Trump And King Charles As 'Two Kings' https://go.forbes.com/orHRU3 https://go.forbes.com/orHRU3</div><div class="tweet-translation">白宫将特朗普与查尔斯国王合照标注为&quot;两位国王&quot;</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/Forbes/status/2049238506518483085" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">F</div><div class="tweet-author-info"><div class="tweet-display-name">Financial Times</div><div class="tweet-username">@FT</div></div><div class="tweet-time">21:24</div></div><div class="tweet-content"><div class="tweet-original">FT Exclusive: Julie Davis, who has served as temporary US ambassador in Kyiv since May 2025, has grown frustrated with her role amid differences with Donald Trump over his dwindling support for Ukraine. https://ft.trib.al/BsVgxiD</div><div class="tweet-translation">金融时报独家：自2025年5月起担任美国驻基辅临时代办的朱莉·戴维斯，因与唐纳德·特朗普在对乌克兰支持力度上的分歧，对其角色日益感到沮丧。 https://ft.trib.al/BsVgxiD</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/FT/status/2049238243627950370" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">F</div><div class="tweet-author-info"><div class="tweet-display-name">Financial Times</div><div class="tweet-username">@FT</div></div><div class="tweet-time">21:20</div></div><div class="tweet-content"><div class="tweet-original">US prosecutors charge James Comey with threatening life of Donald Trump</div><div class="tweet-translation">美国检察官起诉詹姆斯·科米威胁唐纳德·特朗普生命</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/FT/status/2049237294213734420" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">B</div><div class="tweet-author-info"><div class="tweet-display-name">Bloomberg</div><div class="tweet-username">@business</div></div><div class="tweet-time">21:17</div></div><div class="tweet-content"><div class="tweet-original">Former FBI Director James Comey was indicted for a second time since Donald Trump returned to the White House last year, with prosecutors alleging that he threatened the president's life in a social media post http://bloom.bg/4egKnRK</div><div class="tweet-translation">自唐纳德·特朗普去年重返白宫以来，前FBI局长詹姆斯·科米第二次被起诉，检察官指控他在社交媒体帖文中威胁总统的生命安全 http://bloom.bg/4egKnRK</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/business/status/2049236701302726676" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">R</div><div class="tweet-author-info"><div class="tweet-display-name">Reuters</div><div class="tweet-username">@Reuters</div></div><div class="tweet-time">21:10</div></div><div class="tweet-content"><div class="tweet-original">FedEx, UPS vow to return tariff refunds to customers http://reut.rs/4vV6OlA</div><div class="tweet-translation">联邦快递和UPS承诺将关税退款返还给客户 http://reut.rs/4vV6OlA</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/Reuters/status/2049234774657552871" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">F</div><div class="tweet-author-info"><div class="tweet-display-name">Financial Times</div><div class="tweet-username">@FT</div></div><div class="tweet-time">21:06</div></div><div class="tweet-content"><div class="tweet-original">US to put Donald Trump's face on passports</div><div class="tweet-translation">美国将在护照上印制唐纳德·特朗普的头像</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/FT/status/2049233911515955426" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">R</div><div class="tweet-author-info"><div class="tweet-display-name">Reuters</div><div class="tweet-username">@Reuters</div></div><div class="tweet-time">21:05</div></div><div class="tweet-content"><div class="tweet-original">Trump administration indicts former NIH official over COVID records http://reut.rs/4ulauf8</div><div class="tweet-translation">特朗普政府就新冠疫情记录起诉前美国国立卫生研究院官员 http://reut.rs/4ulauf8</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/Reuters/status/2049233501891752132" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">Y</div><div class="tweet-author-info"><div class="tweet-display-name">Yahoo Finance</div><div class="tweet-username">@YahooFinance</div></div><div class="tweet-time">21:02</div></div><div class="tweet-content"><div class="tweet-original">&quot;We know that what Donald Trump wants to do is turn the Fed into one more political animal,&quot; @SenWarren tells @Jenniferisms. &quot;We've seen what he's done to the Department of Justice.&quot;</div><div class="tweet-translation">&quot;我们知道唐纳德·特朗普想做的就是让美联储变成又一个政治工具，&quot;参议员沃伦告诉Jenniferisms。&quot;我们已经看到了他对司法部做了什么。&quot;</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/YahooFinance/status/2049232830098542706" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">B</div><div class="tweet-author-info"><div class="tweet-display-name">Businessweek</div><div class="tweet-username">@BW</div></div><div class="tweet-time">21:00</div></div><div class="tweet-content"><div class="tweet-original">Parents calling to &quot;Make America Healthy Again&quot; are disillusioned with the Trump administration for backing a pesticide maker</div><div class="tweet-translation">呼吁&quot;让美国再次健康&quot;的家长们对特朗普政府支持一家农药制造商感到失望</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/BW/status/2049232332075204835" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">Y</div><div class="tweet-author-info"><div class="tweet-display-name">Yahoo Finance</div><div class="tweet-username">@YahooFinance</div></div><div class="tweet-time">20:56</div></div><div class="tweet-content"><div class="tweet-original">President Trump &quot;wants to treat the governors of the Fed, including the chairman, as his personal employees, as his servants,&quot; @SenWarren told @Jenniferisms, adding: I gave Kevin Warsh a chance &quot;to show us&quot; he's not a sock puppet.</div><div class="tweet-translation">特朗普总统&quot;想将包括主席在内的美联储理事视为他的私人雇员，视为他的仆人，&quot;参议员沃伦告诉Jenniferisms，并补充说：我给了凯文·沃什一个机会&quot;向我们证明&quot;他不是一个傀儡。</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/YahooFinance/status/2049231259113562343" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">B</div><div class="tweet-author-info"><div class="tweet-display-name">Bloomberg</div><div class="tweet-username">@business</div></div><div class="tweet-time">20:41</div></div><div class="tweet-content"><div class="tweet-original">The Fed is set to hold rates in what's likely Powell's last meeting as chair - then it'll be Kevin Warsh's turn in what has become a political hotseat under Donald Trump</div><div class="tweet-translation">美联储预计将维持利率不变，这可能是鲍威尔作为主席的最后一次会议——之后将轮到凯文·沃什，在唐纳德·特朗普治下这个职位已成为一个政治烫手山芋</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/business/status/2049227432096317567" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">Y</div><div class="tweet-author-info"><div class="tweet-display-name">Yahoo News</div><div class="tweet-username">@YahooNews</div></div><div class="tweet-time">20:40</div></div><div class="tweet-content"><div class="tweet-original">Acting Attorney General Todd Blanche has formally asked a federal judge to overturn the judge's own ruling that blocked construction of the White House ballroom.  In a 9-page filing late Monday, Blanche argued that the shooting at the White House Correspondents' Association  在周一深夜提交的一份9页文件中，布朗奇辩称白宫记者协会晚宴上发生的枪击事件</div><div class="tweet-translation">代理司法部长托德·布朗奇已正式要求一名联邦法官撤销其自身阻止白宫舞厅建设的裁决。</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/YahooNews/status/2049227194732290483" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">C</div><div class="tweet-author-info"><div class="tweet-display-name">CNN International</div><div class="tweet-username">@cnni</div></div><div class="tweet-time">20:31</div></div><div class="tweet-content"><div class="tweet-original">Spirit Airlines isn't the only discount carrier seeking federal help to endure the current spike in jet fuel prices. An association of discount carriers is also seeking $2.5 billion in assistance.</div><div class="tweet-translation">精神航空并非唯一寻求联邦帮助以度过当前航空燃料价格飙升的低成本航空公司。一个低成本航空公司协会也在寻求25亿美元援助。</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/cnni/status/2049224890117464235" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">N</div><div class="tweet-author-info"><div class="tweet-display-name">The New York Times</div><div class="tweet-username">@nytimes</div></div><div class="tweet-time">20:29</div></div><div class="tweet-content"><div class="tweet-original">The former NBA player Damon Jones pleaded guilty in a sprawling federal gambling case. He's the first defendant to plead guilty out of more than 30 who were charged last fall in two sweeping indictments brought by prosecutors in Brooklyn.</div><div class="tweet-translation">前NBA球员达蒙·琼斯在一起大规模联邦赌博案中认罪。他是去年秋天布鲁克林检察官提起的两项大规模起诉中30多名被告中首位认罪的人。</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/nytimes/status/2049224461749014747" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">C</div><div class="tweet-author-info"><div class="tweet-display-name">CNBC</div><div class="tweet-username">@CNBC</div></div><div class="tweet-time">20:25</div></div><div class="tweet-content"><div class="tweet-original">Here's everything to expect when the Fed issues its latest interest rate decision Wednesday</div><div class="tweet-translation">以下是美联储周三公布最新利率决议时值得关注的要点</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/CNBC/status/2049223475827531966" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">Y</div><div class="tweet-author-info"><div class="tweet-display-name">Yahoo News</div><div class="tweet-username">@YahooNews</div></div><div class="tweet-time">20:20</div></div><div class="tweet-content"><div class="tweet-original">A federal grand jury in North Carolina has indicted former FBI Director James Comey over a controversial Instagram post from last year that President Donald Trump and members of his administration claimed was a threat against the president, sources tell ABC News.  Renewing  Renewing</div><div class="tweet-translation">知情人士告诉ABC新闻，北卡罗来纳州一个联邦大陪审团已起诉前FBI局长詹姆斯·科米，涉及去年一篇有争议的Instagram帖子，唐纳德·特朗普总统及其政府成员声称该帖子是对总统的威胁。</div></div><div class="keyword-tags"><span class="keyword-tag">Fed</span><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/YahooNews/status/2049222163324883373" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">R</div><div class="tweet-author-info"><div class="tweet-display-name">Reuters</div><div class="tweet-username">@Reuters</div></div><div class="tweet-time">20:15</div></div><div class="tweet-content"><div class="tweet-original">DOJ cites shooting in bid to end lawsuit over Trump's White House ballroom http://reut.rs/3P9Z7rc</div><div class="tweet-translation">司法部引用枪击事件试图终结关于特朗普白宫舞厅的诉讼 http://reut.rs/3P9Z7rc</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/Reuters/status/2049220975787450571" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">W</div><div class="tweet-author-info"><div class="tweet-display-name">The Wall Street Journal</div><div class="tweet-username">@WSJ</div></div><div class="tweet-time">20:14</div></div><div class="tweet-content"><div class="tweet-original">King Charles III issued a veiled plea for President Trump not to turn his back on the trans-Atlantic alliance between the U.K. and its former colony during a rare address to Congress to mark 250 years of American independence.</div><div class="tweet-translation">国王查尔斯三世在罕见地向美国国会发表演讲、纪念美国独立250周年之际，含蓄地呼吁特朗普总统不要背弃英美之间的跨大西洋联盟。</div></div><div class="keyword-tags"><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/WSJ/status/2049220632634671546" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+<div class="tweet-card"><div class="tweet-author"><div class="tweet-avatar">S</div><div class="tweet-author-info"><div class="tweet-display-name">Shane Goldmacher</div><div class="tweet-username">@ShaneGoldmacher</div></div><div class="tweet-time">13:47</div></div><div class="tweet-content"><div class="tweet-original">NEW at NYT: Trump's ratings are down. Gas is up. GOPers are rushing to exit House. And Democratic enthusiasm is cresting.  Republicans take solace it's only April.  &quot;People should know by now not to count us out,&quot; Susie Wiles told Team Trump last week.  共和党人安慰自己现在只是四月。  &quot;人们现在应该知道不要小看我们，&quot;苏西·怀尔斯上周对特朗普团队说。</div><div class="tweet-translation">纽约时报最新报道：特朗普支持率下降。油价上涨。共和党人争相退出众议院。而民主党人的热情正在高涨。</div></div><div class="keyword-tags"><span class="keyword-tag">gold</span><span class="keyword-tag">Trump</span></div><div class="tweet-footer"><div class="tweet-stats"><span class="tweet-stat like">❤️ 0</span><span class="tweet-stat retweet">🔄 0</span><span class="tweet-stat comment">💬 0</span></div><a href="https://x.com/ShaneGoldmacher/status/2049123260910981609" class="tweet-link" target="_blank">查看原文 ↗</a></div></div>
+    </main>
+
+    <footer class="footer">
+      <p>由 Twitter 日报 Skill 自动生成 · {{GENERATED_TIME}} (UTC+8)</p>
+    </footer>
+  </div>
+</body>
+</html>
