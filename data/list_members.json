@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-04T23:14:37.123Z",
+  "updatedAt": "2026-05-12T23:11:16.148Z",
   "lists": [
     {
       "name": "要查看键盘快捷键，按下问号查看键盘快捷键",
@@ -10,20 +10,28 @@
           "displayName": "blueforestxd"
         },
         {
-          "username": "etnow",
-          "displayName": "etnow"
-        },
-        {
-          "username": "CNBC",
-          "displayName": "CNBC"
-        },
-        {
           "username": "business",
           "displayName": "business"
         },
         {
           "username": "Reuters",
           "displayName": "Reuters"
+        },
+        {
+          "username": "etnow",
+          "displayName": "etnow"
+        },
+        {
+          "username": "thetimes",
+          "displayName": "thetimes"
+        },
+        {
+          "username": "japantimes",
+          "displayName": "japantimes"
+        },
+        {
+          "username": "CNBC",
+          "displayName": "CNBC"
         }
       ]
     }
