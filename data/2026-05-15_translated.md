@@ -1,0 +1,398 @@
+# Twitter 列表推文 - 2026-05-15
+
+## @Reuters (Reuters)
+- **时间**: 2026-05-15 23:00
+- **链接**: https://x.com/Reuters/status/2055060702071607775
+- **原文**: Judge weighs Democrats' bid to block Trump's executive order on voting http://reut.rs/4wwHiTY
+- **中文翻译**: 法官权衡民主党人阻止特朗普投票行政令的请求
+- **点赞**: 5 | **转发**: 2 | **评论**: 4
+- **匹配关键词**: Trump
+
+---
+## @YahooNews (Yahoo News)
+- **时间**: 2026-05-15 23:00
+- **链接**: https://x.com/YahooNews/status/2055060597780173186
+- **原文**: Israeli nationalists swept through the narrow streets of Jerusalem's Old City on Thursday, chanting "Death to Arabs" and "May your villages burn" during the annual Jerusalem Day march, while many Palestinian residents remained barricaded indoors.
+- **中文翻译**: 以色列民族主义者周四穿过耶路撒冷老城狭窄的街道，在年度耶路撒冷日游行中高呼"阿拉伯人去死"和"烧掉你们的村庄"，许多巴勒斯坦居民则躲在紧闭的家中。
+- **点赞**: 0 | **转发**: 0 | **评论**: 1
+- **匹配关键词**: USA
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 22:55
+- **链接**: https://x.com/business/status/2055059335537971490
+- **原文**: Gold headed for a weekly decline as a war-driven surge in US inflation fuels expectations for higher interest rates
+- **中文翻译**: 黄金本周走低，因战争推动的美国通胀加剧了加息预期
+- **点赞**: 11 | **转发**: 0 | **评论**: 7
+- **匹配关键词**: gold
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 22:27
+- **链接**: https://x.com/business/status/2055052307436359748
+- **原文**: South Carolina Governor Henry McMaster said he's calling the state legislature back for a special session in which lawmakers will be under pressure from Republican voters and President Trump to redraw the state's congressional districts
+- **中文翻译**: 南卡罗来纳州州长亨利·麦克马斯特表示将召集州议会特别会议，共和党选民和特朗普总统将施压要求重新划分该州国会选区
+- **点赞**: 7 | **转发**: 0 | **评论**: 7
+- **匹配关键词**: Trump
+
+---
+## @YahooNews (Yahoo News)
+- **时间**: 2026-05-15 22:20
+- **链接**: https://x.com/YahooNews/status/2055050533874852263
+- **原文**: The Trump administration on Thursday announced $1.8 billion in additional funding for U.N. humanitarian aid, saying the money will be earmarked for life-saving aid to victims of natural disasters, famine and "people who are truly in critical need."
+- **中文翻译**: 特朗普政府周四宣布追加18亿美元联合国人道主义援助资金，称将用于自然灾害受害者、饥荒救济及"真正急需帮助的人"的生命救援。
+- **点赞**: 1 | **转发**: 1 | **评论**: 2
+- **匹配关键词**: Trump
+
+---
+## @TheEconomist (The Economist)
+- **时间**: 2026-05-15 22:20
+- **链接**: https://x.com/TheEconomist/status/2055050532595622298
+- **原文**: On "Money Talks" this week: can Kevin Warsh navigate the Federal Reserve through turbulent times? Listen now
+- **中文翻译**: 本周"Money Talks"节目：凯文·沃什能否驾驭美联储度过动荡时期？立即收听
+- **点赞**: 0 | **转发**: 0 | **评论**: 6
+- **匹配关键词**: Fed
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 22:16
+- **链接**: https://x.com/business/status/2055049683504935059
+- **原文**: President Donald Trump's latest financial disclosures show that he made a slew of stock and bond purchases with major American companies in the first quarter of the year totaling in the tens of millions of dollars and possibly more
+- **中文翻译**: 特朗普总统最新财务披露显示，他在今年第一季度大量购入美国大型公司股票和债券，总额达数千万美元甚至更多
+- **点赞**: 23 | **转发**: 16 | **评论**: 7
+- **匹配关键词**: Trump
+
+---
+## @YahooNews (Yahoo News)
+- **时间**: 2026-05-15 22:00
+- **链接**: https://x.com/YahooNews/status/2055045550714630283
+- **原文**: President Trump's efforts to sanction some of the nation's most prestigious law firms "strike at the heart of the rule of law" and must remain blocked by the courts, an attorney for law firms told a panel of appellate judges on Thursday.
+- **中文翻译**: 特朗普试图制裁美国一些最负盛名的律师事务所的做法"动摇了法治根基"，法院必须继续阻止，一家律所的律师周四告诉上诉法院法官小组。
+- **点赞**: 3 | **转发**: 3 | **评论**: 0
+- **匹配关键词**: Trump
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 21:40
+- **链接**: https://x.com/business/status/2055040692385153134
+- **原文**: The US Supreme Court let a widely used abortion pill continue to be dispensed by mail, putting on hold a federal appeals court decision that had briefly required patients to make an in-person visit to a provider.
+- **中文翻译**: 美国最高法院允许一种广泛使用的堕胎药继续通过邮寄配送，暂缓联邦上诉法院此前短暂要求患者亲自前往医疗机构就诊的裁决。
+- **点赞**: 10 | **转发**: 6 | **评论**: 5
+- **匹配关键词**: Fed
+
+---
+## @TheEconomist (The Economist)
+- **时间**: 2026-05-15 21:40
+- **链接**: https://x.com/TheEconomist/status/2055040468220612866
+- **原文**: There is little new in Sebastian Gorka's counter-terrorism strategy. The document largely spells out what the Trump administration has already been doing. But its omissions are worrying
+- **中文翻译**: 塞巴斯蒂安·戈尔卡的反恐战略几乎没什么新意。文件基本阐述了特朗普政府已在做的事情，但其中的遗漏令人担忧。
+- **点赞**: 8 | **转发**: 8 | **评论**: 5
+- **匹配关键词**: Trump
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 21:20
+- **链接**: https://x.com/business/status/2055035631642747108
+- **原文**: Gadi Barlevy was selected to lead the Federal Reserve Bank of Chicago's research division, the bank said in a statement
+- **中文翻译**: 芝加哥联邦储备银行声明称，加迪·巴列维被选中领导该行研究部门。
+- **点赞**: 4 | **转发**: 0 | **评论**: 5
+- **匹配关键词**: Fed
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 21:01
+- **链接**: https://x.com/business/status/2055030732511142060
+- **原文**: A US-owned exploration firm has signed a deal with mining veteran Richard Warke's company to advance a long-stalled gold project in Venezuela, the latest signal of foreign interest in the country's mineral riches
+- **中文翻译**: 一家美国勘探公司与矿业资深人士理查德·沃克的公司签署协议，推进委内瑞拉一个长期搁置的金矿项目，这是外国对该国矿产资源感兴趣的最新信号。
+- **点赞**: 45 | **转发**: 25 | **评论**: 10
+- **匹配关键词**: gold
+
+---
+## @Reuters (Reuters)
+- **时间**: 2026-05-15 21:01
+- **链接**: https://x.com/Reuters/status/2055030669831545096
+- **原文**: China to buy 200 Boeing jets, Trump says, fewer than expected http://reut.rs/438BhiZ
+- **中文翻译**: 特朗普称中国将购买200架波音飞机，数量低于预期
+- **点赞**: 84 | **转发**: 33 | **评论**: 37
+- **匹配关键词**: Trump
+
+---
+## @GoldmanSachs (Goldman Sachs)
+- **时间**: 2026-05-15 20:50
+- **链接**: https://x.com/GoldmanSachs/status/2055028084445683832
+- **原文**: AI and technology stocks are driving equities higher, but rising inflation now suggests a more deliberate approach to portfolio construction. On Goldman Sachs Exchanges, Christian Mueller-Glissmann of Goldman Sachs Research and Alexandra Wilson-Elizondo of Asset Management
+- **中文翻译**: AI和科技股正推动股市上涨，但通胀上升意味着需要更加审慎地构建投资组合。高盛Exchanges节目邀请高盛研究的Christian Mueller-Glissmann和资产管理的Alexandra Wilson-Elizondo讨论。
+- **点赞**: 7 | **转发**: 3 | **评论**: 2
+- **匹配关键词**: gold
+
+---
+## @CNBC (CNBC)
+- **时间**: 2026-05-15 20:46
+- **链接**: https://x.com/CNBC/status/2055026873030058075
+- **原文**: President Donald Trump told Fox News that China has agreed to buy 200 Boeing jets, according to a clip that aired Thursday. "One thing he agreed to today, he's going to order 200 jets. That's a big thing. Boeings," Trump told Fox News' Sean Hannity, referring to Chinese
+- **中文翻译**: 特朗普总统告诉福克斯新闻，中国已同意购买200架波音飞机。"他今天同意了一件事，就是订购200架飞机。这是大事。波音的飞机，"特朗普告诉福克斯的肖恩·汉尼提，指的是中方
+- **点赞**: 43 | **转发**: 14 | **评论**: 24
+- **匹配关键词**: Trump
+
+---
+## @YahooFinance (Yahoo Finance)
+- **时间**: 2026-05-15 20:36
+- **链接**: https://x.com/YahooFinance/status/2055024357269758072
+- **原文**: If there's one thing that Xi Jinping and Trump agree on during this China trip, it's that the relationship between the two countries is the most important in the world.
+- **中文翻译**: 如果说习近平和特朗普在这次中国之行中有什么共识，那就是两国关系是世界上最重要的。
+- **点赞**: 34 | **转发**: 6 | **评论**: 4
+- **匹配关键词**: Trump
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 20:32
+- **链接**: https://x.com/business/status/2055023473676669161
+- **原文**: President Donald Trump's administration is growing frustrated by what it sees as a lack of progress on getting the Cuban leadership to open the island's economy and political system despite intensifying US pressure.
+- **中文翻译**: 特朗普政府对古巴领导层在经济和政治开放方面缺乏进展感到越来越沮丧，尽管美国施加了越来越大的压力。
+- **点赞**: 25 | **转发**: 7 | **评论**: 12
+- **匹配关键词**: Trump
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 20:30
+- **链接**: https://x.com/business/status/2055022903704367240
+- **原文**: The Trump administration pledged $1.8 billion for the United Nations' humanitarian arm and suggested more funds could be on the way, even as the White House withholds money to pressure the global organization over its priorities
+- **中文翻译**: 特朗普政府承诺为联合国人道主义机构提供18亿美元，并暗示可能有更多资金，即使白宫同时扣留资金以向该全球组织施压。
+- **点赞**: 17 | **转发**: 7 | **评论**: 14
+- **匹配关键词**: Trump
+
+---
+## @Reuters (Reuters)
+- **时间**: 2026-05-15 20:30
+- **链接**: https://x.com/Reuters/status/2055022880778269168
+- **原文**: Most Gulf markets dip as Trump-Xi meeting draws focus http://reut.rs/4ubQ8oG
+- **中文翻译**: 海湾多数市场下跌，特朗普-习近平会晤成为焦点
+- **点赞**: 9 | **转发**: 2 | **评论**: 7
+- **匹配关键词**: Trump
+
+---
+## @TheEconomist (The Economist)
+- **时间**: 2026-05-15 20:20
+- **链接**: https://x.com/TheEconomist/status/2055020332797280506
+- **原文**: The choreography of a summit between Donald Trump and Xi Jinping in Beijing will attempt to compensate for an expected shortfall in progress on the big structural differences between the two sides
+- **中文翻译**: 特朗普与习近平在北京峰会的外交安排将试图弥补双方在重大结构性分歧上预期进展的不足。
+- **点赞**: 12 | **转发**: 5 | **评论**: 5
+- **匹配关键词**: Trump
+
+---
+## @YahooNews (Yahoo News)
+- **时间**: 2026-05-15 20:20
+- **链接**: https://x.com/YahooNews/status/2055020330263969796
+- **原文**: Vice President JD Vance announced Wednesday that the Trump administration is withholding $1.3 billion in Medicaid payments to California and is threatening to suspend federal funding to all states if they don't aggressively prosecute fraud in their Medicaid programs.
+- **中文翻译**: 副总统JD·万斯周三宣布，特朗普政府正在扣留加州13亿美元医疗补助付款，并威胁如果各州不积极起诉医疗补助计划中的欺诈行为，将暂停所有州的联邦资金。
+- **点赞**: 1 | **转发**: 1 | **评论**: 1
+- **匹配关键词**: Fed, Trump
+
+---
+## @nytimes (The New York Times)
+- **时间**: 2026-05-15 20:12
+- **链接**: https://x.com/nytimes/status/2055018481033138615
+- **原文**: Breaking News: The Justice Department accused the Yale School of Medicine of discriminating against white and Asian applicants. It's the second time in eight days that the Trump administration had targeted a major medical school over admissions policies.
+- **中文翻译**: 突发新闻：司法部指控耶鲁大学医学院歧视白人和亚裔申请人。这是八天内特朗普政府第二次针对主要医学院招生政策采取行动。
+- **点赞**: 204 | **转发**: 88 | **评论**: 81
+- **匹配关键词**: Trump
+
+---
+## @BloombergLive (Bloomberg Live)
+- **时间**: 2026-05-15 20:00
+- **链接**: https://x.com/BloombergLive/status/2055015295052329198
+- **原文**: .@BloombergTV's @CarolineHydeTV explores what an evolving labor market impacted by AI means and what's driving pricing trends and economic growth with @sffed President & CEO @MaryDalyEcon at #BloombergTech. Live 6/4 at 10:10 AM PT!
+- **中文翻译**: 彭博TV的CarolineHydeTV在#BloombergTech上探讨AI影响下劳动力市场的演变意味着什么，以及推动价格趋势和经济增长的因素，与旧金山联储总裁兼CEO MaryDalyEcon对话。太平洋时间6/4上午10:10直播！
+- **点赞**: 4 | **转发**: 1 | **评论**: 3
+- **匹配关键词**: Fed
+
+---
+## @Reuters (Reuters)
+- **时间**: 2026-05-15 19:50
+- **链接**: https://x.com/Reuters/status/2055012784585245183
+- **原文**: Taiwan: no surprises from Trump-Xi summit, China should end military pressure http://reut.rs/49OFLPr
+- **中文翻译**: 台湾称特朗普-习近平峰会没有意外，中国应结束军事施压
+- **点赞**: 17 | **转发**: 5 | **评论**: 13
+- **匹配关键词**: Trump
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 19:48
+- **链接**: https://x.com/business/status/2055012412500169040
+- **原文**: Apollo's insurance arm was the third-largest borrower at the end of March in the Federal Home Loan Bank system, further increasing its holdings since the end of last year
+- **中文翻译**: 阿波罗的保险子公司在三月底是联邦住房贷款银行系统的第三大借款人，自去年底以来进一步增加了持有量。
+- **点赞**: 13 | **转发**: 3 | **评论**: 5
+- **匹配关键词**: Fed
+
+---
+## @YahooFinance (Yahoo Finance)
+- **时间**: 2026-05-15 19:36
+- **链接**: https://x.com/YahooFinance/status/2055009257259466905
+- **原文**: Bessent says, "We have a very large purchase commitment [of soy beans] from the Busan agreement for the next three years. So beans are really all taken care of."
+- **中文翻译**: 贝森特表示："我们有一项来自釜山协议的大豆采购承诺，为期三年。所以大豆方面基本上都已安排好了。"
+- **点赞**: 21 | **转发**: 5 | **评论**: 3
+- **匹配关键词**: USA
+
+---
+## @CNBC (CNBC)
+- **时间**: 2026-05-15 19:33
+- **链接**: https://x.com/CNBC/status/2055008679129215117
+- **原文**: Bond market believes Fed behind the curve on inflation as Warsh takes over
+- **中文翻译**: 债券市场认为美联储在通胀方面已落后于曲线，沃什即将接任主席
+- **点赞**: 7 | **转发**: 0 | **评论**: 3
+- **匹配关键词**: Fed
+
+---
+## @Reuters (Reuters)
+- **时间**: 2026-05-15 19:30
+- **链接**: https://x.com/Reuters/status/2055007741530505703
+- **原文**: Israelis gathered at the Western Wall and unfurled a large national flag to mark Jerusalem Day, commemorating Israel's capture of East Jerusalem in 1967
+- **中文翻译**: 以色列人聚集在西墙展开一面巨大的国旗纪念耶路撒冷日，纪念以色列1967年占领东耶路撒冷。
+- **点赞**: 72 | **转发**: 27 | **评论**: 42
+- **匹配关键词**: USA
+
+---
+## @Reuters (Reuters)
+- **时间**: 2026-05-15 19:15
+- **链接**: https://x.com/Reuters/status/2055003981122863601
+- **原文**: U.S. officials flag prospect of Chinese energy purchases after Trump-Xi meeting http://reut.rs/4dri9BJ
+- **中文翻译**: 美国官员提出特朗普-习近平会晤后中国购买能源的前景
+- **点赞**: 20 | **转发**: 3 | **评论**: 10
+- **匹配关键词**: Trump
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 19:15
+- **链接**: https://x.com/business/status/2055003976290931106
+- **原文**: Employment in the Brazilian oil industry has rebounded to the highest since the golden era of Petrobras's mega-projects in 2010
+- **中文翻译**: 巴西石油行业就业反弹至2010年巴西国家石油公司大型项目黄金时代以来的最高水平。
+- **点赞**: 134 | **转发**: 48 | **评论**: 3
+- **匹配关键词**: gold
+
+---
+## @CNBC (CNBC)
+- **时间**: 2026-05-15 19:13
+- **链接**: https://x.com/CNBC/status/2055003699001295208
+- **原文**: Chinese parts are already in U.S. cars as lawmakers warn Trump against China auto deal
+- **中文翻译**: 中国零部件已在美国汽车中，议员警告特朗普不要与中国达成汽车协议
+- **点赞**: 15 | **转发**: 7 | **评论**: 9
+- **匹配关键词**: Trump
+
+---
+## @Reuters (Reuters)
+- **时间**: 2026-05-15 19:05
+- **链接**: https://x.com/Reuters/status/2055001454935425453
+- **原文**: Beijing state banquet sets the table for Trump-Xi reset http://reut.rs/4uOT7n2
+- **中文翻译**: 北京国宴为特朗普-习近平关系重置铺路
+- **点赞**: 9 | **转发**: 4 | **评论**: 16
+- **匹配关键词**: Trump
+
+---
+## @CNBC (CNBC)
+- **时间**: 2026-05-15 19:02
+- **链接**: https://x.com/CNBC/status/2055000785604256216
+- **原文**: Fed Governor Miran submits resignation, throws support behind Warsh as new chair
+- **中文翻译**: 美联储理事米伦提交辞呈，支持沃什担任新主席
+- **点赞**: 12 | **转发**: 1 | **评论**: 6
+- **匹配关键词**: Fed
+
+---
+## @Reuters (Reuters)
+- **时间**: 2026-05-15 19:00
+- **链接**: https://x.com/Reuters/status/2055000239052832938
+- **原文**: 'That's really just reflective of the unbelievably daunting political environment that Republicans are facing going into November, that's mostly driven by Donald Trump and his pretty anemic approval ratings.' Listen to @josephax
+- **中文翻译**: "这确实反映了共和党人在11月面临的令人难以置信的严峻政治环境，这很大程度上是由唐纳德·特朗普及其相当低迷的支持率所驱动的。"收听@josephax
+- **点赞**: 15 | **转发**: 2 | **评论**: 15
+- **匹配关键词**: Trump
+
+---
+## @YahooNews (Yahoo News)
+- **时间**: 2026-05-15 19:00
+- **链接**: https://x.com/YahooNews/status/2055000197357330605
+- **原文**: Senators unanimously approved a resolution Thursday to withhold their pay during government shutdowns, an attempt to make federal closures financially painful for lawmakers after a string of record-breaking impasses in the past year.
+- **中文翻译**: 参议员周四一致通过决议，在政府停摆期间扣留自己的薪酬，试图让联邦关门对议员造成经济损失，此前过去一年经历了一系列创纪录的僵局。
+- **点赞**: 1 | **转发**: 1 | **评论**: 0
+- **匹配关键词**: Fed
+
+---
+## @CNBC (CNBC)
+- **时间**: 2026-05-15 18:52
+- **链接**: https://x.com/CNBC/status/2054998221580018063
+- **原文**: UFC's Dana White urges Trump to reverse gambling tax law. His letter moved the prediction market
+- **中文翻译**: UFC的达纳·怀特敦促特朗普推翻赌博税法。他的信件推动了预测市场
+- **点赞**: 11 | **转发**: 2 | **评论**: 2
+- **匹配关键词**: Trump
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 18:43
+- **链接**: https://x.com/business/status/2054995935826968675
+- **原文**: Argentina approved incentives to expand a lithium mine half-owned by a Chinese firm, a rare move by President Javier Milei, who has prioritized ties with the Trump administration
+- **中文翻译**: 阿根廷批准扩大一家中资持股一半的锂矿的激励措施，这是优先发展与特朗普政府关系的总统米莱的罕见举措。
+- **点赞**: 55 | **转发**: 26 | **评论**: 8
+- **匹配关键词**: Trump
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 18:33
+- **链接**: https://x.com/business/status/2054993403402756099
+- **原文**: What's next for US President Donald Trump and Chinese President Xi Jinping after their summit in Beijing? Bloomberg reporters answer your questions in a Live Q&A on May 14 at 10:45 p.m. ET / May 15 at 10:45 a.m. HKT
+- **中文翻译**: 特朗普总统与习近平主席在北京峰会后的下一步是什么？彭博记者将在5月14日美东时间晚10:45/5月15日香港时间上午10:45的直播问答中回答。
+- **点赞**: 14 | **转发**: 5 | **评论**: 11
+- **匹配关键词**: Trump
+
+---
+## @Reuters (Reuters)
+- **时间**: 2026-05-15 18:25
+- **链接**: https://x.com/Reuters/status/2054991412094021717
+- **原文**: Indian gold-loan financier Muthoot Finance's profit doubles on strong loan growth http://reut.rs/4386OS5
+- **中文翻译**: 印度黄金贷款金融公司Muthoot Finance利润翻倍，受强劲贷款增长推动
+- **点赞**: 17 | **转发**: 4 | **评论**: 4
+- **匹配关键词**: gold
+
+---
+## @business (Bloomberg)
+- **时间**: 2026-05-15 18:22
+- **链接**: https://x.com/business/status/2054990704225427574
+- **原文**: Federal Reserve Governor Stephen Miran said he will resign from the central bank effective once incoming Chair Kevin Warsh is sworn into office, or shortly before
+- **中文翻译**: 美联储理事斯蒂芬·米伦表示将从央行辞职，在新任主席凯文·沃什宣誓就职时或之前不久生效。
+- **点赞**: 26 | **转发**: 8 | **评论**: 6
+- **匹配关键词**: Fed
+
+---
+## @YahooNews (Yahoo News)
+- **时间**: 2026-05-15 18:20
+- **链接**: https://x.com/YahooNews/status/2054990134307598449
+- **原文**: The Justice Department is challenging efforts to sanction attorneys from the first and second Trump administrations, asserting in a lawsuit that the District of Columbia Bar is unfairly playing politics with the legal disciplinary process.
+- **中文翻译**: 司法部正挑战对第一和第二届特朗普政府律师进行制裁的努力，在诉讼中断言哥伦比亚特区律师协会在法律纪律程序中不公平地玩弄政治。
+- **点赞**: 2 | **转发**: 2 | **评论**: 1
+- **匹配关键词**: Trump
+
+---
+## @TheEconomist (The Economist)
+- **时间**: 2026-05-15 18:20
+- **链接**: https://x.com/TheEconomist/status/2054990131996594367
+- **原文**: Two years after his landslide win, Sir Keir Starmer is fighting for political survival. On this week's episode of The Insider our panel unpacks how Britain's prime minister squandered a golden opportunity
+- **中文翻译**: 压倒性获胜两年后，基尔·斯塔默爵士正在为政治生存而战。本周The Insider节目中，专家组分析了英国首相如何浪费了一个绝佳机会。
+- **点赞**: 13 | **转发**: 6 | **评论**: 8
+- **匹配关键词**: gold
+
+---
+## @TheEconomist (The Economist)
+- **时间**: 2026-05-15 18:15
+- **链接**: https://x.com/TheEconomist/status/2054988887664083424
+- **原文**: Our podcast on markets, the economy and business. This week, has Trump got his way with the Federal Reserve?
+- **中文翻译**: 我们关于市场、经济和商业的播客。本周话题：特朗普是否已在美联储得偿所愿？
+- **点赞**: 4 | **转发**: 2 | **评论**: 5
+- **匹配关键词**: Fed, Trump
+
+---
+## @joshuahlipton (Josh Lipton)
+- **时间**: 2026-05-15 18:11
+- **链接**: https://x.com/joshuahlipton/status/2054988025365418456
+- **原文**: Talking with the great @AJInsight, what grade does he give Jerome Powell? Says a C+ overall: "I think he is a thoughtful person, I think he has been responsible in his running of the Fed, but I think his timing is lousy"
+- **中文翻译**: 与出色的@AJInsight对话，他给杰罗姆·鲍威尔打多少分？他说总分C+："我认为他是一个深思熟虑的人，管理美联储也负责任，但时机把握很糟糕。"
+- **点赞**: 6 | **转发**: 2 | **评论**: 2
+- **匹配关键词**: Fed
+
+---
