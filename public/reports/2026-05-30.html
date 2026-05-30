@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter 日报 - 2026-05-30</title>
+  <meta name="description" content="2026-05-30 Twitter 列表精选推文日报">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: linear-gradient(135deg, rgba(30, 30, 50, 0.8), rgba(20, 20, 35, 0.9));
+      --bg-card-hover: linear-gradient(135deg, rgba(40, 40, 65, 0.9), rgba(25, 25, 45, 0.95));
+      --border-card: rgba(100, 100, 180, 0.15);
+      --border-card-hover: rgba(120, 120, 200, 0.3);
+      --text-primary: #e8e8f0;
+      --text-secondary: #9090b0;
+      --text-muted: #606080;
+      --accent-blue: #6C8EF2;
+      --accent-purple: #9B6EF3;
+      --accent-gradient: linear-gradient(135deg, #6C8EF2, #9B6EF3);
+      --accent-glow: rgba(108, 142, 242, 0.15);
+      --link-color: #7BA4F7;
+      --stat-like: #F06292;
+      --stat-retweet: #4DD0A0;
+      --stat-comment: #64B5F6;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+      --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5);
+      --radius: 16px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 600px 400px at 20% 20%, rgba(108, 142, 242, 0.06), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 80%, rgba(155, 110, 243, 0.05), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Top nav */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding: 12px 0;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(108, 142, 242, 0.08);
+      border: 1px solid rgba(108, 142, 242, 0.15);
+      border-radius: 10px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all var(--transition);
+    }
+
+    .nav-link:hover {
+      background: rgba(108, 142, 242, 0.15);
+      border-color: rgba(108, 142, 242, 0.3);
+    }
+
+    .nav-link.disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .nav-home { font-size: 14px; }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100px; height: 2px;
+      background: var(--accent-gradient);
+      border-radius: 1px;
+    }
+
+    .header-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-blue);
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stats-bar .num {
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    /* Tweet Card */
+    .tweet-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tweet-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(108, 142, 242, 0.3), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-card-hover);
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .tweet-card:hover::before { opacity: 1; }
+
+    .tweet-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tweet-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: white;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .tweet-author-info { flex: 1; min-width: 0; }
+
+    .tweet-display-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tweet-username {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .tweet-time {
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .tweet-content { margin-bottom: 14px; }
+
+    .tweet-original {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-translation {
+      font-size: 15px;
+      color: var(--text-primary);
+      line-height: 1.8;
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+
+    .tweet-translation::before {
+      content: '\1F1E8\1F1F3';
+      margin-right: 6px;
+      font-size: 13px;
+    }
+
+    .tweet-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-stats {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+    }
+
+    .tweet-stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .tweet-stat.like:hover { color: var(--stat-like); }
+    .tweet-stat.retweet:hover { color: var(--stat-retweet); }
+    .tweet-stat.comment:hover { color: var(--stat-comment); }
+
+    .tweet-link {
+      font-size: 12px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.8;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-link:hover { opacity: 1; text-decoration: underline; }
+
+    /* Keyword Tags */
+    .keyword-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .keyword-tag {
+      display: inline-block;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 10px;
+      color: var(--accent-blue);
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .keyword-tag::before {
+      content: '#';
+      opacity: 0.6;
+      margin-right: 1px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 16px 12px 60px; }
+      .header h1 { font-size: 22px; }
+      .tweet-card { padding: 18px; }
+      .stats-bar { gap: 16px; }
+      .top-nav { flex-wrap: wrap; gap: 8px; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tweet-card {
+      animation: fadeInUp 0.4s ease forwards;
+      opacity: 0;
+    }
+
+    .tweet-card:nth-child(1) { animation-delay: 0.05s; }
+    .tweet-card:nth-child(2) { animation-delay: 0.1s; }
+    .tweet-card:nth-child(3) { animation-delay: 0.15s; }
+    .tweet-card:nth-child(4) { animation-delay: 0.2s; }
+    .tweet-card:nth-child(5) { animation-delay: 0.25s; }
+    .tweet-card:nth-child(6) { animation-delay: 0.3s; }
+    .tweet-card:nth-child(7) { animation-delay: 0.35s; }
+    .tweet-card:nth-child(8) { animation-delay: 0.4s; }
+    .tweet-card:nth-child(9) { animation-delay: 0.45s; }
+    .tweet-card:nth-child(10) { animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="top-nav">
+      <a href="#" class="nav-link disabled">← 前一天</a>
+      <a href="../index.html" class="nav-link nav-home">📋 首页</a>
+      <a href="#" class="nav-link disabled">后一天 →</a>
+    </nav>
+
+    <header class="header">
+      <div class="header-label">📡 Daily Report</div>
+      <h1>2026年5月30日 周六</h1>
+      <p class="subtitle">Twitter 列表日报 · 自动翻译</p>
+      <div class="stats-bar">
+        <span>📝 共 <span class="num">9</span> 条推文</span>
+        <span>🕐 过去 24 小时</span>
+        <span>📦 生成于 2026-05-30 11:19</span>
+      </div>
+    </header>
+
+    <main id="tweets-container">
+
+      <div class="tweet-card">
+        <div class="tweet-author">
+          <div class="tweet-avatar">Y</div>
+          <div class="tweet-author-info">
+            <div class="tweet-display-name">Yahoo News</div>
+            <div class="tweet-username">@YahooNews</div>
+          </div>
+          <div class="tweet-time">03:00</div>
+        </div>
+        <div class="tweet-content">
+          <div class="tweet-original">A federal judge ruled Friday that President Trump's name was illegally added to the Kennedy Center and blocked the administration from closing the cultural and arts venue for major renovations — the latest legal setback for Trump's efforts to leave his personal mark on the</div>
+          <div class="tweet-translation">一名联邦法官于周五裁定，特朗普总统的名字被非法添加到肯尼迪中心，并阻止了政府以大规模翻修为由关闭这一文化和艺术场所——这是特朗普试图在公共建筑上留下个人印记的最新法律挫折。</div>
+        </div>
+        <div class="keyword-tags">
+          <span class="keyword-tag">Fed</span>
+          <span class="keyword-tag">Trump</span>
+        </div>
+        <div class="tweet-footer">
+          <div class="tweet-stats">
+            <span class="tweet-stat like">❤️ 2</span>
+            <span class="tweet-stat retweet">🔄 0</span>
+            <span class="tweet-stat comment">💬 0</span>
+          </div>
+          <a href="https://x.com/YahooNews/status/2060556881295229155" class="tweet-link" target="_blank">查看原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="tweet-card">
+        <div class="tweet-author">
+          <div class="tweet-avatar">T</div>
+          <div class="tweet-author-info">
+            <div class="tweet-display-name">The Times and Sunday Times</div>
+            <div class="tweet-username">@thetimes</div>
+          </div>
+          <div class="tweet-time">02:00</div>
+        </div>
+        <div class="tweet-content">
+          <div class="tweet-original">Trump's $10bn IRS lawsuit reopened over 'grievous' claims of fraud</div>
+          <div class="tweet-translation">特朗普 100 亿美元国税局诉讼因"严重"欺诈指控重新审理</div>
+        </div>
+        <div class="keyword-tags">
+          <span class="keyword-tag">Trump</span>
+        </div>
+        <div class="tweet-footer">
+          <div class="tweet-stats">
+            <span class="tweet-stat like">❤️ 2</span>
+            <span class="tweet-stat retweet">🔄 0</span>
+            <span class="tweet-stat comment">💬 0</span>
+          </div>
+          <a href="https://x.com/thetimes/status/2060541886842978680" class="tweet-link" target="_blank">查看原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="tweet-card">
+        <div class="tweet-author">
+          <div class="tweet-avatar">Y</div>
+          <div class="tweet-author-info">
+            <div class="tweet-display-name">Yahoo News</div>
+            <div class="tweet-username">@YahooNews</div>
+          </div>
+          <div class="tweet-time">02:00</div>
+        </div>
+        <div class="tweet-content">
+          <div class="tweet-original">A federal judge has said that New Hampshire must make voter registration easier by allowing applicants to attest to their U.S. citizenship if they don't have the documents to prove it.</div>
+          <div class="tweet-translation">一名联邦法官表示，新罕布什尔州必须简化选民登记程序，允许没有证件证明美国公民身份的申请人以声明方式确认其公民身份。</div>
+        </div>
+        <div class="keyword-tags">
+          <span class="keyword-tag">Fed</span>
+        </div>
+        <div class="tweet-footer">
+          <div class="tweet-stats">
+            <span class="tweet-stat like">❤️ 1</span>
+            <span class="tweet-stat retweet">🔄 0</span>
+            <span class="tweet-stat comment">💬 1</span>
+          </div>
+          <a href="https://x.com/YahooNews/status/2060541767401836603" class="tweet-link" target="_blank">查看原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="tweet-card">
+        <div class="tweet-author">
+          <div class="tweet-avatar">Y</div>
+          <div class="tweet-author-info">
+            <div class="tweet-display-name">Yahoo News</div>
+            <div class="tweet-username">@YahooNews</div>
+          </div>
+          <div class="tweet-time">00:40</div>
+        </div>
+        <div class="tweet-content">
+          <div class="tweet-original">周三，总统在 Truth Social 上发帖宣称"TRUMP 正在让食品变得负担得起"，并列举了一系列杂货价格的下降，包括鳄梨、新鲜浆果以及各种厨房常备品。然而，就在两周前，劳工部发布了通货膨胀数据，显示四月份杂货价格比一年前上涨了近 3%。</div>
+          <div class="tweet-translation">周三，总统在 Truth Social 上发帖宣称"TRUMP 正在让食品变得负担得起"，并列举了一系列杂货价格的下降，包括鳄梨、新鲜浆果以及各种厨房常备品。然而，就在两周前，劳工部发布了通货膨胀数据，显示四月份杂货价格比一年前上涨了近 3%。</div>
+        </div>
+        <div class="keyword-tags">
+          <span class="keyword-tag">Trump</span>
+        </div>
+        <div class="tweet-footer">
+          <div class="tweet-stats">
+            <span class="tweet-stat like">❤️ 2</span>
+            <span class="tweet-stat retweet">🔄 1</span>
+            <span class="tweet-stat comment">💬 3</span>
+          </div>
+          <a href="https://x.com/YahooNews/status/2060521615385936181" class="tweet-link" target="_blank">查看原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="tweet-card">
+        <div class="tweet-author">
+          <div class="tweet-avatar">Y</div>
+          <div class="tweet-author-info">
+            <div class="tweet-display-name">Yahoo News</div>
+            <div class="tweet-username">@YahooNews</div>
+          </div>
+          <div class="tweet-time">00:20</div>
+        </div>
+        <div class="tweet-content">
+          <div class="tweet-original">特朗普政府已延长保护措施，保护约1.1万名黎巴嫩人免于被驱逐出境，允许他们在美国的停留和工作时间再延长六个月。</div>
+          <div class="tweet-translation">特朗普政府已延长保护措施，保护约1.1万名黎巴嫩人免于被驱逐出境，允许他们在美国的停留和工作时间再延长六个月。</div>
+        </div>
+        <div class="keyword-tags">
+          <span class="keyword-tag">Trump</span>
+        </div>
+        <div class="tweet-footer">
+          <div class="tweet-stats">
+            <span class="tweet-stat like">❤️ 1</span>
+            <span class="tweet-stat retweet">🔄 0</span>
+            <span class="tweet-stat comment">💬 0</span>
+          </div>
+          <a href="https://x.com/YahooNews/status/2060516581227073788" class="tweet-link" target="_blank">查看原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="tweet-card">
+        <div class="tweet-author">
+          <div class="tweet-avatar">E</div>
+          <div class="tweet-author-info">
+            <div class="tweet-display-name">Entertainment Tonight</div>
+            <div class="tweet-username">@etnow</div>
+          </div>
+          <div class="tweet-time">22:24</div>
+        </div>
+        <div class="tweet-content">
+          <div class="tweet-original">Susan Boyle debuts a dramatic, new look while teasing a "new era" of music.</div>
+          <div class="tweet-translation">苏珊·波伊尔以全新形象亮相，同时预告音乐"新时代"的到来。</div>
+        </div>
+        <div class="keyword-tags">
+          <span class="keyword-tag">USA</span>
+        </div>
+        <div class="tweet-footer">
+          <div class="tweet-stats">
+            <span class="tweet-stat like">❤️ 14</span>
+            <span class="tweet-stat retweet">🔄 2</span>
+            <span class="tweet-stat comment">💬 1</span>
+          </div>
+          <a href="https://x.com/etnow/status/2060487392205885907" class="tweet-link" target="_blank">查看原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="tweet-card">
+        <div class="tweet-author">
+          <div class="tweet-avatar">Y</div>
+          <div class="tweet-author-info">
+            <div class="tweet-display-name">Yahoo News</div>
+            <div class="tweet-username">@YahooNews</div>
+          </div>
+          <div class="tweet-time">21:00</div>
+        </div>
+        <div class="tweet-content">
+          <div class="tweet-original">The White House's troubled bid for a star-studded musical celebration of the 250th anniversary of U.S. independence took yet another hit Friday after three more acts pulled out, citing political tensions. President Trump's administration had publicized multiple headliners for a</div>
+          <div class="tweet-translation">白宫为庆祝美国独立 250 周年举办的星光熠熠的音乐盛典再次遭遇打击——又有三组表演者因政治紧张局势退出。特朗普政府此前已公布了多位主打演出阵容。</div>
+        </div>
+        <div class="keyword-tags">
+          <span class="keyword-tag">Trump</span>
+        </div>
+        <div class="tweet-footer">
+          <div class="tweet-stats">
+            <span class="tweet-stat like">❤️ 5</span>
+            <span class="tweet-stat retweet">🔄 0</span>
+            <span class="tweet-stat comment">💬 4</span>
+          </div>
+          <a href="https://x.com/YahooNews/status/2060466265295138946" class="tweet-link" target="_blank">查看原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="tweet-card">
+        <div class="tweet-author">
+          <div class="tweet-avatar">F</div>
+          <div class="tweet-author-info">
+            <div class="tweet-display-name">Forbes</div>
+            <div class="tweet-username">@Forbes</div>
+          </div>
+          <div class="tweet-time">20:03</div>
+        </div>
+        <div class="tweet-content">
+          <div class="tweet-original">财政部推出特朗普账户应用，随着资金日期临近</div>
+          <div class="tweet-translation">财政部推出特朗普账户应用，随着资金日期临近</div>
+        </div>
+        <div class="keyword-tags">
+          <span class="keyword-tag">Trump</span>
+        </div>
+        <div class="tweet-footer">
+          <div class="tweet-stats">
+            <span class="tweet-stat like">❤️ 21</span>
+            <span class="tweet-stat retweet">🔄 5</span>
+            <span class="tweet-stat comment">💬 9</span>
+          </div>
+          <a href="https://x.com/Forbes/status/2060451878287393065" class="tweet-link" target="_blank">查看原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="tweet-card">
+        <div class="tweet-author">
+          <div class="tweet-avatar">Y</div>
+          <div class="tweet-author-info">
+            <div class="tweet-display-name">Yahoo News</div>
+            <div class="tweet-username">@YahooNews</div>
+          </div>
+          <div class="tweet-time">19:15</div>
+        </div>
+        <div class="tweet-content">
+          <div class="tweet-original">突发新闻：一位法官于周五下令从肯尼迪中心表演艺术中心移除特朗普总统的名字，裁定这一标志性华盛顿场所不得在没有国会法案的情况下更名。</div>
+          <div class="tweet-translation">突发新闻：一位法官于周五下令从肯尼迪中心表演艺术中心移除特朗普总统的名字，裁定这一标志性华盛顿场所不得在没有国会法案的情况下更名。</div>
+        </div>
+        <div class="keyword-tags">
+          <span class="keyword-tag">Trump</span>
+        </div>
+        <div class="tweet-footer">
+          <div class="tweet-stats">
+            <span class="tweet-stat like">❤️ 13</span>
+            <span class="tweet-stat retweet">🔄 13</span>
+            <span class="tweet-stat comment">💬 1</span>
+          </div>
+          <a href="https://x.com/YahooNews/status/2060439878303637854" class="tweet-link" target="_blank">查看原文 ↗</a>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <p>由 Twitter 日报 Skill 自动生成 · 2026-05-30 11:19 (UTC+8)</p>
+    </footer>
+  </div>
+</body>
+</html>
