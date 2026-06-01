@@ -4,8 +4,15 @@
 
 # 财经日报
 gold
+黄金
 silver
+白银
 copper
+铜价
+铜
 Fed
+美联储
 USA
+美国
 Trump
+特朗普
