@@ -21,9 +21,9 @@
     "language": "zh-CN"
   },
   "scraping": {
-    "cdpPort": 9222,
+    "cdpPort": 9333,
     "memberCacheDays": 7,
-    "userDataDir": "/tmp/chrome-twitter-debug-profile",
+    "userDataDir": "/tmp/chrome-twitter-debug-profile-daily-x",
     "chromePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
   }
 }
