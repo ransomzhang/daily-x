@@ -1,0 +1,2285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter 日报 - 2026-06-04</title>
+  <meta name="description" content="2026-06-04 Twitter 列表精选推文日报">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: linear-gradient(135deg, rgba(30, 30, 50, 0.8), rgba(20, 20, 35, 0.9));
+      --bg-card-hover: linear-gradient(135deg, rgba(40, 40, 65, 0.9), rgba(25, 25, 45, 0.95));
+      --border-card: rgba(100, 100, 180, 0.15);
+      --border-card-hover: rgba(120, 120, 200, 0.3);
+      --text-primary: #e8e8f0;
+      --text-secondary: #9090b0;
+      --text-muted: #606080;
+      --accent-blue: #6C8EF2;
+      --accent-purple: #9B6EF3;
+      --accent-gradient: linear-gradient(135deg, #6C8EF2, #9B6EF3);
+      --accent-glow: rgba(108, 142, 242, 0.15);
+      --link-color: #7BA4F7;
+      --stat-like: #F06292;
+      --stat-retweet: #4DD0A0;
+      --stat-comment: #64B5F6;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+      --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5);
+      --radius: 16px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 600px 400px at 20% 20%, rgba(108, 142, 242, 0.06), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 80%, rgba(155, 110, 243, 0.05), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Top nav */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding: 12px 0;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(108, 142, 242, 0.08);
+      border: 1px solid rgba(108, 142, 242, 0.15);
+      border-radius: 10px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all var(--transition);
+    }
+
+    .nav-link:hover {
+      background: rgba(108, 142, 242, 0.15);
+      border-color: rgba(108, 142, 242, 0.3);
+    }
+
+    .nav-link.disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .nav-home { font-size: 14px; }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100px; height: 2px;
+      background: var(--accent-gradient);
+      border-radius: 1px;
+    }
+
+    .header-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-blue);
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stats-bar .num {
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    /* Tweet Card */
+    .tweet-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tweet-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(108, 142, 242, 0.3), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-card-hover);
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .tweet-card:hover::before { opacity: 1; }
+
+    .tweet-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tweet-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: white;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .tweet-author-info { flex: 1; min-width: 0; }
+
+    .tweet-display-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tweet-username {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .tweet-time {
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .tweet-content { margin-bottom: 14px; }
+
+    .tweet-original {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-translation {
+      font-size: 15px;
+      color: var(--text-primary);
+      line-height: 1.8;
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+
+    .tweet-translation::before {
+      content: '🇨🇳';
+      margin-right: 6px;
+      font-size: 13px;
+    }
+
+    .tweet-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-stats {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+    }
+
+    .tweet-stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .tweet-stat.like:hover { color: var(--stat-like); }
+    .tweet-stat.retweet:hover { color: var(--stat-retweet); }
+    .tweet-stat.comment:hover { color: var(--stat-comment); }
+
+    .tweet-link {
+      font-size: 12px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.8;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-link:hover { opacity: 1; text-decoration: underline; }
+
+    /* Keyword Tags */
+    .keyword-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .keyword-tag {
+      display: inline-block;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 10px;
+      color: var(--accent-blue);
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .keyword-tag::before {
+      content: '#';
+      opacity: 0.6;
+      margin-right: 1px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 16px 12px 60px; }
+      .header h1 { font-size: 22px; }
+      .tweet-card { padding: 18px; }
+      .stats-bar { gap: 16px; }
+      .top-nav { flex-wrap: wrap; gap: 8px; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tweet-card {
+      animation: fadeInUp 0.4s ease forwards;
+      opacity: 0;
+    }
+
+    .tweet-card:nth-child(1) { animation-delay: 0.05s; }
+    .tweet-card:nth-child(2) { animation-delay: 0.1s; }
+    .tweet-card:nth-child(3) { animation-delay: 0.15s; }
+    .tweet-card:nth-child(4) { animation-delay: 0.2s; }
+    .tweet-card:nth-child(5) { animation-delay: 0.25s; }
+    .tweet-card:nth-child(6) { animation-delay: 0.3s; }
+    .tweet-card:nth-child(7) { animation-delay: 0.35s; }
+    .tweet-card:nth-child(8) { animation-delay: 0.4s; }
+    .tweet-card:nth-child(9) { animation-delay: 0.45s; }
+    .tweet-card:nth-child(10) { animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="top-nav">
+      <a href="2026-06-03.html" class="nav-link ">← 前一天</a>
+      <a href="../index.html" class="nav-link nav-home">📋 首页</a>
+      <a href="#" class="nav-link disabled">后一天 →</a>
+    </nav>
+
+    <header class="header">
+      <div class="header-label">📡 Daily Report</div>
+      <h1>2026 年 6 月 4 日 周四</h1>
+      <p class="subtitle">Twitter 列表日报 · 自动翻译</p>
+      <div class="stats-bar">
+        <span>📝 共 <span class="num">75</span> 条推文</span>
+        <span>🕐 过去 24 小时</span>
+        <span>📦 生成于 2026-06-04 07:10</span>
+      </div>
+    </header>
+
+    <main id="tweets-container">
+          <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">T</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Economist</div>
+          <div class="tweet-username">@TheEconomist</div>
+        </div>
+        <div class="tweet-time">23:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">未完成的协议将类似于唐纳德·特朗普在10月推动以色列和哈马斯接受的停火协议。但其中的利害关系将远为重大</div>
+        <div class="tweet-translation">未完成的协议将类似于唐纳德·特朗普在10月推动以色列和哈马斯接受的停火协议。但其中的利害关系将远为重大</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 2</span>
+          <span class="tweet-stat retweet">🔄 0</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/TheEconomist/status/2062308390089498729" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">W</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Wall Street Journal</div>
+          <div class="tweet-username">@WSJ</div>
+        </div>
+        <div class="tweet-time">22:49</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">有一个明显的迹象表明美国人厌倦了高油价：混合动力汽车和卡车现在比以往任何时候都更受欢迎。</div>
+        <div class="tweet-translation">有一个明显的迹象表明美国人厌倦了高油价：混合动力汽车和卡车现在比以往任何时候都更受欢迎。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 16</span>
+          <span class="tweet-stat retweet">🔄 6</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/WSJ/status/2062305742938402952" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">22:48</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">随着特朗普政府对台湾的公开立场趋于缓和，美国关键盟友日本和菲律宾在挑战中国国家主席习近平最敏感的问题上变得更加直言不讳</div>
+        <div class="tweet-translation">随着特朗普政府对台湾的公开立场趋于缓和，美国关键盟友日本和菲律宾在挑战中国国家主席习近平最敏感的问题上变得更加直言不讳</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 7</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2062305436062122319" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">22:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普表示，他计划让布兰奇担任永久总检察长，称他为“非常有才华的人” <a href="http://reut.rs/4ue8RPK" target="_blank" rel="noreferrer">http://reut.rs/4ue8RPK</a></div>
+        <div class="tweet-translation">特朗普表示，他计划让布兰奇担任永久总检察长，称他为“非常有才华的人” <a href="http://reut.rs/4ue8RPK" target="_blank" rel="noreferrer">http://reut.rs/4ue8RPK</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 14</span>
+          <span class="tweet-stat retweet">🔄 6</span>
+          <span class="tweet-stat comment">💬 17</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062300835397148942" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">22:10</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">达拉斯房地产热潮，由技术娴熟的印度科技工作者推动，如今已转为萧条。美国房地产记者 @mrgopal 在《Big Take》播客中向 @sarahsholder 讲述了原因。</div>
+        <div class="tweet-translation">达拉斯房地产热潮，由技术娴熟的印度科技工作者推动，如今已转为萧条。美国房地产记者 @mrgopal 在《Big Take》播客中向 @sarahsholder 讲述了原因。<br><br> 立即收听：<a href="https://link.podtrac.com/3mw4ygxn" target="_blank" rel="noreferrer">https://link.podtrac.com/3mw4ygxn</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 5</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2062295845320507837" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">W</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Wall Street Journal</div>
+          <div class="tweet-username">@WSJ</div>
+        </div>
+        <div class="tweet-time">22:04</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">一些共和党议员正在推动通过在特朗普总统优先考虑的移民执法法案中增加限制条款，来取消政府18亿美元的“反武器化”基金。</div>
+        <div class="tweet-translation">一些共和党议员正在推动通过在特朗普总统优先考虑的移民执法法案中增加限制条款，来取消政府18亿美元的“反武器化”基金。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 16</span>
+          <span class="tweet-stat retweet">🔄 4</span>
+          <span class="tweet-stat comment">💬 12</span>
+        </div>
+        <a href="https://x.com/WSJ/status/2062294453499408408" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">J</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Japan Times</div>
+          <div class="tweet-username">@japantimes</div>
+        </div>
+        <div class="tweet-time">22:01</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">朝鲜强烈抨击韩国最高美国军事官员将东道国比作“亚洲心脏中的匕首”的言论，称这反映了华盛顿遏制中国的战略。 <a href="https://ebx.sh/ujVpKT" target="_blank" rel="noreferrer">https://ebx.sh/ujVpKT</a></div>
+        <div class="tweet-translation">朝鲜强烈抨击韩国最高美国军事官员将东道国比作“亚洲心脏中的匕首”的言论，称这反映了华盛顿遏制中国的战略。 <a href="https://ebx.sh/ujVpKT" target="_blank" rel="noreferrer">https://ebx.sh/ujVpKT</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 0</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/japantimes/status/2062293604656099776" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">22:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普总统淡化了霍尔木兹海峡海雷对商业航运的威胁，并表示一旦伊朗签署谅解备忘录，海峡将“立即”开放 <a href="http://bloom.bg/4uVrWrg" target="_blank" rel="noreferrer">http://bloom.bg/4uVrWrg</a></div>
+        <div class="tweet-translation">特朗普总统淡化了霍尔木兹海峡海雷对商业航运的威胁，并表示一旦伊朗签署谅解备忘录，海峡将“立即”开放 <a href="http://bloom.bg/4uVrWrg" target="_blank" rel="noreferrer">http://bloom.bg/4uVrWrg</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 12</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/business/status/2062293399483420942" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">22:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">很少有人物能像唐纳德·特朗普那样引发如此多的争论。他的第二个任期内出现了一系列非传统的政策举措，而他的财富已升至约65亿美元——这是《福布斯》自1982年以来为他记录的最高值。#ForbesIconoclast50 <a href="https://forbes.com/sites/maneetahuja/2026/06/02/iconoclast-50-2026/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…" target="_blank" rel="noreferrer">https://forbes.com/sites/maneetahuja/2026/06/02/iconoclast-50-2026/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…</a></div>
+        <div class="tweet-translation">很少有人物能像唐纳德·特朗普那样引发如此多的争论。他的第二个任期内出现了一系列非传统的政策举措，而他的财富已升至约65亿美元——这是《福布斯》自1982年以来为他记录的最高值。#ForbesIconoclast50 <a href="https://forbes.com/sites/maneetahuja/2026/06/02/iconoclast-50-2026/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…" target="_blank" rel="noreferrer">https://forbes.com/sites/maneetahuja/2026/06/02/iconoclast-50-2026/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…</a><br>: Jamel Toppin for Forbes<br><br>由 Corient 呈现</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 28</span>
+          <span class="tweet-stat retweet">🔄 14</span>
+          <span class="tweet-stat comment">💬 14</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2062293325156376943" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">22:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">“如果你是一家私营企业，以美国大学的管理方式经营，你早就破产了。” @jonmarcusboston 来自 @hechingerreport 在本周的《Econ World》播客中解释了为什么这么多美国大学正努力维持运营 <a href="https://reut.rs/4ueUg6y" target="_blank" rel="noreferrer">https://reut.rs/4ueUg6y</a></div>
+        <div class="tweet-translation">“如果你是一家私营企业，以美国大学的管理方式经营，你早就破产了。” @jonmarcusboston 来自 @hechingerreport 在本周的《Econ World》播客中解释了为什么这么多美国大学正努力维持运营 <a href="https://reut.rs/4ueUg6y" target="_blank" rel="noreferrer">https://reut.rs/4ueUg6y</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 9</span>
+          <span class="tweet-stat retweet">🔄 4</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062293318784950710" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">21:54</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">在本期《特朗普经济学》中，我们讨论了“K型”经济以及它是否仅仅是贫富差距的代名词</div>
+        <div class="tweet-translation">在本期《特朗普经济学》中，我们讨论了“K型”经济以及它是否仅仅是贫富差距的代名词</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 5</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/business/status/2062291871179632736" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">21:50</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">古巴人如何在美国的压力和燃料封锁下继续前行 <a href="http://reut.rs/43MlzdH" target="_blank" rel="noreferrer">http://reut.rs/43MlzdH</a></div>
+        <div class="tweet-translation">古巴人如何在美国的压力和燃料封锁下继续前行 <a href="http://reut.rs/43MlzdH" target="_blank" rel="noreferrer">http://reut.rs/43MlzdH</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 12</span>
+          <span class="tweet-stat retweet">🔄 6</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062290740122689788" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Financial Times</div>
+          <div class="tweet-username">@FT</div>
+        </div>
+        <div class="tweet-time">21:49</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普选择普尔特担任情报主管威胁外国监视法案</div>
+        <div class="tweet-translation">特朗普选择普尔特担任情报主管威胁外国监视法案</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 9</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/FT/status/2062290538045313144" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">G</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Goldman Sachs</div>
+          <div class="tweet-username">@GoldmanSachs</div>
+        </div>
+        <div class="tweet-time">21:44</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">债券还能帮助平衡投资组合吗？高盛研究美国利率策略负责人威廉·马歇尔，分离出信号与噪声。</div>
+        <div class="tweet-translation">债券还能帮助平衡投资组合吗？高盛研究美国利率策略负责人威廉·马歇尔，分离出信号与噪声。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">gold</span>
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/GoldmanSachs/status/2062289221436539266" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">N</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The New York Times</div>
+          <div class="tweet-username">@nytimes</div>
+        </div>
+        <div class="tweet-time">21:43</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">突发新闻：众议院投票结束伊朗战争，四名共和党人与民主党人站在一起，对特朗普总统发出强烈谴责。</div>
+        <div class="tweet-translation">突发新闻：众议院投票结束伊朗战争，四名共和党人与民主党人站在一起，对特朗普总统发出强烈谴责。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 2956</span>
+          <span class="tweet-stat retweet">🔄 797</span>
+          <span class="tweet-stat comment">💬 155</span>
+        </div>
+        <a href="https://x.com/nytimes/status/2062289181439631435" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">T</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Economist</div>
+          <div class="tweet-username">@TheEconomist</div>
+        </div>
+        <div class="tweet-time">21:40</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">他对古巴的态度缺乏过去那种意识形态上的确定性。但纯粹的反对并没能终结卡斯特罗政权，后者已经比12位美国总统存活得更久</div>
+        <div class="tweet-translation">他对古巴的态度缺乏过去那种意识形态上的确定性。但纯粹的反对并没能终结卡斯特罗政权，后者已经比12位美国总统存活得更久</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 8</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/TheEconomist/status/2062288226123956512" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNN International</div>
+          <div class="tweet-username">@cnni</div>
+        </div>
+        <div class="tweet-time">21:31</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">众议院通过了一项决议，限制唐纳德·特朗普总统在伊朗的战争权力，这对特朗普及其处理冲突的方式构成了重大谴责。<a href="https://cnn.it/4ug8fsT" target="_blank" rel="noreferrer">https://cnn.it/4ug8fsT</a></div>
+        <div class="tweet-translation">众议院通过了一项决议，限制唐纳德·特朗普总统在伊朗的战争权力，这对特朗普及其处理冲突的方式构成了重大谴责。<a href="https://cnn.it/4ug8fsT" target="_blank" rel="noreferrer">https://cnn.it/4ug8fsT</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 48</span>
+          <span class="tweet-stat retweet">🔄 20</span>
+          <span class="tweet-stat comment">💬 17</span>
+        </div>
+        <a href="https://x.com/cnni/status/2062286123271950627" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">21:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">财政部长斯科特·贝森特在参议院听证会上表示，他曾告诉特朗普总统提名的国家情报总监比尔·普尔特，他将在2025年夏天“踢他的屁股”<a href="https://reut.rs/4ocF5ts" target="_blank" rel="noreferrer">https://reut.rs/4ocF5ts</a></div>
+        <div class="tweet-translation">财政部长斯科特·贝森特在参议院听证会上表示，他曾告诉特朗普总统提名的国家情报总监比尔·普尔特，他将在2025年夏天“踢他的屁股”<a href="https://reut.rs/4ocF5ts" target="_blank" rel="noreferrer">https://reut.rs/4ocF5ts</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 30</span>
+          <span class="tweet-stat retweet">🔄 7</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062285696782475754" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">21:27</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">突发：共和党领导的下议院投票停止美国与伊朗的战争，这是对特朗普的谴责，但并未结束冲突</div>
+        <div class="tweet-translation">突发：共和党领导的下议院投票停止美国与伊朗的战争，这是对特朗普的谴责，但并未结束冲突</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 14</span>
+          <span class="tweet-stat retweet">🔄 17</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/business/status/2062284943154139333" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">W</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Wall Street Journal</div>
+          <div class="tweet-username">@WSJ</div>
+        </div>
+        <div class="tweet-time">21:25</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">突发：作为对特朗普总统的谴责，由共和党领导的众议院投票限制他在伊朗的战争权力。</div>
+        <div class="tweet-translation">突发：作为对特朗普总统的谴责，由共和党领导的众议院投票限制他在伊朗的战争权力。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 65</span>
+          <span class="tweet-stat retweet">🔄 38</span>
+          <span class="tweet-stat comment">💬 35</span>
+        </div>
+        <a href="https://x.com/WSJ/status/2062284652602069013" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">J</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Japan Times</div>
+          <div class="tweet-username">@japantimes</div>
+        </div>
+        <div class="tweet-time">21:25</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">评论：批评者认为特朗普政府正在利用外国的污染作为理由来放松烟雾法规，这可能会恶化美国城市的空气质量和公共健康。</div>
+        <div class="tweet-translation">评论：批评者认为特朗普政府正在利用外国的污染作为理由来放松烟雾法规，这可能会恶化美国城市的空气质量和公共健康。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 3</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/japantimes/status/2062284651020877890" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">21:25</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">共和党领导的众议院投票决定停止美国与伊朗的战争，这与唐纳德·特朗普总统在这一不受欢迎的对外冲突上分道扬镳，这一冲突正对美国人造成日益加剧的经济负担</div>
+        <div class="tweet-translation">共和党领导的众议院投票决定停止美国与伊朗的战争，这与唐纳德·特朗普总统在这一不受欢迎的对外冲突上分道扬镳，这一冲突正对美国人造成日益加剧的经济负担</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 45</span>
+          <span class="tweet-stat retweet">🔄 25</span>
+          <span class="tweet-stat comment">💬 14</span>
+        </div>
+        <a href="https://x.com/business/status/2062284447672590480" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">21:24</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">周三被问及司法部18亿美元的“反武器化”基金是已经夭折还是只是暂缓时，特朗普总统表示“我不知道”，并称其为“最伟大的事情”<a href="http://bloom.bg/4a9Dy1g" target="_blank" rel="noreferrer">http://bloom.bg/4a9Dy1g</a></div>
+        <div class="tweet-translation">周三被问及司法部18亿美元的“反武器化”基金是已经夭折还是只是暂缓时，特朗普总统表示“我不知道”，并称其为“最伟大的事情”<a href="http://bloom.bg/4a9Dy1g" target="_blank" rel="noreferrer">http://bloom.bg/4a9Dy1g</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 12</span>
+          <span class="tweet-stat retweet">🔄 8</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2062284270303957299" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">21:15</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">财政部长斯科特·贝森特承认，他去年夏天曾试图反对唐纳德·特朗普总统提名的国家情报代理主任比尔·普尔特。</div>
+        <div class="tweet-translation">财政部长斯科特·贝森特承认，他去年夏天曾试图反对唐纳德·特朗普总统提名的国家情报代理主任比尔·普尔特。<br>阅读更多：<a href="https://forbes.com/sites/saradorn/2026/06/03/bessent-admits-telling-bill-pulte-he-was-going-to-kick-his-a-/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…" target="_blank" rel="noreferrer">https://forbes.com/sites/saradorn/2026/06/03/bessent-admits-telling-bill-pulte-he-was-going-to-kick-his-a-/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…</a><br>照片：Chip Somodevilla via Getty Images</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 9</span>
+          <span class="tweet-stat retweet">🔄 4</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2062282094982971824" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">21:15</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">唐纳德·特朗普总统淡化了霍尔木兹海峡海雷对商业航运的威胁，尽管其他美国官员已警告其危险性</div>
+        <div class="tweet-translation">唐纳德·特朗普总统淡化了霍尔木兹海峡海雷对商业航运的威胁，尽管其他美国官员已警告其危险性</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 12</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2062281948001603590" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">21:05</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国国土安全部在审查后取消了大多数尚未完成的诺姆时代合同 <a href="http://reut.rs/3RM72fq" target="_blank" rel="noreferrer">http://reut.rs/3RM72fq</a></div>
+        <div class="tweet-translation">美国国土安全部在审查后取消了大多数尚未完成的诺姆时代合同 <a href="http://reut.rs/3RM72fq" target="_blank" rel="noreferrer">http://reut.rs/3RM72fq</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 23</span>
+          <span class="tweet-stat retweet">🔄 13</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062279436397941151" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">21:05</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">Why Jared Kushner And Ivanka Trump’s Albanian Resort Plans Are Under Fire</div>
+        <div class="tweet-translation">贾里德·库什纳与伊万卡·特朗普在阿尔巴尼亚的度假村计划为何引发争议<br><a href="https://go.forbes.com/z58SBt" target="_blank" rel="noreferrer">https://go.forbes.com/z58SBt</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">Trump</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 42</span>
+          <span class="tweet-stat retweet">🔄 19</span>
+          <span class="tweet-stat comment">💬 12</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2062279429896679933" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Financial Times</div>
+          <div class="tweet-username">@FT</div>
+        </div>
+        <div class="tweet-time">21:05</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">此次 IPO 将巩固埃隆·马斯克对美国两大最具价值公司——SpaceX 和特斯拉——的控制权，这一地位在现代前所未有。他的特殊类别股份将赋予他在火箭集团 82% 的投票权控制权。<a href="https://ft.trib.al/4RxXRaz" target="_blank" rel="noreferrer">https://ft.trib.al/4RxXRaz</a></div>
+        <div class="tweet-translation">此次 IPO 将巩固埃隆·马斯克对美国两大最具价值公司——SpaceX 和特斯拉——的控制权，这一地位在现代前所未有。他的特殊类别股份将赋予他在火箭集团 82% 的投票权控制权。<a href="https://ft.trib.al/4RxXRaz" target="_blank" rel="noreferrer">https://ft.trib.al/4RxXRaz</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 63</span>
+          <span class="tweet-stat retweet">🔄 24</span>
+          <span class="tweet-stat comment">💬 10</span>
+        </div>
+        <a href="https://x.com/FT/status/2062279418207199623" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">21:04</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">达拉斯以北的城镇在美国增长最快，得益于企业搬迁和H-1B签证工人。现在住房市场正在出现需求降温，部分原因是签证成本上升和人工智能的颠覆 <a href="http://bloom.bg/4o6bMbL" target="_blank" rel="noreferrer">http://bloom.bg/4o6bMbL</a></div>
+        <div class="tweet-translation">达拉斯以北的城镇在美国增长最快，得益于企业搬迁和H-1B签证工人。现在住房市场正在出现需求降温，部分原因是签证成本上升和人工智能的颠覆 <a href="http://bloom.bg/4o6bMbL" target="_blank" rel="noreferrer">http://bloom.bg/4o6bMbL</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 102</span>
+          <span class="tweet-stat retweet">🔄 28</span>
+          <span class="tweet-stat comment">💬 36</span>
+        </div>
+        <a href="https://x.com/business/status/2062279398867222738" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">21:04</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">家族办公室正计划对其投资组合进行多年来最大规模的调整，许多家族办公室正计划将资金撤出美国，据一项新调查显示。</div>
+        <div class="tweet-translation">家族办公室正计划对其投资组合进行多年来最大规模的调整，许多家族办公室正计划将资金撤出美国，据一项新调查显示。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 9</span>
+          <span class="tweet-stat retweet">🔄 7</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2062279304684196239" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">21:01</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">人工智能热潮引发的全球存储芯片短缺，对从汽车制造商到医疗设备生产商等各行业构成日益严重的风险，美国商业团体联盟表示</div>
+        <div class="tweet-translation">人工智能热潮引发的全球存储芯片短缺，对从汽车制造商到医疗设备生产商等各行业构成日益严重的风险，美国商业团体联盟表示</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 17</span>
+          <span class="tweet-stat retweet">🔄 7</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2062278462044332459" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">20:58</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国最高法院不断支持共和党人，即使大法官们坚持声称他们不搞政治</div>
+        <div class="tweet-translation">美国最高法院不断支持共和党人，即使大法官们坚持声称他们不搞政治</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 13</span>
+        </div>
+        <a href="https://x.com/business/status/2062277767136186443" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">20:56</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">隐藏在AI芯片之下的中国制造电路板在美国引发国家安全担忧。</div>
+        <div class="tweet-translation">隐藏在AI芯片之下的中国制造电路板在美国引发国家安全担忧。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 10</span>
+          <span class="tweet-stat retweet">🔄 4</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2062277207620272306" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">20:55</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">唐纳德·特朗普总统签署了一项行政命令，旨在加强海关执法，这是他加强保护主义贸易政策的最新举措</div>
+        <div class="tweet-translation">唐纳德·特朗普总统签署了一项行政命令，旨在加强海关执法，这是他加强保护主义贸易政策的最新举措</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 17</span>
+          <span class="tweet-stat retweet">🔄 7</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/business/status/2062276896969072700" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">20:46</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">达拉斯房地产热潮由技术娴熟的印度科技工作者推动，如今已转为低迷。美国房地产记者@mrgopal 在《Big Take》播客中向@sarahsholder 讲述了原因。</div>
+        <div class="tweet-translation">达拉斯房地产热潮由技术娴熟的印度科技工作者推动，如今已转为低迷。美国房地产记者@mrgopal 在《Big Take》播客中向@sarahsholder 讲述了原因。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 61</span>
+          <span class="tweet-stat retweet">🔄 25</span>
+          <span class="tweet-stat comment">💬 14</span>
+        </div>
+        <a href="https://x.com/business/status/2062274847858651327" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">20:42</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">财政部长斯科特·贝森特周三向参议院财政委员会承认，去年夏天他告诉代理国家情报总监比尔·普尔特，他“要踢他的***”，因为普尔特据称在特朗普总统面前诋毁了他 <a href="http://bloom.bg/4o7MuKd" target="_blank" rel="noreferrer">http://bloom.bg/4o7MuKd</a></div>
+        <div class="tweet-translation">财政部长斯科特·贝森特周三向参议院财政委员会承认，去年夏天他告诉代理国家情报总监比尔·普尔特，他“要踢他的***”，因为普尔特据称在特朗普总统面前诋毁了他 <a href="http://bloom.bg/4o7MuKd" target="_blank" rel="noreferrer">http://bloom.bg/4o7MuKd</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 25</span>
+          <span class="tweet-stat retweet">🔄 13</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/business/status/2062273713316200451" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">20:40</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">鲁比奥：从未听说过特朗普挑选的普尔特在涉及美国情报事务中的情况 <a href="http://reut.rs/49Al9L0" target="_blank" rel="noreferrer">http://reut.rs/49Al9L0</a></div>
+        <div class="tweet-translation">鲁比奥：从未听说过特朗普挑选的普尔特在涉及美国情报事务中的情况 <a href="http://reut.rs/49Al9L0" target="_blank" rel="noreferrer">http://reut.rs/49Al9L0</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 16</span>
+          <span class="tweet-stat retweet">🔄 8</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062273218497372360" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">20:34</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国农业部表示，在南德克萨斯可能已经检测到一个新世界螺旋虫病例，这一发展可能对该国牛群构成新的威胁，该牛群目前已处于75年来的最低水平</div>
+        <div class="tweet-translation">美国农业部表示，在南德克萨斯可能已经检测到一个新世界螺旋虫病例，这一发展可能对该国牛群构成新的威胁，该牛群目前已处于75年来的最低水平</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 28</span>
+          <span class="tweet-stat retweet">🔄 27</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2062271634304635037" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">20:32</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">唐纳德·特朗普总统正准备利用冷战时期的授权，向支持燃煤发电以及美国化石燃料出口提供数亿美元的联邦资金</div>
+        <div class="tweet-translation">唐纳德·特朗普总统正准备利用冷战时期的授权，向支持燃煤发电以及美国化石燃料出口提供数亿美元的联邦资金</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 26</span>
+          <span class="tweet-stat retweet">🔄 17</span>
+          <span class="tweet-stat comment">💬 9</span>
+        </div>
+        <a href="https://x.com/business/status/2062271334780969357" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">20:31</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普想要报复他眼中的敌人，而比尔·普尔特已经提供了帮助</div>
+        <div class="tweet-translation">特朗普想要报复他眼中的敌人，而比尔·普尔特已经提供了帮助</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 14</span>
+          <span class="tweet-stat retweet">🔄 8</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/business/status/2062270971080311167" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">20:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国告诉欧洲、加拿大加强北约空中和海军力量，因为华盛顿正在后退 <a href="http://reut.rs/49HaqhH" target="_blank" rel="noreferrer">http://reut.rs/49HaqhH</a></div>
+        <div class="tweet-translation">美国告诉欧洲、加拿大加强北约空中和海军力量，因为华盛顿正在后退 <a href="http://reut.rs/49HaqhH" target="_blank" rel="noreferrer">http://reut.rs/49HaqhH</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 41</span>
+          <span class="tweet-stat retweet">🔄 17</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062270768428290454" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">20:29</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">黛安·亨德里克斯继续建立一个非凡的遗产。ABC Supply 的联合创始人连续第九年仍是美国最富有的白手起家女性，她的投资涵盖房地产、制造业、物流和回收行业。<a href="https://forbes.com/lists/self-made-women/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…" target="_blank" rel="noreferrer">https://forbes.com/lists/self-made-women/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…</a> #SelfMadeWomen (照片：Gabriela Hasbun for Forbes)</div>
+        <div class="tweet-translation">黛安·亨德里克斯继续建立一个非凡的遗产。ABC Supply 的联合创始人连续第九年仍是美国最富有的白手起家女性，她的投资涵盖房地产、制造业、物流和回收行业。<a href="https://forbes.com/lists/self-made-women/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…" target="_blank" rel="noreferrer">https://forbes.com/lists/self-made-women/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…</a> #SelfMadeWomen (照片：Gabriela Hasbun for Forbes)</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 17</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2062270354408776161" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">20:27</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">唐纳德·特朗普总统周三签署了一项行政命令，剥夺了近8000个联邦职位的职业保障</div>
+        <div class="tweet-translation">唐纳德·特朗普总统周三签署了一项行政命令，剥夺了近8000个联邦职位的职业保障</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 10</span>
+          <span class="tweet-stat retweet">🔄 6</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/business/status/2062269857362493516" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">20:20</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国银行CEO莫伊尼汉：尽管面临压力，消费者支出仍保持韧性</div>
+        <div class="tweet-translation">美国银行CEO莫伊尼汉：尽管面临压力，消费者支出仍保持韧性<br><a href="https://go.forbes.com/OTn4KV" target="_blank" rel="noreferrer">https://go.forbes.com/OTn4KV</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 14</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2062268109650632812" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">20:15</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国原油库存因强劲出口和炼油需求下降，EIA 表示，随着伊朗战争持续 <a href="http://reut.rs/4xdIcWa" target="_blank" rel="noreferrer">http://reut.rs/4xdIcWa</a></div>
+        <div class="tweet-translation">美国原油库存因强劲出口和炼油需求下降，EIA 表示，随着伊朗战争持续 <a href="http://reut.rs/4xdIcWa" target="_blank" rel="noreferrer">http://reut.rs/4xdIcWa</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 18</span>
+          <span class="tweet-stat retweet">🔄 8</span>
+          <span class="tweet-stat comment">💬 7</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062266890387345593" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">20:11</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">达拉斯联邦储备银行行长洛里·洛根表示，官员们可能需要今年晚些时候提高利率，以将通胀率带回美国中央银行2%的目标水平</div>
+        <div class="tweet-translation">达拉斯联邦储备银行行长洛里·洛根表示，官员们可能需要今年晚些时候提高利率，以将通胀率带回美国中央银行2%的目标水平</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 13</span>
+          <span class="tweet-stat retweet">🔄 8</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/business/status/2062265910660890965" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">20:08</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国及其“五眼”情报伙伴发布了一份他们称之为前所未有的联合通知，警告中国间谍试图利用LinkedIn等网站招募资产</div>
+        <div class="tweet-translation">美国及其“五眼”情报伙伴发布了一份他们称之为前所未有的联合通知，警告中国间谍试图利用LinkedIn等网站招募资产</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 58</span>
+          <span class="tweet-stat retweet">🔄 42</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/business/status/2062265286468809011" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">20:03</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">唐纳德·特朗普总统宣布他将参加在法国举行的七国集团领导人峰会，这次聚会定于在总统与美国盟友就伊朗战争紧张关系中举行</div>
+        <div class="tweet-translation">唐纳德·特朗普总统宣布他将参加在法国举行的七国集团领导人峰会，这次聚会定于在总统与美国盟友就伊朗战争紧张关系中举行</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 32</span>
+          <span class="tweet-stat retweet">🔄 12</span>
+          <span class="tweet-stat comment">💬 7</span>
+        </div>
+        <a href="https://x.com/business/status/2062264036742377702" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">20:01</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国稀土根据《芯片法案》敲定高达16亿美元的融资协议 <a href="http://reut.rs/4e0N6wB" target="_blank" rel="noreferrer">http://reut.rs/4e0N6wB</a></div>
+        <div class="tweet-translation">美国稀土根据《芯片法案》敲定高达16亿美元的融资协议 <a href="http://reut.rs/4e0N6wB" target="_blank" rel="noreferrer">http://reut.rs/4e0N6wB</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 25</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 10</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062263476043550782" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">20:01</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国战略石油储备上周再次减少了800万桶，接近拜登时代低点。<a href="https://yhoo.it/3PZXpZS" target="_blank" rel="noreferrer">https://yhoo.it/3PZXpZS</a></div>
+        <div class="tweet-translation">美国战略石油储备上周再次减少了800万桶，接近拜登时代低点。<a href="https://yhoo.it/3PZXpZS" target="_blank" rel="noreferrer">https://yhoo.it/3PZXpZS</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 32</span>
+          <span class="tweet-stat retweet">🔄 14</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2062263329209352440" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">20:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">大学曾经是稳赚不赔的投资。如今，越来越多的美国人开始质疑它是否值得这个价码。本周《路透社经济世界》播客有更多内容 <a href="https://reut.rs/4dJvDtS" target="_blank" rel="noreferrer">https://reut.rs/4dJvDtS</a></div>
+        <div class="tweet-translation">大学曾经是稳赚不赔的投资。如今，越来越多的美国人开始质疑它是否值得这个价码。本周《路透社经济世界》播客有更多内容 <a href="https://reut.rs/4dJvDtS" target="_blank" rel="noreferrer">https://reut.rs/4dJvDtS</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062263091245535558" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">19:59</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">参议院共和党人从移民执法法案中削减高达10亿美元用于特朗普舞厅安全的资金</div>
+        <div class="tweet-translation">参议院共和党人从移民执法法案中削减高达10亿美元用于特朗普舞厅安全的资金</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 31</span>
+          <span class="tweet-stat retweet">🔄 17</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2062262848252756026" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">19:55</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">化妆品大亨 Anastasia Soare 来到美国时“连一枚硬币都没有”</div>
+        <div class="tweet-translation">化妆品大亨 Anastasia Soare 来到美国时“连一枚硬币都没有”<br><a href="https://go.forbes.com/fZ72RQ" target="_blank" rel="noreferrer">https://go.forbes.com/fZ72RQ</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 20</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2062261812700029207" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">19:47</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">一位美国贸易法官采取了不同寻常的措施，亲自回应特朗普政府对其命令的上诉，该命令要求退还1660亿美元的关税，最高法院已裁定这些关税违法</div>
+        <div class="tweet-translation">一位美国贸易法官采取了不同寻常的措施，亲自回应特朗普政府对其命令的上诉，该命令要求退还1660亿美元的关税，最高法院已裁定这些关税违法</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 11</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/business/status/2062259780408803614" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">19:45</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国反对人工智能的人将成为美国“最大的政治危机”，顶级投资者表示</div>
+        <div class="tweet-translation">美国反对人工智能的人将成为美国“最大的政治危机”，顶级投资者表示<br><a href="https://go.forbes.com/hAIRiW" target="_blank" rel="noreferrer">https://go.forbes.com/hAIRiW</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 28</span>
+          <span class="tweet-stat retweet">🔄 8</span>
+          <span class="tweet-stat comment">💬 15</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2062259296453226829" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo News</div>
+          <div class="tweet-username">@YahooNews</div>
+        </div>
+        <div class="tweet-time">19:40</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国国务卿马可·卢比奥周三表示，美国总统唐纳德·特朗普将出席7月在土耳其举行的北约国家元首会议，这一确认很可能令联盟各国首都普遍松了一口气。</div>
+        <div class="tweet-translation">美国国务卿马可·卢比奥周三表示，美国总统唐纳德·特朗普将出席7月在土耳其举行的北约国家元首会议，这一确认很可能令联盟各国首都普遍松了一口气。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 2</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/YahooNews/status/2062258027118387398" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Financial Times</div>
+          <div class="tweet-username">@FT</div>
+        </div>
+        <div class="tweet-time">19:34</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普提议的拨款规则可能摧毁美国科学界，研究人员警告</div>
+        <div class="tweet-translation">特朗普提议的拨款规则可能摧毁美国科学界，研究人员警告</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 25</span>
+          <span class="tweet-stat retweet">🔄 23</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/FT/status/2062256543634981134" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">J</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Jamie Smyth</div>
+          <div class="tweet-username">@JamieSmythF</div>
+        </div>
+        <div class="tweet-time">19:21</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普的伊朗战争导致美国石油库存降至2004年以来的最低水平，引发分析师对夏季价格飙升的新警告 @FT    <a href="https://ft.com/content/d0be73c8-b8d8-4ffd-874e-e97a6ecffef7…" target="_blank" rel="noreferrer">https://ft.com/content/d0be73c8-b8d8-4ffd-874e-e97a6ecffef7…</a> via @ft</div>
+        <div class="tweet-translation">特朗普的伊朗战争导致美国石油库存降至2004年以来的最低水平，引发分析师对夏季价格飙升的新警告 @FT    <a href="https://ft.com/content/d0be73c8-b8d8-4ffd-874e-e97a6ecffef7…" target="_blank" rel="noreferrer">https://ft.com/content/d0be73c8-b8d8-4ffd-874e-e97a6ecffef7…</a> via @ft</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 16</span>
+          <span class="tweet-stat retweet">🔄 17</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/JamieSmythF/status/2062253476604731693" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">19:15</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普表示伊朗已同意不拥有核武器 <a href="http://reut.rs/4ocCj7y" target="_blank" rel="noreferrer">http://reut.rs/4ocCj7y</a></div>
+        <div class="tweet-translation">特朗普表示伊朗已同意不拥有核武器 <a href="http://reut.rs/4ocCj7y" target="_blank" rel="noreferrer">http://reut.rs/4ocCj7y</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 162</span>
+          <span class="tweet-stat retweet">🔄 55</span>
+          <span class="tweet-stat comment">💬 154</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062251743308566805" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">19:15</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国国务卿马可·卢比奥告诉议员们，美国并没有扣留价值高达140亿美元的对台军售，但表示该军售仍在审查中。</div>
+        <div class="tweet-translation">美国国务卿马可·卢比奥告诉议员们，美国并没有扣留价值高达140亿美元的对台军售，但表示该军售仍在审查中。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 50</span>
+          <span class="tweet-stat retweet">🔄 12</span>
+          <span class="tweet-stat comment">💬 13</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062251722882601134" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">19:05</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">共和党人在美国最高法院允许该州使用一张有利于共和党的选区地图后，在阿拉巴马州赢得一个额外众议院席位的几率更大</div>
+        <div class="tweet-translation">共和党人在美国最高法院允许该州使用一张有利于共和党的选区地图后，在阿拉巴马州赢得一个额外众议院席位的几率更大</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 15</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/business/status/2062249250868621810" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">19:05</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国资产管理公司股价下跌，因为投资者为私募信贷基金赎回的最新消息做好准备 <a href="http://reut.rs/4x99MDA" target="_blank" rel="noreferrer">http://reut.rs/4x99MDA</a></div>
+        <div class="tweet-translation">美国资产管理公司股价下跌，因为投资者为私募信贷基金赎回的最新消息做好准备 <a href="http://reut.rs/4x99MDA" target="_blank" rel="noreferrer">http://reut.rs/4x99MDA</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 10</span>
+          <span class="tweet-stat retweet">🔄 6</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062249234917658723" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">19:03</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普政府正在取消科学家们表示没有替代品的传感器网络。</div>
+        <div class="tweet-translation">特朗普政府正在取消科学家们表示没有替代品的传感器网络。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 18</span>
+          <span class="tweet-stat retweet">🔄 8</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/business/status/2062248912069472454" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">19:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">这是该国最成功的女性最辉煌的一年，亿万富翁数量创纪录，因人工智能而财富飙升，总财富达到历史新高。</div>
+        <div class="tweet-translation">这是该国最成功的女性最辉煌的一年，亿万富翁数量创纪录，因人工智能而财富飙升，总财富达到历史新高。<br><br>阅读更多关于福布斯美国最富有的#SelfMadeWomen 2026排名的内容：<a href="https://forbes.com/sites/gracechung/2026/06/03/forbes-ranking-of-americas-richest-self-made-women-2026/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…" target="_blank" rel="noreferrer">https://forbes.com/sites/gracechung/2026/06/03/forbes-ranking-of-americas-richest-self-made-women-2026/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…</a><br>: Anthropic; Gabriela Hasbun for Forbes; Alexander Karnyukhin for Forbes</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 29</span>
+          <span class="tweet-stat retweet">🔄 7</span>
+          <span class="tweet-stat comment">💬 7</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2062248142989578262" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">19:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国近四分之一的大学面临关闭风险。高等教育的商业模式为何不再奏效？在本周的路透社经济学世界播客中，与@hechingerreport的@jonmarcusboston一起了解详情 <a href="https://reut.rs/4uHHWwK" target="_blank" rel="noreferrer">https://reut.rs/4uHHWwK</a></div>
+        <div class="tweet-translation">美国近四分之一的大学面临关闭风险。高等教育的商业模式为何不再奏效？在本周的路透社经济学世界播客中，与@hechingerreport的@jonmarcusboston一起了解详情 <a href="https://reut.rs/4uHHWwK" target="_blank" rel="noreferrer">https://reut.rs/4uHHWwK</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 18</span>
+          <span class="tweet-stat retweet">🔄 14</span>
+          <span class="tweet-stat comment">💬 9</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062248010864550017" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">T</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Economist</div>
+          <div class="tweet-username">@TheEconomist</div>
+        </div>
+        <div class="tweet-time">19:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">许多专家认为，监督美国情报机构的机构需要改革。比尔·普尔特并不是他们所想的</div>
+        <div class="tweet-translation">许多专家认为，监督美国情报机构的机构需要改革。比尔·普尔特并不是他们所想的</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/TheEconomist/status/2062247987124773344" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">18:50</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">在首位女性被任命担任教会高级职务时，教皇利奥任命了美国天主教媒体集团EWTN的高管玛丽亚·蒙特塞拉特·阿尔瓦拉多，领导梵蒂冈的通讯部门 <a href="https://reut.rs/49FPTtY" target="_blank" rel="noreferrer">https://reut.rs/49FPTtY</a></div>
+        <div class="tweet-translation">在首位女性被任命担任教会高级职务时，教皇利奥任命了美国天主教媒体集团EWTN的高管玛丽亚·蒙特塞拉特·阿尔瓦拉多，领导梵蒂冈的通讯部门 <a href="https://reut.rs/49FPTtY" target="_blank" rel="noreferrer">https://reut.rs/49FPTtY</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 95</span>
+          <span class="tweet-stat retweet">🔄 27</span>
+          <span class="tweet-stat comment">💬 10</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2062245431837442484" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">18:49</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">伊朗战争已经导致了有充分记录的价格飙升和短缺，影响了美国人依赖的一系列物品。美国在战斗中使用的庞大弹药数量，加上运往乌克兰的武器，已经让许多美国本土实体在寻找钨资源。</div>
+        <div class="tweet-translation">伊朗战争已经导致了有充分记录的价格飙升和短缺，影响了美国人依赖的一系列物品。美国在战斗中使用的庞大弹药数量，加上运往乌克兰的武器，已经让许多美国本土实体在寻找钨资源。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 30</span>
+          <span class="tweet-stat retweet">🔄 17</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2062245187934417278" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">18:36</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">财政部长贝森特认为，在经历了一段动荡时期后，美国和中国的关系现在具有良好的稳定性。但是，“我们拥有现代历史上最不平衡、最失衡的经济。”</div>
+        <div class="tweet-translation">财政部长贝森特认为，在经历了一段动荡时期后，美国和中国的关系现在具有良好的稳定性。但是，“我们拥有现代历史上最不平衡、最失衡的经济。”</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 22</span>
+          <span class="tweet-stat retweet">🔄 7</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2062242062385271035" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">J</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Japan Times</div>
+          <div class="tweet-username">@japantimes</div>
+        </div>
+        <div class="tweet-time">18:27</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">巴西总统路易斯·伊纳西奥·卢拉·达席尔瓦找到了一种利用新美国关税威胁的方法：责怪他的主要挑战者。</div>
+        <div class="tweet-translation">巴西总统路易斯·伊纳西奥·卢拉·达席尔瓦找到了一种利用新美国关税威胁的方法：责怪他的主要挑战者。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 670</span>
+          <span class="tweet-stat retweet">🔄 197</span>
+          <span class="tweet-stat comment">💬 94</span>
+        </div>
+        <a href="https://x.com/japantimes/status/2062239650278711562" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Financial Times</div>
+          <div class="tweet-username">@FT</div>
+        </div>
+        <div class="tweet-time">18:22</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普的伊朗战争使美国石油储备降至2004年以来的最低水平</div>
+        <div class="tweet-translation">特朗普的伊朗战争使美国石油储备降至2004年以来的最低水平</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 255</span>
+          <span class="tweet-stat retweet">🔄 121</span>
+          <span class="tweet-stat comment">💬 26</span>
+        </div>
+        <a href="https://x.com/FT/status/2062238436648534124" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">18:22</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">最近几周，美国大部分地区的经济活动以轻微至适度的速度增长，就业情况几乎没有变化，美联储表示</div>
+        <div class="tweet-translation">最近几周，美国大部分地区的经济活动以轻微至适度的速度增长，就业情况几乎没有变化，美联储表示</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 3</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 7</span>
+        </div>
+        <a href="https://x.com/business/status/2062238421549031605" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Financial Times</div>
+          <div class="tweet-username">@FT</div>
+        </div>
+        <div class="tweet-time">18:16</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国财政部长坚称，由伊朗战争引发的通货膨胀激增将只是一个“短期波动”。<a href="https://ft.trib.al/z7Wj5NG" target="_blank" rel="noreferrer">https://ft.trib.al/z7Wj5NG</a></div>
+        <div class="tweet-translation">美国财政部长坚称，由伊朗战争引发的通货膨胀激增将只是一个“短期波动”。<a href="https://ft.trib.al/z7Wj5NG" target="_blank" rel="noreferrer">https://ft.trib.al/z7Wj5NG</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 42</span>
+          <span class="tweet-stat retweet">🔄 14</span>
+          <span class="tweet-stat comment">💬 20</span>
+        </div>
+        <a href="https://x.com/FT/status/2062237032630428073" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">18:06</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">在唐纳德·特朗普的第二届政府中，一份工作几乎永远不够用</div>
+        <div class="tweet-translation">在唐纳德·特朗普的第二届政府中，一份工作几乎永远不够用</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 17</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/business/status/2062234475640025497" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg em Português</div>
+          <div class="tweet-username">@BBGEmPortugues</div>
+        </div>
+        <div class="tweet-time">12:27</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">RAÍZEN：Raízen 向债权人提交了重组的最终提案，这是几个月前开始的重要步骤，旨在完成债务的庭外重新谈判</div>
+        <div class="tweet-translation">RAÍZEN：Raízen 向债权人提交了重组的最终提案，这是几个月前开始的重要步骤，旨在完成债务的庭外重新谈判  <br>@rachelgamarski @gbellottiaze @dayannesousa</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">USA</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 9</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/BBGEmPortugues/status/2062149230798512295" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    </main>
+
+    <footer class="footer">
+      <p>由 Twitter 日报 Skill 自动生成 · 2026-06-04 07:10 (UTC+8)</p>
+    </footer>
+  </div>
+</body>
+</html>
