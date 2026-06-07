@@ -1,31 +1,11 @@
 {
-  "updatedAt": "2026-05-29T04:18:39.453Z",
+  "updatedAt": "2026-06-07T01:12:30.950Z",
   "lists": [
     {
       "name": "https://x.com/i/lists/2031372145008484665",
       "url": "https://x.com/i/lists/2031372145008484665",
-      "members": [
-        {
-          "username": "blueforestxd",
-          "displayName": "blueforestxd"
-        },
-        {
-          "username": "business",
-          "displayName": "business"
-        },
-        {
-          "username": "FT",
-          "displayName": "FT"
-        },
-        {
-          "username": "Reuters",
-          "displayName": "Reuters"
-        },
-        {
-          "username": "cnni",
-          "displayName": "cnni"
-        }
-      ]
+      "members": [],
+      "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://x.com/i/lists/2031372145008484665\", waiting until \"domcontentloaded\"\u001b[22m\n"
     }
   ]
 }
