@@ -10,6 +10,7 @@ function parseArgs(argv) {
     else if (argv[i] === "--output" && argv[i + 1]) args.output = argv[++i];
     else if (argv[i] === "--template" && argv[i + 1]) args.template = argv[++i];
     else if (argv[i] === "--reports-dir" && argv[i + 1]) args.reportsDir = argv[++i];
+    else if (argv[i] === "--summary" && argv[i + 1]) args.summary = argv[++i];
   }
   return args;
 }
@@ -89,6 +90,82 @@ function parseBlocks(markdown) {
   });
 }
 
+function parseSummary(markdown) {
+  const sections = {};
+  const matches = [...markdown.matchAll(/^## (.+)\n([\s\S]*?)(?=^## |\s*$)/gm)];
+  for (const [, heading, content] of matches) {
+    sections[heading.trim()] = content.trim();
+  }
+  return {
+    overview: sections["今日概览"] || "",
+    focus: (sections["重点关注"] || "")
+      .split("\n")
+      .map((line) => line.replace(/^- /, "").trim())
+      .filter(Boolean),
+    topics: (sections["涉及主题"] || "")
+      .split("\n")
+      .map((line) => line.replace(/^- /, "").trim())
+      .filter(Boolean),
+    risks: (sections["风险与机会"] || "")
+      .split("\n")
+      .map((line) => line.replace(/^- /, "").trim())
+      .filter(Boolean),
+  };
+}
+
+function buildSummary(summaryPath) {
+  if (!summaryPath || !fs.existsSync(summaryPath)) {
+    return `    <section class="summary-card">
+      <div class="summary-header">
+        <span class="summary-kicker">今日摘要</span>
+        <h2>重点信息概览</h2>
+      </div>
+      <div class="summary-section">
+        <p>今日暂无总结，请查看下方筛选推文。</p>
+      </div>
+    </section>`;
+  }
+
+  const summary = parseSummary(fs.readFileSync(summaryPath, "utf8"));
+  const focusHtml = summary.focus.length
+    ? `<div class="summary-section">
+        <h3>重点关注</h3>
+        <ul>
+          ${summary.focus.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n          ")}
+        </ul>
+      </div>`
+    : "";
+  const risksHtml = summary.risks.length
+    ? `<div class="summary-section">
+        <h3>风险与机会</h3>
+        <ul>
+          ${summary.risks.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n          ")}
+        </ul>
+      </div>`
+    : "";
+  const tagsHtml = summary.topics.length
+    ? `<div class="summary-tags">
+        ${summary.topics.map((item) => `<span>${escapeHtml(item)}</span>`).join("\n        ")}
+      </div>`
+    : "";
+
+  return `    <section class="summary-card">
+      <div class="summary-header">
+        <span class="summary-kicker">今日摘要</span>
+        <h2>重点信息概览</h2>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-section">
+          <h3>今日概览</h3>
+          <p>${formatMultiline(summary.overview || "今日暂无总结，请查看下方筛选推文。")}</p>
+        </div>
+${focusHtml}
+${risksHtml}
+      </div>
+${tagsHtml}
+    </section>`;
+}
+
 function buildCard(tweet) {
   const avatar = tweet.username.replace(/^@/, "").charAt(0).toUpperCase() || "T";
   const timeDisplay = tweet.time.split(" ").slice(1).join(" ") || tweet.time;
@@ -152,6 +229,7 @@ function main() {
   const outputPath = path.resolve(args.output);
   const templatePath = path.resolve(args.template);
   const reportsDir = path.resolve(args.reportsDir);
+  const summaryPath = args.summary ? path.resolve(args.summary) : inputPath.replace(/_translated\.md$/, "_summary.md");
 
   const markdown = fs.readFileSync(inputPath, "utf8");
   const tweets = parseBlocks(markdown);
@@ -163,6 +241,7 @@ function main() {
   const nav = getNav(outputPath, reportsDir);
 
   let template = fs.readFileSync(templatePath, "utf8");
+  template = template.replace("<!-- SUMMARY_PLACEHOLDER -->", buildSummary(summaryPath));
   template = template.replace("<!-- TWEETS_PLACEHOLDER -->", tweets.map(buildCard).join("\n"));
   template = template.replace(/\{\{DATE\}\}/g, date);
   template = template.replace(/\{\{DISPLAY_DATE\}\}/g, formatDateCN(date));
