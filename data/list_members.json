@@ -1,11 +1,51 @@
 {
-  "updatedAt": "2026-06-07T01:12:30.950Z",
+  "updatedAt": "2026-06-29T23:03:25.201Z",
   "lists": [
     {
-      "name": "https://x.com/i/lists/2031372145008484665",
+      "name": "要查看键盘快捷键，按下问号查看键盘快捷键",
       "url": "https://x.com/i/lists/2031372145008484665",
-      "members": [],
-      "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://x.com/i/lists/2031372145008484665\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "members": [
+        {
+          "username": "blueforestxd",
+          "displayName": "blueforestxd"
+        },
+        {
+          "username": "business",
+          "displayName": "business"
+        },
+        {
+          "username": "japantimes",
+          "displayName": "japantimes"
+        },
+        {
+          "username": "FT",
+          "displayName": "FT"
+        },
+        {
+          "username": "Reuters",
+          "displayName": "Reuters"
+        },
+        {
+          "username": "TheEconomist",
+          "displayName": "TheEconomist"
+        },
+        {
+          "username": "Forbes",
+          "displayName": "Forbes"
+        },
+        {
+          "username": "YahooNews",
+          "displayName": "YahooNews"
+        },
+        {
+          "username": "nytimes",
+          "displayName": "nytimes"
+        },
+        {
+          "username": "WSJ",
+          "displayName": "WSJ"
+        }
+      ]
     }
   ]
 }
