@@ -1,0 +1,3763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter 日报 - 2026-09-17</title>
+  <meta name="description" content="2026-09-17 Twitter 列表精选推文日报">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: linear-gradient(135deg, rgba(30, 30, 50, 0.8), rgba(20, 20, 35, 0.9));
+      --bg-card-hover: linear-gradient(135deg, rgba(40, 40, 65, 0.9), rgba(25, 25, 45, 0.95));
+      --border-card: rgba(100, 100, 180, 0.15);
+      --border-card-hover: rgba(120, 120, 200, 0.3);
+      --text-primary: #e8e8f0;
+      --text-secondary: #9090b0;
+      --text-muted: #606080;
+      --accent-blue: #6C8EF2;
+      --accent-purple: #9B6EF3;
+      --accent-gradient: linear-gradient(135deg, #6C8EF2, #9B6EF3);
+      --accent-glow: rgba(108, 142, 242, 0.15);
+      --link-color: #7BA4F7;
+      --stat-like: #F06292;
+      --stat-retweet: #4DD0A0;
+      --stat-comment: #64B5F6;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+      --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5);
+      --radius: 16px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 600px 400px at 20% 20%, rgba(108, 142, 242, 0.06), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 80%, rgba(155, 110, 243, 0.05), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Top nav */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding: 12px 0;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(108, 142, 242, 0.08);
+      border: 1px solid rgba(108, 142, 242, 0.15);
+      border-radius: 10px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all var(--transition);
+    }
+
+    .nav-link:hover {
+      background: rgba(108, 142, 242, 0.15);
+      border-color: rgba(108, 142, 242, 0.3);
+    }
+
+    .nav-link.disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .nav-home { font-size: 14px; }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100px; height: 2px;
+      background: var(--accent-gradient);
+      border-radius: 1px;
+    }
+
+    .header-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-blue);
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stats-bar .num {
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    /* Summary */
+    .summary-card {
+      background: linear-gradient(135deg, rgba(108, 142, 242, 0.12), rgba(155, 110, 243, 0.08));
+      border: 1px solid rgba(108, 142, 242, 0.22);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+    }
+
+    .summary-header {
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(100, 100, 180, 0.12);
+    }
+
+    .summary-kicker {
+      display: inline-block;
+      margin-bottom: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-blue);
+      letter-spacing: 0.4px;
+    }
+
+    .summary-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .summary-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .summary-section h3 {
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .summary-section p,
+    .summary-section li {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .summary-section ul {
+      padding-left: 20px;
+    }
+
+    .summary-section li + li {
+      margin-top: 6px;
+    }
+
+    .summary-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .summary-tags span {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 12px;
+      background: rgba(108, 142, 242, 0.12);
+      border: 1px solid rgba(108, 142, 242, 0.22);
+      color: var(--accent-blue);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* Tweet Card */
+    .tweet-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tweet-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(108, 142, 242, 0.3), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-card-hover);
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .tweet-card:hover::before { opacity: 1; }
+
+    .tweet-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tweet-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: white;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .tweet-author-info { flex: 1; min-width: 0; }
+
+    .tweet-display-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tweet-username {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .tweet-time {
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .tweet-content { margin-bottom: 14px; }
+
+    .tweet-original {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-translation {
+      font-size: 15px;
+      color: var(--text-primary);
+      line-height: 1.8;
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+
+    .tweet-translation::before {
+      content: '🇨🇳';
+      margin-right: 6px;
+      font-size: 13px;
+    }
+
+    .tweet-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(100, 100, 180, 0.08);
+    }
+
+    .tweet-stats {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+    }
+
+    .tweet-stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .tweet-stat.like:hover { color: var(--stat-like); }
+    .tweet-stat.retweet:hover { color: var(--stat-retweet); }
+    .tweet-stat.comment:hover { color: var(--stat-comment); }
+
+    .tweet-link {
+      font-size: 12px;
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.8;
+      transition: opacity var(--transition);
+    }
+
+    .tweet-link:hover { opacity: 1; text-decoration: underline; }
+
+    /* Keyword Tags */
+    .keyword-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .keyword-tag {
+      display: inline-block;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 10px;
+      color: var(--accent-blue);
+      background: rgba(108, 142, 242, 0.1);
+      border: 1px solid rgba(108, 142, 242, 0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .keyword-tag::before {
+      content: '#';
+      opacity: 0.6;
+      margin-right: 1px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 16px 12px 60px; }
+      .header h1 { font-size: 22px; }
+      .summary-card { padding: 18px; }
+      .summary-header h2 { font-size: 18px; }
+      .tweet-card { padding: 18px; }
+      .stats-bar { gap: 16px; }
+      .top-nav { flex-wrap: wrap; gap: 8px; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tweet-card {
+      animation: fadeInUp 0.4s ease forwards;
+      opacity: 0;
+    }
+
+    .tweet-card:nth-child(1) { animation-delay: 0.05s; }
+    .tweet-card:nth-child(2) { animation-delay: 0.1s; }
+    .tweet-card:nth-child(3) { animation-delay: 0.15s; }
+    .tweet-card:nth-child(4) { animation-delay: 0.2s; }
+    .tweet-card:nth-child(5) { animation-delay: 0.25s; }
+    .tweet-card:nth-child(6) { animation-delay: 0.3s; }
+    .tweet-card:nth-child(7) { animation-delay: 0.35s; }
+    .tweet-card:nth-child(8) { animation-delay: 0.4s; }
+    .tweet-card:nth-child(9) { animation-delay: 0.45s; }
+    .tweet-card:nth-child(10) { animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="top-nav">
+      <a href="2026-09-16.html" class="nav-link ">← 前一天</a>
+      <a href="../index.html" class="nav-link nav-home">📋 首页</a>
+      <a href="#" class="nav-link disabled">后一天 →</a>
+    </nav>
+
+    <header class="header">
+      <div class="header-label">📡 Daily Report</div>
+      <h1>2026 年 9 月 17 日 周四</h1>
+      <p class="subtitle">Twitter 列表日报 · 自动翻译</p>
+      <div class="stats-bar">
+        <span>📝 共 <span class="num">129</span> 条推文</span>
+        <span>🕐 过去 24 小时</span>
+        <span>📦 生成于 2026-09-17 07:15</span>
+      </div>
+    </header>
+
+        <section class="summary-card">
+      <div class="summary-header">
+        <span class="summary-kicker">今日摘要</span>
+        <h2>重点信息概览</h2>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-section">
+          <h3>今日概览</h3>
+          <p>今日核心主线围绕美联储三年来的首次加息（25个基点）展开，主席沃什强调通胀过高并暗示年内再加一次，特朗普对此强烈抨击，央行独立性与利率路径成为市场焦点。受加息及美伊冲突引发的能源价格上涨影响，美股承压，消费者面临油价与借贷成本双重压力。需要注意：本次抓取达到 100 次滚动上限，303 条原始推文实际仅覆盖 2026-09-17 00:57–07:01（UTC+8），并非完整 24 小时，因此结论仅供早间快速浏览。</p>
+        </div>
+<div class="summary-section">
+        <h3>重点关注</h3>
+        <ul>
+          <li><strong>美联储加息及“更高更久”预期落地</strong>：沃什上任首秀即加息25个基点，点阵图暗示年内再加一次，旨在更快实现2%通胀目标。后续看点：高利率对银行体系和债务市场的连锁反应，以及通胀能否在加息下如期放缓。</li>
+          <li><strong>特朗普与美联储的正面冲突</strong>：特朗普公开要求降息至1%以下，沃什以“独立性是双向街道”强硬回击，拒绝透露与总统互动细节。后续看点：白宫是否会通过人事或贸易政策干预美联储决策，央行独立性信誉面临考验。</li>
+          <li><strong>高油价与高利率对实体经济的双重挤压</strong>：美伊冲突导致柴油价格创历史新高（突破6美元/加仑），运输业发出警告，叠加强劲零售数据支撑加息，家庭能源与借贷账单激增。后续看点：运输成本向核心通胀的传导，以及消费韧性何时被高成本击溃。</li>
+          <li><strong>特朗普产业政策对新能源与供应链的冲击</strong>：取消7500美元EV税收抵免及移民突袭，导致美国电动车行业落后于中欧，韩国技术人员撤离致使LG电池工厂延迟数月。后续看点：相关产业链资本开支是否大规模撤出，以及传统化石能源获政策倾斜后的产能重塑。</li>
+        </ul>
+      </div>
+<div class="summary-section">
+        <h3>风险与机会</h3>
+        <ul>
+          <li><strong>利率风险</strong>：若年内再次加息，银行、房地产及高估值成长股可能继续承压；现金流稳健和短久期资产相对受益。</li>
+          <li><strong>通胀风险</strong>：能源与运输成本若持续上升，可能延缓通胀回落并强化“更高更久”的利率预期。</li>
+          <li><strong>产业链机会与扰动</strong>：美国新能源政策收缩可能令部分资本开支转向亚洲和欧洲，但移民与技术人员流动限制也会增加项目延期风险。</li>
+          <li><strong>信息偏差</strong>：样本时间窗较短，且部分中文正文来自 X 自动翻译，重大判断应结合原文与后续全天信息复核。</li>
+        </ul>
+      </div>
+      </div>
+<div class="summary-tags">
+        <span>#美联储加息</span>
+        <span>#通胀与利率</span>
+        <span>#特朗普与央行独立性</span>
+        <span>#能源价格</span>
+        <span>#美伊局势</span>
+        <span>#电动车与供应链</span>
+      </div>
+    </section>
+
+    <main id="tweets-container">
+          <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">06:55</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国政府机构正在追踪全球约20艘运输船只所面临的网络威胁，美国官员表示</div>
+        <div class="tweet-translation">美国政府机构正在追踪全球约20艘运输船只所面临的网络威胁，美国官员表示</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 2</span>
+          <span class="tweet-stat retweet">🔄 0</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2100357851818422625" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">06:53</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">三年来的第一次，美联储加息了。@johnauthers @davidgura 和 @Eloisa_mdeo 讨论今年很可能再次加息的原因。<br><br>🎙️ 立即收听：<a href="https://link.podtrac.com/3mw4ygxn" target="_blank" rel="noreferrer">https://link.podtrac.com/3mw4ygxn</a></div>
+        <div class="tweet-translation">三年来的第一次，美联储加息了。@johnauthers @davidgura 和 @Eloisa_mdeo 讨论今年很可能再次加息的原因。<br><br>🎙️ 立即收听：<a href="https://link.podtrac.com/3mw4ygxn" target="_blank" rel="noreferrer">https://link.podtrac.com/3mw4ygxn</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 3</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/business/status/2100357517167448380" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">06:45</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国财政部召集全球金融机构推进对伊朗制裁 <a href="https://reut.rs/3TbMEVX" target="_blank" rel="noreferrer">https://reut.rs/3TbMEVX</a></div>
+        <div class="tweet-translation">美国财政部召集全球金融机构推进对伊朗制裁 <a href="https://reut.rs/3TbMEVX" target="_blank" rel="noreferrer">https://reut.rs/3TbMEVX</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 6</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100355345981788548" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">06:45</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">外国持有的美国国债在7月下降至10月以来的最低水平，主要由法国和加拿大的库存下降所致</div>
+        <div class="tweet-translation">外国持有的美国国债在7月下降至10月以来的最低水平，主要由法国和加拿大的库存下降所致</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 5</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/business/status/2100355336636883151" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">06:40</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">US senators seek more information on Trump's Saudi nuclear proposal, letter says <a href="https://reut.rs/4j7BcoW" target="_blank" rel="noreferrer">https://reut.rs/4j7BcoW</a></div>
+        <div class="tweet-translation">据一封信函显示，美国参议员要求就特朗普提出的沙特核能方案提供更多信息 <a href="https://reut.rs/4j7BcoW" target="_blank" rel="noreferrer">https://reut.rs/4j7BcoW</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">Trump</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 7</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100354106850242778" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">06:34</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">吉姆·克莱默警告称，现在买入股票意味着“与美联储对抗”</div>
+        <div class="tweet-translation">吉姆·克莱默警告称，现在买入股票意味着“与美联储对抗”</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100352747182674009" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">06:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">&quot;Data point dependence is a dangerous preoccupation,&quot; Federal Reserve Chairman Kevin Warsh says.</div>
+        <div class="tweet-translation">美联储主席凯文·沃什表示：‘过度依赖单个数据点是一种危险的执念。’</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">Fed</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 3</span>
+          <span class="tweet-stat retweet">🔄 4</span>
+          <span class="tweet-stat comment">💬 8</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100351638548398221" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">06:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">唐纳德·特朗普总统的幕僚长苏西·怀尔斯宣布，在今年接受乳腺癌治疗后，她已“无癌”。</div>
+        <div class="tweet-translation">唐纳德·特朗普总统的幕僚长苏西·怀尔斯宣布，在今年接受乳腺癌治疗后，她已“无癌”。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 16</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/business/status/2100351583305207942" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">06:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储政策制定者预计今年将再加息一次 <a href="https://reut.rs/3T46O4n" target="_blank" rel="noreferrer">https://reut.rs/3T46O4n</a></div>
+        <div class="tweet-translation">美联储政策制定者预计今年将再加息一次 <a href="https://reut.rs/3T46O4n" target="_blank" rel="noreferrer">https://reut.rs/3T46O4n</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 5</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100351575780687887" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">06:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国国会警察局资深警官卡尼莎·门多萨（Carneysha Mendoza），一位24岁的黑人女性老兵，她在1月6日骚乱中受伤，向该执法机构提起诉讼，指控其因她的种族和性别而拒绝提拔她担任更高职位。<br>阅读更多：<a href="https://forbes.com/sites/antoniopequenoiv/2026/09/16/capitol-police-officer-who-suffered-chemical-burns-on-jan-6-sues-agency-over-alleged-discrimination/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…" target="_blank" rel="noreferrer">https://forbes.com/sites/antoniopequenoiv/2026/09/16/capitol-police-officer-who-suffered-chemical-burns-on-jan-6-sues-agency-over-alleged-discrimination/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…</a><br>📸：Bill Clark/CQ-Roll Call, Inc via Getty Images</div>
+        <div class="tweet-translation">美国国会警察局资深警官卡尼莎·门多萨（Carneysha Mendoza），一位24岁的黑人女性老兵，她在1月6日骚乱中受伤，向该执法机构提起诉讼，指控其因她的种族和性别而拒绝提拔她担任更高职位。<br>阅读更多：<a href="https://forbes.com/sites/antoniopequenoiv/2026/09/16/capitol-police-officer-who-suffered-chemical-burns-on-jan-6-sues-agency-over-alleged-discrimination/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…" target="_blank" rel="noreferrer">https://forbes.com/sites/antoniopequenoiv/2026/09/16/capitol-police-officer-who-suffered-chemical-burns-on-jan-6-sues-agency-over-alleged-discrimination/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…</a><br>📸：Bill Clark/CQ-Roll Call, Inc via Getty Images</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 5</span>
+          <span class="tweet-stat retweet">🔄 0</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2100351529198964756" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">06:22</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">运输公司，美国经济的命脉，随着柴油成本创下纪录，正发出警告信号。<br><br>柴油价格——这种用于驱动卡车和火车的燃料类型——周三达到历史新高，约为每加仑6.31美元，据AAA数据。柴油价格较一年前飙升超过70%，分析师将此归因于美国与伊朗战争引发的供应冲击。</div>
+        <div class="tweet-translation">运输公司，美国经济的命脉，随着柴油成本创下纪录，正发出警告信号。<br><br>柴油价格——这种用于驱动卡车和火车的燃料类型——周三达到历史新高，约为每加仑6.31美元，据AAA数据。柴油价格较一年前飙升超过70%，分析师将此归因于美国与伊朗战争引发的供应冲击。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100349722984698007" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">06:20</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">法国财政部长表示，呼吁放缓人工智能发展的举措有利于美国行业领导者 <a href="https://reut.rs/4hfgVeI" target="_blank" rel="noreferrer">https://reut.rs/4hfgVeI</a></div>
+        <div class="tweet-translation">法国财政部长表示，呼吁放缓人工智能发展的举措有利于美国行业领导者 <a href="https://reut.rs/4hfgVeI" target="_blank" rel="noreferrer">https://reut.rs/4hfgVeI</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 4</span>
+          <span class="tweet-stat comment">💬 7</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100349046120456389" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">W</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Wall Street Journal</div>
+          <div class="tweet-username">@WSJ</div>
+        </div>
+        <div class="tweet-time">06:15</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席凯文·沃尔什新闻发布会要点：对经济的乐观展望、未来更多加息的暗示等等。</div>
+        <div class="tweet-translation">美联储主席凯文·沃尔什新闻发布会要点：对经济的乐观展望、未来更多加息的暗示等等。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 15</span>
+          <span class="tweet-stat retweet">🔄 6</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/WSJ/status/2100347750869033054" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">06:11</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储周三批准了其三年多来的首次加息。<a href="https://cnb.cx/4yFUOVJ" target="_blank" rel="noreferrer">https://cnb.cx/4yFUOVJ</a></div>
+        <div class="tweet-translation">美联储周三批准了其三年多来的首次加息。<a href="https://cnb.cx/4yFUOVJ" target="_blank" rel="noreferrer">https://cnb.cx/4yFUOVJ</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 21</span>
+          <span class="tweet-stat retweet">🔄 6</span>
+          <span class="tweet-stat comment">💬 10</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100346775957545185" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">06:10</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储加息引发市场抛售后，股指期货变动不大：实时更新</div>
+        <div class="tweet-translation">美联储加息引发市场抛售后，股指期货变动不大：实时更新</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 3</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100346739077034403" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">06:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普取消7500美元税收抵免的决定，是汽车高管们最常提到的导致美国电动车势头受挫的政策变化。但这只是众多支持化石燃料的措施中最突出的一例，这些措施已经严重削弱了该行业 1/5</div>
+        <div class="tweet-translation">特朗普取消7500美元税收抵免的决定，是汽车高管们最常提到的导致美国电动车势头受挫的政策变化。但这只是众多支持化石燃料的措施中最突出的一例，这些措施已经严重削弱了该行业 1/5</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 10</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 8</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100343982329045091" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">06:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">2025年9月，美国移民与海关执法局对佐治亚州一家在建电池工厂进行突袭，该工厂由现代汽车和LG能源解决方案共同拥有，导致475人被捕 4/5</div>
+        <div class="tweet-translation">2025年9月，美国移民与海关执法局对佐治亚州一家在建电池工厂进行突袭，该工厂由现代汽车和LG能源解决方案共同拥有，导致475人被捕 4/5</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 3</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100343983600029733" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">06:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">韩国的一些工人现在不愿意前往美国，这导致LG的几家美国工厂的运营延迟了数月，两位知情人士向路透社透露。5/5 <a href="https://reut.rs/4AkSdlS" target="_blank" rel="noreferrer">https://reut.rs/4AkSdlS</a></div>
+        <div class="tweet-translation">韩国的一些工人现在不愿意前往美国，这导致LG的几家美国工厂的运营延迟了数月，两位知情人士向路透社透露。5/5 <a href="https://reut.rs/4AkSdlS" target="_blank" rel="noreferrer">https://reut.rs/4AkSdlS</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 5</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100343984023572906" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">06:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普的反电动汽车政策颠覆了一波汽车制造业投资浪潮，分析师表示，这些措施正在让美国在电动汽车领域进一步落后于中国和欧洲。<br><br>在回应路透社提问时，白宫发言人库什·德赛并未直接谈及特朗普反电动汽车政策对汽车制造业就业的影响。他指责拜登通过补贴刺激了电动汽车的“人为需求”。</div>
+        <div class="tweet-translation">特朗普的反电动汽车政策颠覆了一波汽车制造业投资浪潮，分析师表示，这些措施正在让美国在电动汽车领域进一步落后于中国和欧洲。<br><br>在回应路透社提问时，白宫发言人库什·德赛并未直接谈及特朗普反电动汽车政策对汽车制造业就业的影响。他指责拜登通过补贴刺激了电动汽车的“人为需求”。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 8</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100343973361676491" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">E</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Edward Wong</div>
+          <div class="tweet-username">@ewong</div>
+        </div>
+        <div class="tweet-time">05:57</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">@nytimes 新消息：美国情报报告警告，如果特朗普继续向沙特阿拉伯出售F-35战斗机，中国可能会窃取或获取美国的战机技术。五角大楼国防情报局对中沙军事伙伴关系表示担忧。</div>
+        <div class="tweet-translation">@nytimes 新消息：美国情报报告警告，如果特朗普继续向沙特阿拉伯出售F-35战斗机，中国可能会窃取或获取美国的战机技术。五角大楼国防情报局对中沙军事伙伴关系表示担忧。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 19</span>
+          <span class="tweet-stat retweet">🔄 10</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/ewong/status/2100343458854543466" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">05:50</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普在美联储三年来的首次加息后对利率大肆抨击<br><a href="https://go.forbes.com/pKo35M" target="_blank" rel="noreferrer">https://go.forbes.com/pKo35M</a></div>
+        <div class="tweet-translation">特朗普在美联储三年来的首次加息后对利率大肆抨击<br><a href="https://go.forbes.com/pKo35M" target="_blank" rel="noreferrer">https://go.forbes.com/pKo35M</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2100341481953226755" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">J</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Jake Bleiberg</div>
+          <div class="tweet-username">@JZBleiberg</div>
+        </div>
+        <div class="tweet-time">05:49</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">新：美国政府机构正在追踪全球约 20 艘运输船只所面临的网络威胁，据熟悉情况的美国官员透露。<br><br>W/@mylesmill @rj_gallagher</div>
+        <div class="tweet-translation">新：美国政府机构正在追踪全球约 20 艘运输船只所面临的网络威胁，据熟悉情况的美国官员透露。<br><br>W/@mylesmill @rj_gallagher</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 9</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/JZBleiberg/status/2100341284556665115" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">05:45</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">马克·卡尼总理努力将与欧洲的关系正式化，这一举措得到了加拿大人的广泛支持，他们对美国日益失望，因为唐纳德·特朗普总统的敌意。</div>
+        <div class="tweet-translation">马克·卡尼总理努力将与欧洲的关系正式化，这一举措得到了加拿大人的广泛支持，他们对美国日益失望，因为唐纳德·特朗普总统的敌意。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 73</span>
+          <span class="tweet-stat retweet">🔄 11</span>
+          <span class="tweet-stat comment">💬 19</span>
+        </div>
+        <a href="https://x.com/business/status/2100340243605885045" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">05:45</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">强劲的美国零售销售数据凸显了经济的韧性，通胀压力正在加剧 <a href="https://reut.rs/4rh0L91" target="_blank" rel="noreferrer">https://reut.rs/4rh0L91</a></div>
+        <div class="tweet-translation">强劲的美国零售销售数据凸显了经济的韧性，通胀压力正在加剧 <a href="https://reut.rs/4rh0L91" target="_blank" rel="noreferrer">https://reut.rs/4rh0L91</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 1</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100340241575854341" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">05:44</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">OpenAI CEO Sam Altman will attend state dinner for Trump-Xi summit in Washington</div>
+        <div class="tweet-translation">OpenAI 首席执行官山姆·奥尔特曼将出席在华盛顿举行的特朗普—习近平峰会国宴。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">Trump</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 7</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100340137334841730" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">05:35</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">投资者对美联储加息和市场抛售的反应：为“更高更久的”利率做好准备</div>
+        <div class="tweet-translation">投资者对美联储加息和市场抛售的反应：为“更高更久的”利率做好准备</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100337681242661181" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">W</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Wall Street Journal</div>
+          <div class="tweet-username">@WSJ</div>
+        </div>
+        <div class="tweet-time">05:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储周三将短期利率上调25个基点的举措，有望在银行体系和债务市场中产生连锁反应。<br><br>以下是影响的分解：</div>
+        <div class="tweet-translation">美联储周三将短期利率上调25个基点的举措，有望在银行体系和债务市场中产生连锁反应。<br><br>以下是影响的分解：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 11</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/WSJ/status/2100336446515098014" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">W</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Wall Street Journal</div>
+          <div class="tweet-username">@WSJ</div>
+        </div>
+        <div class="tweet-time">05:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席明确表示通胀仍是一个问题后，美国三大股指在过去八个交易日中的第七次收低。</div>
+        <div class="tweet-translation">美联储主席明确表示通胀仍是一个问题后，美国三大股指在过去八个交易日中的第七次收低。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 23</span>
+          <span class="tweet-stat retweet">🔄 7</span>
+          <span class="tweet-stat comment">💬 9</span>
+        </div>
+        <a href="https://x.com/WSJ/status/2100336427187757384" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">05:25</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美元走强，因为美联储政策制定者表示，在周三采取广受预期的行动加息后，今年晚些时候将再次加息。</div>
+        <div class="tweet-translation">美元走强，因为美联储政策制定者表示，在周三采取广受预期的行动加息后，今年晚些时候将再次加息。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 31</span>
+          <span class="tweet-stat retweet">🔄 9</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/business/status/2100335200441864398" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">T</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Economist</div>
+          <div class="tweet-username">@TheEconomist</div>
+        </div>
+        <div class="tweet-time">05:20</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">全球对黄金需求的激增已将 Bajo Cauca 转变为非法开采的狂野西部。免费注册，了解这对该地区女性意味着什么</div>
+        <div class="tweet-translation">全球对黄金需求的激增已将 Bajo Cauca 转变为非法开采的狂野西部。免费注册，了解这对该地区女性意味着什么</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">黄金</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 1</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/TheEconomist/status/2100333946621792431" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">05:20</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国众议院投票决定将亿万富翁莱昂·布莱克（Leon Black）移交司法部，因其拒绝配合对性犯罪者杰弗里·爱泼斯坦（Jeffrey Epstein）的调查而被指控藐视国会。</div>
+        <div class="tweet-translation">美国众议院投票决定将亿万富翁莱昂·布莱克（Leon Black）移交司法部，因其拒绝配合对性犯罪者杰弗里·爱泼斯坦（Jeffrey Epstein）的调查而被指控藐视国会。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 15</span>
+          <span class="tweet-stat retweet">🔄 6</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/business/status/2100333945787142482" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">05:15</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席凯文·沃尔什表示，央行将利率上调了25个基点，以应对通胀问题，通胀率仍高于2%的目标，并警告未来几个月借贷成本将进一步上升 <a href="https://reut.rs/4j7nPoK" target="_blank" rel="noreferrer">https://reut.rs/4j7nPoK</a></div>
+        <div class="tweet-translation">美联储主席凯文·沃尔什表示，央行将利率上调了25个基点，以应对通胀问题，通胀率仍高于2%的目标，并警告未来几个月借贷成本将进一步上升 <a href="https://reut.rs/4j7nPoK" target="_blank" rel="noreferrer">https://reut.rs/4j7nPoK</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 45</span>
+          <span class="tweet-stat retweet">🔄 16</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100332647813722296" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Financial Times</div>
+          <div class="tweet-username">@FT</div>
+        </div>
+        <div class="tweet-time">05:12</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储违抗特朗普，2023年以来首次加息</div>
+        <div class="tweet-translation">美联储违抗特朗普，2023年以来首次加息</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 41</span>
+          <span class="tweet-stat retweet">🔄 13</span>
+          <span class="tweet-stat comment">💬 14</span>
+        </div>
+        <a href="https://x.com/FT/status/2100332143595450730" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">05:11</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">联邦基金利率是银行之间相互借贷隔夜资金的利率。虽然消费者并非直接以该利率借贷，但美联储的政策对消费者的借贷成本和储蓄回报率有着重大影响。<br><br>以下是您需要了解的内容：</div>
+        <div class="tweet-translation">联邦基金利率是银行之间相互借贷隔夜资金的利率。虽然消费者并非直接以该利率借贷，但美联储的政策对消费者的借贷成本和储蓄回报率有着重大影响。<br><br>以下是您需要了解的内容：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 15</span>
+          <span class="tweet-stat retweet">🔄 7</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100331676761010596" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Businessweek</div>
+          <div class="tweet-username">@BW</div>
+        </div>
+        <div class="tweet-time">05:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">电影制作人约翰·威尔逊是一个了解混凝土的人，但是，就像美国其他许多地方一样，他似乎并不太喜欢它</div>
+        <div class="tweet-translation">电影制作人约翰·威尔逊是一个了解混凝土的人，但是，就像美国其他许多地方一样，他似乎并不太喜欢它</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 0</span>
+          <span class="tweet-stat retweet">🔄 0</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/BW/status/2100328978531688789" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">05:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国零售销售在8月份上涨幅度超出预期，广泛增长凸显了消费者支出的韧性。</div>
+        <div class="tweet-translation">美国零售销售在8月份上涨幅度超出预期，广泛增长凸显了消费者支出的韧性。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2100328936441839688" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">04:55</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">亿万富翁页岩油先驱哈罗德·哈姆的Continental Resources与委内瑞拉的一处油田达成交易，此举正值特朗普政府推动美国公司重振该国的石油部门之际。</div>
+        <div class="tweet-translation">亿万富翁页岩油先驱哈罗德·哈姆的Continental Resources与委内瑞拉的一处油田达成交易，此举正值特朗普政府推动美国公司重振该国的石油部门之际。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 12</span>
+          <span class="tweet-stat retweet">🔄 11</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/business/status/2100327652582216000" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">04:54</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">以下是从周三美联储加息中得出的五个关键要点</div>
+        <div class="tweet-translation">以下是从周三美联储加息中得出的五个关键要点</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 10</span>
+          <span class="tweet-stat retweet">🔄 0</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100327466933817503" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">A</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">AlphaSpace</div>
+          <div class="tweet-username">@alphaspace</div>
+        </div>
+        <div class="tweet-time">04:53</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普正在对美联储的决定发表看法。</div>
+        <div class="tweet-translation">特朗普正在对美联储的决定发表看法。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/alphaspace/status/2100327229959860456" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">04:52</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普要求在2023年以来首次美联储加息后将利率降至1%或更低</div>
+        <div class="tweet-translation">特朗普要求在2023年以来首次美联储加息后将利率降至1%或更低</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 40</span>
+          <span class="tweet-stat retweet">🔄 15</span>
+          <span class="tweet-stat comment">💬 85</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100326896609243383" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">04:45</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">🔊 美国联邦储备委员会加息以应对通货膨胀。这对美国经济意味着什么？在路透社世界新闻播客下午更新中了解更多 <a href="https://reut.rs/4h4PvYQ" target="_blank" rel="noreferrer">https://reut.rs/4h4PvYQ</a></div>
+        <div class="tweet-translation">🔊 美国联邦储备委员会加息以应对通货膨胀。这对美国经济意味着什么？在路透社世界新闻播客下午更新中了解更多 <a href="https://reut.rs/4h4PvYQ" target="_blank" rel="noreferrer">https://reut.rs/4h4PvYQ</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 9</span>
+          <span class="tweet-stat retweet">🔄 14</span>
+          <span class="tweet-stat comment">💬 9</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100325152445579419" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">04:35</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国作家邦妮·格里尔去世，享年77岁，英国媒体报道 <a href="https://reut.rs/4iyN8zP" target="_blank" rel="noreferrer">https://reut.rs/4iyN8zP</a></div>
+        <div class="tweet-translation">美国作家邦妮·格里尔去世，享年77岁，英国媒体报道 <a href="https://reut.rs/4iyN8zP" target="_blank" rel="noreferrer">https://reut.rs/4iyN8zP</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 14</span>
+          <span class="tweet-stat retweet">🔄 10</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100322617488023616" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">04:35</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">英国如何更接近欧洲？去加拿大。虽然这似乎是一条迂回的路线，但如果加拿大-欧盟会谈给这个北美国家带来任何有益的东西，英国就会想要分一杯羹。获取 @allegrastratton 的解读</div>
+        <div class="tweet-translation">英国如何更接近欧洲？去加拿大。虽然这似乎是一条迂回的路线，但如果加拿大-欧盟会谈给这个北美国家带来任何有益的东西，英国就会想要分一杯羹。获取 @allegrastratton 的解读</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 21</span>
+          <span class="tweet-stat retweet">🔄 9</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/business/status/2100322616934343131" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">04:33</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普关闭肯尼迪中心的决定“违法”，贝蒂议员在紧急听证会请求中向法官表示</div>
+        <div class="tweet-translation">特朗普关闭肯尼迪中心的决定“违法”，贝蒂议员在紧急听证会请求中向法官表示</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 12</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100322279305437276" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">04:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">加拿大的铝材加工商表示，由于特朗普政府最新的关税措施使他们的产品在边境以南失去竞争力，他们对美国的销售将彻底消失。</div>
+        <div class="tweet-translation">加拿大的铝材加工商表示，由于特朗普政府最新的关税措施使他们的产品在边境以南失去竞争力，他们对美国的销售将彻底消失。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 18</span>
+          <span class="tweet-stat retweet">🔄 17</span>
+          <span class="tweet-stat comment">💬 7</span>
+        </div>
+        <a href="https://x.com/business/status/2100321369288307181" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">04:29</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">周三，道琼斯工业平均指数下跌，此前美联储三年内首次加息，央行主席凯文·沃什强调了持续的通货膨胀。</div>
+        <div class="tweet-translation">周三，道琼斯工业平均指数下跌，此前美联储三年内首次加息，央行主席凯文·沃什强调了持续的通货膨胀。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100321152358879512" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">04:20</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">德国国债收益率从17年高点回落，因油价下跌，美联储备受关注 <a href="https://reut.rs/4rouihm" target="_blank" rel="noreferrer">https://reut.rs/4rouihm</a></div>
+        <div class="tweet-translation">德国国债收益率从17年高点回落，因油价下跌，美联储备受关注 <a href="https://reut.rs/4rouihm" target="_blank" rel="noreferrer">https://reut.rs/4rouihm</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 21</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100318847802695805" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">04:20</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">空军本周透露，美国现在在太空拥有一种武器，这一消息引发了关于该武器能力的猜测——但答案寥寥。</div>
+        <div class="tweet-translation">空军本周透露，美国现在在太空拥有一种武器，这一消息引发了关于该武器能力的猜测——但答案寥寥。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 7</span>
+          <span class="tweet-stat retweet">🔄 21</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/business/status/2100318843767808135" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">04:10</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">佐治亚州表示将对美国法院要求其向土耳其公司支付因水电项目失败而产生的赔偿的裁决提出上诉 <a href="https://reut.rs/4rihU2g" target="_blank" rel="noreferrer">https://reut.rs/4rihU2g</a></div>
+        <div class="tweet-translation">佐治亚州表示将对美国法院要求其向土耳其公司支付因水电项目失败而产生的赔偿的裁决提出上诉 <a href="https://reut.rs/4rihU2g" target="_blank" rel="noreferrer">https://reut.rs/4rihU2g</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 14</span>
+          <span class="tweet-stat retweet">🔄 24</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100316329911668951" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">O</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg Opinion</div>
+          <div class="tweet-username">@opinion</div>
+        </div>
+        <div class="tweet-time">04:04</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储在三年多来首次加息。@JonathanJLevin 解释了为什么这提升了主席凯文·沃什的可信度  🎥</div>
+        <div class="tweet-translation">美联储在三年多来首次加息。@JonathanJLevin 解释了为什么这提升了主席凯文·沃什的可信度  🎥</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 22</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/opinion/status/2100314949364883908" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">04:04</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">分析：美联储加息强化了在特朗普压力后的美联储独立性</div>
+        <div class="tweet-translation">分析：美联储加息强化了在特朗普压力后的美联储独立性</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 10</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100314922257101013" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">04:03</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储在三年多来首次加息。美联储主席凯文·沃什（Kevin Warsh）在周三的新闻发布会上表示，加息的决定是为了以更“及时”的方式将通胀率恢复到储备目标的2%。<a href="http://bloom.bg/4xyLTEP" target="_blank" rel="noreferrer">http://bloom.bg/4xyLTEP</a></div>
+        <div class="tweet-translation">美联储在三年多来首次加息。美联储主席凯文·沃什（Kevin Warsh）在周三的新闻发布会上表示，加息的决定是为了以更“及时”的方式将通胀率恢复到储备目标的2%。<a href="http://bloom.bg/4xyLTEP" target="_blank" rel="noreferrer">http://bloom.bg/4xyLTEP</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 46</span>
+          <span class="tweet-stat retweet">🔄 39</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/business/status/2100314766044434633" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">04:01</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国邮政局局长告诉亲信，他对自己的工作深感沮丧，并想辞职，据四位消息人士透露，因为该机构正因财务损失以及特朗普收紧邮寄投票规则的努力而受到审查 <a href="https://reut.rs/3VyFkEB" target="_blank" rel="noreferrer">https://reut.rs/3VyFkEB</a></div>
+        <div class="tweet-translation">美国邮政局局长告诉亲信，他对自己的工作深感沮丧，并想辞职，据四位消息人士透露，因为该机构正因财务损失以及特朗普收紧邮寄投票规则的努力而受到审查 <a href="https://reut.rs/3VyFkEB" target="_blank" rel="noreferrer">https://reut.rs/3VyFkEB</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 100</span>
+          <span class="tweet-stat retweet">🔄 92</span>
+          <span class="tweet-stat comment">💬 14</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100314264003125307" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">T</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Economist</div>
+          <div class="tweet-username">@TheEconomist</div>
+        </div>
+        <div class="tweet-time">04:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">自我纠正的力量将确保即将到来的财富转移不会伤害美国资本主义，埃里克·兹威克和@omzidar认为。但在大学教授们建议改革的领域中，有一个例外</div>
+        <div class="tweet-translation">自我纠正的力量将确保即将到来的财富转移不会伤害美国资本主义，埃里克·兹威克和@omzidar认为。但在大学教授们建议改革的领域中，有一个例外</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 4</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/TheEconomist/status/2100313875933479377" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">03:57</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">消费者正面临油价飙升和美国国债收益率双重打击，这是在美国与伊朗的战争中导致他们现金越来越紧张。<br><br>根据穆迪分析公司截至9月11日的分析，自美伊冲突开始以来，每个家庭的总账单约为1760美元。</div>
+        <div class="tweet-translation">消费者正面临油价飙升和美国国债收益率双重打击，这是在美国与伊朗的战争中导致他们现金越来越紧张。<br><br>根据穆迪分析公司截至9月11日的分析，自美伊冲突开始以来，每个家庭的总账单约为1760美元。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 17</span>
+          <span class="tweet-stat retweet">🔄 10</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100313164726374701" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">03:50</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储备受关注的利率预测“点阵图”的未来前景不明朗。需要了解的内容</div>
+        <div class="tweet-translation">美联储备受关注的利率预测“点阵图”的未来前景不明朗。需要了解的内容</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 22</span>
+          <span class="tweet-stat retweet">🔄 25</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/business/status/2100311293638934839" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">03:44</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">杰夫·冈德拉赫表示，美联储本应通过更大程度的加息来对抗不断上升的通胀</div>
+        <div class="tweet-translation">杰夫·冈德拉赫表示，美联储本应通过更大程度的加息来对抗不断上升的通胀</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 34</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 11</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100309928225255651" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">H</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Handelsblatt</div>
+          <div class="tweet-username">@handelsblatt</div>
+        </div>
+        <div class="tweet-time">03:44</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">强劲的劳动力市场以及持续居高不下的通货膨胀原本支持加息。央行官员们因此违背了美国总统唐纳德·特朗普的意愿。</div>
+        <div class="tweet-translation">强劲的劳动力市场以及持续居高不下的通货膨胀原本支持加息。央行官员们因此违背了美国总统唐纳德·特朗普的意愿。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 0</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/handelsblatt/status/2100309852052455846" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">03:40</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国证券交易委员会今日发布的一项新措施将废除关于上市公司股东如何提出公司提案的规则。</div>
+        <div class="tweet-translation">美国证券交易委员会今日发布的一项新措施将废除关于上市公司股东如何提出公司提案的规则。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 3</span>
+          <span class="tweet-stat retweet">🔄 21</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2100308790063120484" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">T</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Economist</div>
+          <div class="tweet-username">@TheEconomist</div>
+        </div>
+        <div class="tweet-time">03:40</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普对哈里斯获胜依赖于一个脆弱的选民联盟，他们对民主党领导层不满。我们的数据分析显示，这个联盟似乎正在瓦解</div>
+        <div class="tweet-translation">特朗普对哈里斯获胜依赖于一个脆弱的选民联盟，他们对民主党领导层不满。我们的数据分析显示，这个联盟似乎正在瓦解</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 21</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 9</span>
+        </div>
+        <a href="https://x.com/TheEconomist/status/2100308784706961448" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">03:40</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国参议院小组委员会批准法案，禁止政府官员就言论自由向网络施压 <a href="https://reut.rs/4xtj6kQ" target="_blank" rel="noreferrer">https://reut.rs/4xtj6kQ</a></div>
+        <div class="tweet-translation">美国参议院小组委员会批准法案，禁止政府官员就言论自由向网络施压 <a href="https://reut.rs/4xtj6kQ" target="_blank" rel="noreferrer">https://reut.rs/4xtj6kQ</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 29</span>
+          <span class="tweet-stat retweet">🔄 36</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100308782551085409" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">03:40</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">🚗 “有一段时间，每家主要汽车制造商都在追赶特斯拉，”美国汽车编辑 @MikeColias 表示。现在汽车制造商们在追赶谁呢？在本周的《Econ World》播客中 <a href="https://reut.rs/4h9VBai" target="_blank" rel="noreferrer">https://reut.rs/4h9VBai</a></div>
+        <div class="tweet-translation">🚗 “有一段时间，每家主要汽车制造商都在追赶特斯拉，”美国汽车编辑 @MikeColias 表示。现在汽车制造商们在追赶谁呢？在本周的《Econ World》播客中 <a href="https://reut.rs/4h9VBai" target="_blank" rel="noreferrer">https://reut.rs/4h9VBai</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 25</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100308773252333644" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">03:35</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">Tether 已崭露头角，成为主要的贵金属贷款提供者，在积累了世界上最大的私人贵金属储备之一后，向一家美国顶级黄金交易商提供了约15亿美元的融资。</div>
+        <div class="tweet-translation">Tether 已崭露头角，成为主要的贵金属贷款提供者，在积累了世界上最大的私人贵金属储备之一后，向一家美国顶级黄金交易商提供了约15亿美元的融资。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">黄金</span>
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 63</span>
+          <span class="tweet-stat retweet">🔄 38</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/business/status/2100307521390911938" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">03:31</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席凯文·沃尔什在回应有关美联储独立性的问题时表示，独立性是一条“双向街道”，这是对唐纳德·特朗普总统威胁要停止与某些国家的贸易往来，除非降低利率的回应。<br><br>在CNBC上了解更多：</div>
+        <div class="tweet-translation">美联储主席凯文·沃尔什在回应有关美联储独立性的问题时表示，独立性是一条“双向街道”，这是对唐纳德·特朗普总统威胁要停止与某些国家的贸易往来，除非降低利率的回应。<br><br>在CNBC上了解更多：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 24</span>
+          <span class="tweet-stat retweet">🔄 11</span>
+          <span class="tweet-stat comment">💬 11</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100306509141848262" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">03:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">评论：让开吧房地产，华尔街现在主导美国支出 <a href="https://reut.rs/4xr44vK" target="_blank" rel="noreferrer">https://reut.rs/4xr44vK</a></div>
+        <div class="tweet-translation">评论：让开吧房地产，华尔街现在主导美国支出 <a href="https://reut.rs/4xr44vK" target="_blank" rel="noreferrer">https://reut.rs/4xr44vK</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 23</span>
+          <span class="tweet-stat comment">💬 7</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100306280313184303" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">03:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国烈酒公司Sazerac正在探讨潜在收购德国杜松子酒制造商Berentzen-Gruppe的可能性，据知情人士透露。</div>
+        <div class="tweet-translation">美国烈酒公司Sazerac正在探讨潜在收购德国杜松子酒制造商Berentzen-Gruppe的可能性，据知情人士透露。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 19</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/business/status/2100306274470539581" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">03:27</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">当被问及唐纳德·特朗普总统可能如何应对央行的加息时，美联储主席凯文·沃什强化了政治压力与货币政策之间的壁垒。<br><br>“独立性是一条双向街道，”沃什说，并补充道，美联储必须“坚守我们的职责范围”，以客观地做出决策。<br><br>阅读更多：</div>
+        <div class="tweet-translation">当被问及唐纳德·特朗普总统可能如何应对央行的加息时，美联储主席凯文·沃什强化了政治压力与货币政策之间的壁垒。<br><br>“独立性是一条双向街道，”沃什说，并补充道，美联储必须“坚守我们的职责范围”，以客观地做出决策。<br><br>阅读更多：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 59</span>
+          <span class="tweet-stat retweet">🔄 9</span>
+          <span class="tweet-stat comment">💬 9</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100305650936893606" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">03:18</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席凯文·沃尔什认为，那些拥有最少的人将从美联储政策中获益最多。</div>
+        <div class="tweet-translation">美联储主席凯文·沃尔什认为，那些拥有最少的人将从美联储政策中获益最多。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 38</span>
+          <span class="tweet-stat retweet">🔄 10</span>
+          <span class="tweet-stat comment">💬 8</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100303357994733625" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">03:16</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">现在美联储加息了，如何为你的现金获得最佳收益率</div>
+        <div class="tweet-translation">现在美联储加息了，如何为你的现金获得最佳收益率</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 0</span>
+          <span class="tweet-stat comment">💬 9</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100302876174086505" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">03:16</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席凯文·沃尔什拒绝回答有关他与特朗普总统互动的问题，特朗普总统近几个月来一直呼吁降低利率。<br><br>在CNBC上了解更多：<a href="https://cnb.cx/4rdpueF" target="_blank" rel="noreferrer">https://cnb.cx/4rdpueF</a></div>
+        <div class="tweet-translation">美联储主席凯文·沃尔什拒绝回答有关他与特朗普总统互动的问题，特朗普总统近几个月来一直呼吁降低利率。<br><br>在CNBC上了解更多：<a href="https://cnb.cx/4rdpueF" target="_blank" rel="noreferrer">https://cnb.cx/4rdpueF</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 86</span>
+          <span class="tweet-stat retweet">🔄 29</span>
+          <span class="tweet-stat comment">💬 16</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100302733408424369" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">03:15</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席凯文·沃什表示：“通胀持续与我们2%的目标一致的环境是个好消息，因为那样当他们拿到工资时，就能维持生计，并实现实际到手工资的增长。”<br><br>“我们对此并非负有全部责任，但我们确实对价格稳定负有责任，”沃什补充道。</div>
+        <div class="tweet-translation">美联储主席凯文·沃什表示：“通胀持续与我们2%的目标一致的环境是个好消息，因为那样当他们拿到工资时，就能维持生计，并实现实际到手工资的增长。”<br><br>“我们对此并非负有全部责任，但我们确实对价格稳定负有责任，”沃什补充道。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 35</span>
+          <span class="tweet-stat retweet">🔄 10</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100302531456909808" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">03:15</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">亿万富翁页岩油先驱Harold Hamm 的 Continental Resources 即将宣布一项投资委内瑞拉的交易，据一位知情人士透露，此举正值特朗普政府推动美国公司重振该国石油部门之际，详情见</div>
+        <div class="tweet-translation">亿万富翁页岩油先驱Harold Hamm 的 Continental Resources 即将宣布一项投资委内瑞拉的交易，据一位知情人士透露，此举正值特朗普政府推动美国公司重振该国石油部门之际，详情见</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 10</span>
+          <span class="tweet-stat retweet">🔄 17</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2100302497051021484" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">A</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">AlphaSpace</div>
+          <div class="tweet-username">@alphaspace</div>
+        </div>
+        <div class="tweet-time">03:14</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储三年首次加息后，美国主要股指下跌。<br><br>$DJI -1.32%<br>$GSPC -0.66%<br>$IXIC -0.28%</div>
+        <div class="tweet-translation">美联储三年首次加息后，美国主要股指下跌。<br><br>$DJI -1.32%<br>$GSPC -0.66%<br>$IXIC -0.28%</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 8</span>
+          <span class="tweet-stat retweet">🔄 2</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/alphaspace/status/2100302370588495967" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">03:10</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国航空首席执行官罗伯特·伊索姆表示，该航空公司可能需要在第四季度进一步削减运力</div>
+        <div class="tweet-translation">美国航空首席执行官罗伯特·伊索姆表示，该航空公司可能需要在第四季度进一步削减运力</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 10</span>
+          <span class="tweet-stat retweet">🔄 13</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/business/status/2100301231449145700" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">03:05</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">去年，一位名叫尤里·克拉梅耶夫的前俄罗斯情报部门军官向一名美国公民提供了2.5万美元，以追踪并杀害立陶宛首都一名“对俄罗斯说谎”的人，据美国检察官称。</div>
+        <div class="tweet-translation">去年，一位名叫尤里·克拉梅耶夫的前俄罗斯情报部门军官向一名美国公民提供了2.5万美元，以追踪并杀害立陶宛首都一名“对俄罗斯说谎”的人，据美国检察官称。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 96</span>
+          <span class="tweet-stat retweet">🔄 50</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/business/status/2100299969156583837" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">03:02</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">“我不相信我们需要对劳动力市场造成损害来实现我们的目标，”美联储主席凯文·沃什告诉@Jenniferisms。</div>
+        <div class="tweet-translation">“我不相信我们需要对劳动力市场造成损害来实现我们的目标，”美联储主席凯文·沃什告诉@Jenniferisms。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 43</span>
+          <span class="tweet-stat retweet">🔄 7</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100299247128084688" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">G</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Goldman Sachs</div>
+          <div class="tweet-username">@GoldmanSachs</div>
+        </div>
+        <div class="tweet-time">03:01</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">在过去美联储加息周期开始时，标普500指数平均出现3个月下跌2%。但该指数在利率开始攀升后的12个月内平均上涨9%。阅读高盛研究分析：</div>
+        <div class="tweet-translation">在过去美联储加息周期开始时，标普500指数平均出现3个月下跌2%。但该指数在利率开始攀升后的12个月内平均上涨9%。阅读高盛研究分析：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">gold</span>
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 33</span>
+          <span class="tweet-stat retweet">🔄 12</span>
+          <span class="tweet-stat comment">💬 7</span>
+        </div>
+        <a href="https://x.com/GoldmanSachs/status/2100299172943438066" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">03:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">由支持巴勒斯坦的激进主义、亿万富翁的干预以及反以色列情绪驱动的言论自由激烈争论，再次在美国各地肆虐。</div>
+        <div class="tweet-translation">由支持巴勒斯坦的激进主义、亿万富翁的干预以及反以色列情绪驱动的言论自由激烈争论，再次在美国各地肆虐。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 10</span>
+          <span class="tweet-stat retweet">🔄 14</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2100298772668362851" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">03:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">独家：美国特使希望白俄罗斯下个月释放数百名囚犯 <a href="https://reut.rs/4j8ayfC" target="_blank" rel="noreferrer">https://reut.rs/4j8ayfC</a></div>
+        <div class="tweet-translation">独家：美国特使希望白俄罗斯下个月释放数百名囚犯 <a href="https://reut.rs/4j8ayfC" target="_blank" rel="noreferrer">https://reut.rs/4j8ayfC</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 2</span>
+          <span class="tweet-stat retweet">🔄 16</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100298726874976393" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">02:59</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席凯文·沃尔什在周三的开幕致辞中强调，他和他的政策制定者同僚对当前通胀速度都不满意。<br><br>“一个简单的事实是，通胀过高，而且已经持续太久，”他在新闻发布会的开幕致辞中表示。<br><br>在CNBC上了解更多：</div>
+        <div class="tweet-translation">美联储主席凯文·沃尔什在周三的开幕致辞中强调，他和他的政策制定者同僚对当前通胀速度都不满意。<br><br>“一个简单的事实是，通胀过高，而且已经持续太久，”他在新闻发布会的开幕致辞中表示。<br><br>在CNBC上了解更多：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 52</span>
+          <span class="tweet-stat retweet">🔄 23</span>
+          <span class="tweet-stat comment">💬 23</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100298456484954397" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Brian Sozzi</div>
+          <div class="tweet-username">@BrianSozzi</div>
+        </div>
+        <div class="tweet-time">02:59</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席凯文·沃什表示，他希望成立一个新的特别工作组（又一个），以帮助思考人工智能及其经济影响。<br><br>现在有197个新的美联储特别工作组投入运作。</div>
+        <div class="tweet-translation">美联储主席凯文·沃什表示，他希望成立一个新的特别工作组（又一个），以帮助思考人工智能及其经济影响。<br><br>现在有197个新的美联储特别工作组投入运作。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 12</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/BrianSozzi/status/2100298452798214423" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">A</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">AlphaSpace</div>
+          <div class="tweet-username">@alphaspace</div>
+        </div>
+        <div class="tweet-time">02:57</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储决定加息后，Coinbase 股价进一步下跌。<br><br>📉 $COIN -4.62%</div>
+        <div class="tweet-translation">美联储决定加息后，Coinbase 股价进一步下跌。<br><br>📉 $COIN -4.62%</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 7</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/alphaspace/status/2100297952841351572" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">02:52</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储会议实时更新：沃什主席表示通胀仍然过高</div>
+        <div class="tweet-translation">美联储会议实时更新：沃什主席表示通胀仍然过高</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 15</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 11</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100296906739941810" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">02:50</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">Advil制造商Haleon通过针对服用减肥药的消费者来提升美国销售额 <a href="https://reut.rs/4xYZ7LZ" target="_blank" rel="noreferrer">https://reut.rs/4xYZ7LZ</a></div>
+        <div class="tweet-translation">Advil制造商Haleon通过针对服用减肥药的消费者来提升美国销售额 <a href="https://reut.rs/4xYZ7LZ" target="_blank" rel="noreferrer">https://reut.rs/4xYZ7LZ</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 3</span>
+          <span class="tweet-stat retweet">🔄 15</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100296198976409858" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">02:46</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储周三一致投票决定，在三年内首次加息。<br><br>美联储主席凯文·沃什（Kevin Warsh）提到了持续的经济压力，他警告说通货膨胀仍然过高，央行尚未看到通往其目标的足够进展。<br><br>阅读更多：</div>
+        <div class="tweet-translation">美联储周三一致投票决定，在三年内首次加息。<br><br>美联储主席凯文·沃什（Kevin Warsh）提到了持续的经济压力，他警告说通货膨胀仍然过高，央行尚未看到通往其目标的足够进展。<br><br>阅读更多：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 79</span>
+          <span class="tweet-stat retweet">🔄 19</span>
+          <span class="tweet-stat comment">💬 12</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100295364121067804" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">02:45</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国国债在美联储自2023年以来首次加息并预计将采取进一步行动以抑制通胀后，保持了涨幅</div>
+        <div class="tweet-translation">美国国债在美联储自2023年以来首次加息并预计将采取进一步行动以抑制通胀后，保持了涨幅</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 9</span>
+          <span class="tweet-stat retweet">🔄 14</span>
+          <span class="tweet-stat comment">💬 4</span>
+        </div>
+        <a href="https://x.com/business/status/2100294940181831945" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">02:44</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储的凯文·沃尔什表示，“这个委员会将实现价格稳定。”<br><br>“今天的政策行动将支持该委员会更快回归2%的目标，”沃尔什在周三的政策会议上表示。</div>
+        <div class="tweet-translation">美联储的凯文·沃尔什表示，“这个委员会将实现价格稳定。”<br><br>“今天的政策行动将支持该委员会更快回归2%的目标，”沃尔什在周三的政策会议上表示。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 43</span>
+          <span class="tweet-stat retweet">🔄 11</span>
+          <span class="tweet-stat comment">💬 11</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100294837324988911" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">02:44</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席凯文·沃尔什谈及将美联储基准利率上调25个基点至3.75%-4%的目标区间的决定，这是自2023年以来首次加息。<br><br>在CNBC上了解更多：<a href="https://cnb.cx/4rdpueF" target="_blank" rel="noreferrer">https://cnb.cx/4rdpueF</a></div>
+        <div class="tweet-translation">美联储主席凯文·沃尔什谈及将美联储基准利率上调25个基点至3.75%-4%的目标区间的决定，这是自2023年以来首次加息。<br><br>在CNBC上了解更多：<a href="https://cnb.cx/4rdpueF" target="_blank" rel="noreferrer">https://cnb.cx/4rdpueF</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 86</span>
+          <span class="tweet-stat retweet">🔄 40</span>
+          <span class="tweet-stat comment">💬 16</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100294687047184739" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">02:41</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席凯文·沃尔什表示：“一个简单的事实是，通货膨胀率太高，而且已经持续太久了。”</div>
+        <div class="tweet-translation">美联储主席凯文·沃尔什表示：“一个简单的事实是，通货膨胀率太高，而且已经持续太久了。”</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 100</span>
+          <span class="tweet-stat retweet">🔄 31</span>
+          <span class="tweet-stat comment">💬 14</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100294101690093959" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">02:35</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普提名的外科医生总长人选妮可·萨菲尔（Nicole Saphier）很可能将面临关于她对儿童疫苗接种立场的提问——这一问题曾导致总统之前的提名人选失败</div>
+        <div class="tweet-translation">特朗普提名的外科医生总长人选妮可·萨菲尔（Nicole Saphier）很可能将面临关于她对儿童疫苗接种立场的提问——这一问题曾导致总统之前的提名人选失败</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 5</span>
+          <span class="tweet-stat retweet">🔄 16</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/business/status/2100292422005592095" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">02:34</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储来电了，是关于你的利率。</div>
+        <div class="tweet-translation">美联储来电了，是关于你的利率。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 62</span>
+          <span class="tweet-stat retweet">🔄 6</span>
+          <span class="tweet-stat comment">💬 8</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100292313830342907" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">O</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg Opinion</div>
+          <div class="tweet-username">@opinion</div>
+        </div>
+        <div class="tweet-time">02:31</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席凯文·沃尔什就利率问题举行新闻发布会<br><br>观看直播：</div>
+        <div class="tweet-translation">美联储主席凯文·沃尔什就利率问题举行新闻发布会<br><br>观看直播：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 2</span>
+          <span class="tweet-stat retweet">🔄 11</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/opinion/status/2100291557752557995" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">02:30</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">特朗普编写了如何在掌权的同时赚取数十亿美元的行动指南。但随着他的人气下降和中期选举临近，他现在面临着一个更艰巨的挑战：弄清楚如何保住总统职位所带来的所有财富。<br><br>阅读更多：<a href="https://forbes.com/sites/danalexander/2026/09/15/president-trumps-fortune-falls-as-everyday-supporters-lose-faith/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…" target="_blank" rel="noreferrer">https://forbes.com/sites/danalexander/2026/09/15/president-trumps-fortune-falls-as-everyday-supporters-lose-faith/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…</a><br><br>📷：Anna Moneymaker via Getty Images</div>
+        <div class="tweet-translation">特朗普编写了如何在掌权的同时赚取数十亿美元的行动指南。但随着他的人气下降和中期选举临近，他现在面临着一个更艰巨的挑战：弄清楚如何保住总统职位所带来的所有财富。<br><br>阅读更多：<a href="https://forbes.com/sites/danalexander/2026/09/15/president-trumps-fortune-falls-as-everyday-supporters-lose-faith/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…" target="_blank" rel="noreferrer">https://forbes.com/sites/danalexander/2026/09/15/president-trumps-fortune-falls-as-everyday-supporters-lose-faith/?utm_source=ForbesMainTwitter&amp;utm_medium=social&amp;utm_campaign=ForbesMainTwitter…</a><br><br>📷：Anna Moneymaker via Getty Images</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">Trump</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 110</span>
+          <span class="tweet-stat retweet">🔄 36</span>
+          <span class="tweet-stat comment">💬 19</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2100291151496687783" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">O</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg Opinion</div>
+          <div class="tweet-username">@opinion</div>
+        </div>
+        <div class="tweet-time">02:27</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">“沃什主席需要传递什么信息才能在这条钢丝绳上保持平衡？”@JonathanJLevin 问道。“他想显得强硬……但他也在对一个单一的听众说话，那就是唐纳德·特朗普。”<br><br>观看直播：</div>
+        <div class="tweet-translation">“沃什主席需要传递什么信息才能在这条钢丝绳上保持平衡？”@JonathanJLevin 问道。“他想显得强硬……但他也在对一个单一的听众说话，那就是唐纳德·特朗普。”<br><br>观看直播：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 12</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/opinion/status/2100290426154500110" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">02:27</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储官员预计今年将再加息一次，并预计2027年保持稳定，季度预测显示</div>
+        <div class="tweet-translation">美联储官员预计今年将再加息一次，并预计2027年保持稳定，季度预测显示</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 2</span>
+          <span class="tweet-stat retweet">🔄 13</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100290421825982664" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">02:26</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">凯文·沃什作为美联储主席，在他的第一次加息上几乎没有浪费时间。</div>
+        <div class="tweet-translation">凯文·沃什作为美联储主席，在他的第一次加息上几乎没有浪费时间。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 31</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 13</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100290361016938610" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">02:24</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席沃什在美联储加息后发表讲话</div>
+        <div class="tweet-translation">美联储主席沃什在美联储加息后发表讲话</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 7</span>
+          <span class="tweet-stat retweet">🔄 14</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100289860485452153" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">O</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg Opinion</div>
+          <div class="tweet-username">@opinion</div>
+        </div>
+        <div class="tweet-time">02:24</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">“讽刺是特朗普的爱的语言，”@AllisonSchrager 说。“话虽如此，如果特朗普抨击凯文·沃什的决定……我看不出沃什会回以讽刺。”<br><br>观看直播：</div>
+        <div class="tweet-translation">“讽刺是特朗普的爱的语言，”@AllisonSchrager 说。“话虽如此，如果特朗普抨击凯文·沃什的决定……我看不出沃什会回以讽刺。”<br><br>观看直播：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 3</span>
+          <span class="tweet-stat retweet">🔄 11</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/opinion/status/2100289700057546762" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">02:20</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">委内瑞拉正准备根据与Mercuria Energy和Heeney Capital的协议向美国运送铝材，在商业联系快速恢复之际，多元化超出石油领域。</div>
+        <div class="tweet-translation">委内瑞拉正准备根据与Mercuria Energy和Heeney Capital的协议向美国运送铝材，在商业联系快速恢复之际，多元化超出石油领域。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 107</span>
+          <span class="tweet-stat retweet">🔄 61</span>
+          <span class="tweet-stat comment">💬 10</span>
+        </div>
+        <a href="https://x.com/business/status/2100288649661190601" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">W</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Wall Street Journal</div>
+          <div class="tweet-username">@WSJ</div>
+        </div>
+        <div class="tweet-time">02:18</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">突发：美联储一致投票决定三年来的首次加息，大多数官员预计年底前还将再加息一次。</div>
+        <div class="tweet-translation">突发：美联储一致投票决定三年来的首次加息，大多数官员预计年底前还将再加息一次。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 275</span>
+          <span class="tweet-stat retweet">🔄 137</span>
+          <span class="tweet-stat comment">💬 38</span>
+        </div>
+        <a href="https://x.com/WSJ/status/2100288125817831880" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">N</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The New York Times</div>
+          <div class="tweet-username">@nytimes</div>
+        </div>
+        <div class="tweet-time">02:17</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">突发新闻：美联储自2023年以来首次加息，这是央行主席凯文·沃什为应对高企的通胀压力采取的首个重大举措。关注实时更新。</div>
+        <div class="tweet-translation">突发新闻：美联储自2023年以来首次加息，这是央行主席凯文·沃什为应对高企的通胀压力采取的首个重大举措。关注实时更新。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 303</span>
+          <span class="tweet-stat retweet">🔄 174</span>
+          <span class="tweet-stat comment">💬 55</span>
+        </div>
+        <a href="https://x.com/nytimes/status/2100287925309038658" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">O</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg Opinion</div>
+          <div class="tweet-username">@opinion</div>
+        </div>
+        <div class="tweet-time">02:17</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">“有一个世界，我们可以看到美联储的短期利率较低，但经济中的借贷成本实际上会下降，”@BobOnMarkets 表示。<br><br>观看直播：</div>
+        <div class="tweet-translation">“有一个世界，我们可以看到美联储的短期利率较低，但经济中的借贷成本实际上会下降，”@BobOnMarkets 表示。<br><br>观看直播：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 3</span>
+          <span class="tweet-stat retweet">🔄 11</span>
+          <span class="tweet-stat comment">💬 1</span>
+        </div>
+        <a href="https://x.com/opinion/status/2100287877187854734" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">02:16</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储主席沃什在美联储决定加息后发言</div>
+        <div class="tweet-translation">美联储主席沃什在美联储决定加息后发言</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 79</span>
+          <span class="tweet-stat retweet">🔄 38</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100287763929248100" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">02:15</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储将利率上调了25个基点，并计划在今年晚些时候再加息一次</div>
+        <div class="tweet-translation">美联储将利率上调了25个基点，并计划在今年晚些时候再加息一次</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 26</span>
+          <span class="tweet-stat retweet">🔄 15</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/business/status/2100287388597502156" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Forbes</div>
+          <div class="tweet-username">@Forbes</div>
+        </div>
+        <div class="tweet-time">02:15</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储三年内首次加息，因通胀持续高企——与特朗普发生冲突<br><a href="https://go.forbes.com/MrzWY7" target="_blank" rel="noreferrer">https://go.forbes.com/MrzWY7</a></div>
+        <div class="tweet-translation">美联储三年内首次加息，因通胀持续高企——与特朗普发生冲突<br><a href="https://go.forbes.com/MrzWY7" target="_blank" rel="noreferrer">https://go.forbes.com/MrzWY7</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 36</span>
+          <span class="tweet-stat retweet">🔄 7</span>
+          <span class="tweet-stat comment">💬 7</span>
+        </div>
+        <a href="https://x.com/Forbes/status/2100287373955219773" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">02:14</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储加息：这对你信用卡、抵押贷款、储蓄账户和汽车贷款意味着什么</div>
+        <div class="tweet-translation">美联储加息：这对你信用卡、抵押贷款、储蓄账户和汽车贷款意味着什么</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 43</span>
+          <span class="tweet-stat retweet">🔄 22</span>
+          <span class="tweet-stat comment">💬 25</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100287164667908171" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">O</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg Opinion</div>
+          <div class="tweet-username">@opinion</div>
+        </div>
+        <div class="tweet-time">02:11</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">“试图对下周或下个月之后的时期进行预测几乎是徒劳无功的，”@BobOnMarkets 说。“美联储不要预测超出他们认为未来几个月会发生的事情太多，可能是个明智的选择。”<br><br>观看直播：</div>
+        <div class="tweet-translation">“试图对下周或下个月之后的时期进行预测几乎是徒劳无功的，”@BobOnMarkets 说。“美联储不要预测超出他们认为未来几个月会发生的事情太多，可能是个明智的选择。”<br><br>观看直播：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 3</span>
+          <span class="tweet-stat retweet">🔄 8</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/opinion/status/2100286591923101728" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">02:11</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">以下是沃什领导下的新美联储声明中的变化</div>
+        <div class="tweet-translation">以下是沃什领导下的新美联储声明中的变化</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 15</span>
+          <span class="tweet-stat retweet">🔄 4</span>
+          <span class="tweet-stat comment">💬 12</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100286355163037940" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">W</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">The Wall Street Journal</div>
+          <div class="tweet-username">@WSJ</div>
+        </div>
+        <div class="tweet-time">02:10</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">突发：美联储一致投票决定三年内首次加息，大多数官员预计年底前还将加息一次</div>
+        <div class="tweet-translation">突发：美联储一致投票决定三年内首次加息，大多数官员预计年底前还将加息一次</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 640</span>
+          <span class="tweet-stat retweet">🔄 309</span>
+          <span class="tweet-stat comment">💬 64</span>
+        </div>
+        <a href="https://x.com/WSJ/status/2100286230533464168" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">02:10</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">法国财政部长称，减缓AI发展的呼吁有利于美国行业领导者 <a href="https://reut.rs/4j77iRB" target="_blank" rel="noreferrer">https://reut.rs/4j77iRB</a></div>
+        <div class="tweet-translation">法国财政部长称，减缓AI发展的呼吁有利于美国行业领导者 <a href="https://reut.rs/4j77iRB" target="_blank" rel="noreferrer">https://reut.rs/4j77iRB</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 13</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100286138833396206" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">02:10</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">以下是美联储利率决定中的关键要点</div>
+        <div class="tweet-translation">以下是美联储利率决定中的关键要点</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 21</span>
+          <span class="tweet-stat retweet">🔄 9</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/business/status/2100286129433973000" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">02:07</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">纽约证券交易所大盘在华尔街对美联储加息做出反应</div>
+        <div class="tweet-translation">纽约证券交易所大盘在华尔街对美联储加息做出反应</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 18</span>
+          <span class="tweet-stat retweet">🔄 16</span>
+          <span class="tweet-stat comment">💬 7</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100285511990755769" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">02:06</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">突发：美联储在三年来首次加息，决定一致通过。<br><br>官员们还表示，他们预计2026年剩余时间将再加息一次。</div>
+        <div class="tweet-translation">突发：美联储在三年来首次加息，决定一致通过。<br><br>官员们还表示，他们预计2026年剩余时间将再加息一次。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 202</span>
+          <span class="tweet-stat retweet">🔄 60</span>
+          <span class="tweet-stat comment">💬 11</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100285140593238296" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">02:06</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储批准了超过三年来的首次加息，并表示还将有另一次加息，这是旨在对抗由油价螺旋式上涨和其他因素引发的通货膨胀努力的一部分。<br><br>阅读更多：<a href="https://cnb.cx/4yFzTlF" target="_blank" rel="noreferrer">https://cnb.cx/4yFzTlF</a></div>
+        <div class="tweet-translation">美联储批准了超过三年来的首次加息，并表示还将有另一次加息，这是旨在对抗由油价螺旋式上涨和其他因素引发的通货膨胀努力的一部分。<br><br>阅读更多：<a href="https://cnb.cx/4yFzTlF" target="_blank" rel="noreferrer">https://cnb.cx/4yFzTlF</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 103</span>
+          <span class="tweet-stat retweet">🔄 49</span>
+          <span class="tweet-stat comment">💬 30</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100285114194301398" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">O</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg Opinion</div>
+          <div class="tweet-username">@opinion</div>
+        </div>
+        <div class="tweet-time">02:04</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">“这无疑通过展示他克制通胀的承诺以及他本人对特朗普的独立性，增强了Warsh在市场中的可信度，”@BobOnMarkets 表示。<br><br>观看直播：</div>
+        <div class="tweet-translation">“这无疑通过展示他克制通胀的承诺以及他本人对特朗普的独立性，增强了Warsh在市场中的可信度，”@BobOnMarkets 表示。<br><br>观看直播：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">特朗普</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 6</span>
+          <span class="tweet-stat retweet">🔄 6</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/opinion/status/2100284783427248437" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">02:04</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">今日：DoubleLine 的 Jeffrey Gundlach 加入“Closing Bell”节目，在美联储主席 Warsh 的讲话后进行采访。<br><br>请在东部时间下午 3 点收看 CNBC。</div>
+        <div class="tweet-translation">今日：DoubleLine 的 Jeffrey Gundlach 加入“Closing Bell”节目，在美联储主席 Warsh 的讲话后进行采访。<br><br>请在东部时间下午 3 点收看 CNBC。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 11</span>
+          <span class="tweet-stat retweet">🔄 1</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100284617047626028" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">02:03</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">突发：美联储一致决定将利率上调25个基点，并计划在今年晚些时候追加一次加息。<br><br>关注我们的报道以获取实时更新 ⤵️</div>
+        <div class="tweet-translation">突发：美联储一致决定将利率上调25个基点，并计划在今年晚些时候追加一次加息。<br><br>关注我们的报道以获取实时更新 ⤵️</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 348</span>
+          <span class="tweet-stat retweet">🔄 209</span>
+          <span class="tweet-stat comment">💬 33</span>
+        </div>
+        <a href="https://x.com/business/status/2100284562639093859" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">F</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Financial Times</div>
+          <div class="tweet-username">@FT</div>
+        </div>
+        <div class="tweet-time">02:03</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">突发新闻：美联储已将利率上调25个基点，至3.75%至4%的区间，正如经济学家们广泛预期的那样。<br><br>关注实时更新：<a href="https://ft.trib.al/PTK3mUo" target="_blank" rel="noreferrer">https://ft.trib.al/PTK3mUo</a></div>
+        <div class="tweet-translation">突发新闻：美联储已将利率上调25个基点，至3.75%至4%的区间，正如经济学家们广泛预期的那样。<br><br>关注实时更新：<a href="https://ft.trib.al/PTK3mUo" target="_blank" rel="noreferrer">https://ft.trib.al/PTK3mUo</a></div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 574</span>
+          <span class="tweet-stat retweet">🔄 302</span>
+          <span class="tweet-stat comment">💬 44</span>
+        </div>
+        <a href="https://x.com/FT/status/2100284420804559163" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">02:03</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储周三批准了其三年多来的首次加息，并表示还将有另一次加息，这是旨在对抗由油价螺旋式上涨和其他因素引发的通货膨胀努力的一部分。</div>
+        <div class="tweet-translation">美联储周三批准了其三年多来的首次加息，并表示还将有另一次加息，这是旨在对抗由油价螺旋式上涨和其他因素引发的通货膨胀努力的一部分。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 56</span>
+          <span class="tweet-stat retweet">🔄 41</span>
+          <span class="tweet-stat comment">💬 15</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100284400759935398" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Brooke DiPalma</div>
+          <div class="tweet-username">@BrookeDiPalma</div>
+        </div>
+        <div class="tweet-time">02:03</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">突发：美联储加息25个基点。没有异议，意味着全体一致同意。<br><br>“通胀仍然居高不下。今天的政策行动将支持委员会2%的目标更及时地实现。委员会将实现价格稳定。”</div>
+        <div class="tweet-translation">突发：美联储加息25个基点。没有异议，意味着全体一致同意。<br><br>“通胀仍然居高不下。今天的政策行动将支持委员会2%的目标更及时地实现。委员会将实现价格稳定。”</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 14</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 0</span>
+        </div>
+        <a href="https://x.com/BrookeDiPalma/status/2100284341393739830" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">02:02</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储18名成员中有16名预计，除了这次加息之外，2026年还将有另一次加息。</div>
+        <div class="tweet-translation">美联储18名成员中有16名预计，除了这次加息之外，2026年还将有另一次加息。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 38</span>
+          <span class="tweet-stat retweet">🔄 16</span>
+          <span class="tweet-stat comment">💬 6</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100284328429195595" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Brian Sozzi</div>
+          <div class="tweet-username">@BrianSozzi</div>
+        </div>
+        <div class="tweet-time">02:02</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">🛑美联储加息0.25%。<br>🛑柴油价格超过每加仑6美元。<br>🛑10年期国债收益率超过5%。<br><br>坏事……总会接连而来。</div>
+        <div class="tweet-translation">🛑美联储加息0.25%。<br>🛑柴油价格超过每加仑6美元。<br>🛑10年期国债收益率超过5%。<br><br>坏事……总会接连而来。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 27</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/BrianSozzi/status/2100284127685550408" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">C</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">CNBC</div>
+          <div class="tweet-username">@CNBC</div>
+        </div>
+        <div class="tweet-time">02:01</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">突发：美联储自2023年以来首次加息</div>
+        <div class="tweet-translation">突发：美联储自2023年以来首次加息</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 317</span>
+          <span class="tweet-stat retweet">🔄 99</span>
+          <span class="tweet-stat comment">💬 38</span>
+        </div>
+        <a href="https://x.com/CNBC/status/2100284014221295770" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">O</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg Opinion</div>
+          <div class="tweet-username">@opinion</div>
+        </div>
+        <div class="tweet-time">02:01</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储日最新消息 🚨  <br>美联储一致决定将基准利率上调25个基点至3.75%-4%区间  <br><br>观看直播：</div>
+        <div class="tweet-translation">美联储日最新消息 🚨  <br>美联储一致决定将基准利率上调25个基点至3.75%-4%区间  <br><br>观看直播：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 8</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/opinion/status/2100284002254848398" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">Y</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Yahoo Finance</div>
+          <div class="tweet-username">@YahooFinance</div>
+        </div>
+        <div class="tweet-time">02:01</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">🚨 突发：美联储三年内首次加息。<br><br>利率现已处于 3.75% 至 4.00% 之间。</div>
+        <div class="tweet-translation">🚨 突发：美联储三年内首次加息。<br><br>利率现已处于 3.75% 至 4.00% 之间。</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 493</span>
+          <span class="tweet-stat retweet">🔄 96</span>
+          <span class="tweet-stat comment">💬 20</span>
+        </div>
+        <a href="https://x.com/YahooFinance/status/2100283877117841778" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">B</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg</div>
+          <div class="tweet-username">@business</div>
+        </div>
+        <div class="tweet-time">02:00</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美国卫生部门计划启动一项自闭症研究计划，使用人工智能来研究该病症的发展过程，并识别早期干预的机会</div>
+        <div class="tweet-translation">美国卫生部门计划启动一项自闭症研究计划，使用人工智能来研究该病症的发展过程，并识别早期干预的机会</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美国</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 10</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 3</span>
+        </div>
+        <a href="https://x.com/business/status/2100283621110063489" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">O</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg Opinion</div>
+          <div class="tweet-username">@opinion</div>
+        </div>
+        <div class="tweet-time">01:58</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储还计划多少次加息？@BobOnMarkets 问道。“通胀预测是多少？”<br><br>观看直播：</div>
+        <div class="tweet-translation">美联储还计划多少次加息？@BobOnMarkets 问道。“通胀预测是多少？”<br><br>观看直播：</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 4</span>
+          <span class="tweet-stat retweet">🔄 5</span>
+          <span class="tweet-stat comment">💬 2</span>
+        </div>
+        <a href="https://x.com/opinion/status/2100283084251811934" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">O</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Bloomberg Opinion</div>
+          <div class="tweet-username">@opinion</div>
+        </div>
+        <div class="tweet-time">01:55</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">今天是美联储日！新主席凯文·沃什即将主持他的第一次加息吗？<br><br>🎥收看 @JonathanJLevin 与 @AllisonSchrager 和 @BobOnMarkets 现场讨论</div>
+        <div class="tweet-translation">今天是美联储日！新主席凯文·沃什即将主持他的第一次加息吗？<br><br>🎥收看 @JonathanJLevin 与 @AllisonSchrager 和 @BobOnMarkets 现场讨论</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 5</span>
+          <span class="tweet-stat retweet">🔄 3</span>
+          <span class="tweet-stat comment">💬 5</span>
+        </div>
+        <a href="https://x.com/opinion/status/2100282316291469463" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    <div class="tweet-card">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div class="tweet-author-info">
+          <div class="tweet-display-name">Reuters</div>
+          <div class="tweet-username">@Reuters</div>
+        </div>
+        <div class="tweet-time">00:57</div>
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-original">美联储预计将首次自2023年以来加息，此决定由顽固的高通胀和全球借贷成本上升所驱动。关注我们的实时更新 ⬇️</div>
+        <div class="tweet-translation">美联储预计将首次自2023年以来加息，此决定由顽固的高通胀和全球借贷成本上升所驱动。关注我们的实时更新 ⬇️</div>
+      </div>
+      <div class="keyword-tags">
+      <span class="keyword-tag">美联储</span>
+      </div>
+      <div class="tweet-footer">
+        <div class="tweet-stats">
+          <span class="tweet-stat like">❤️ 82</span>
+          <span class="tweet-stat retweet">🔄 44</span>
+          <span class="tweet-stat comment">💬 8</span>
+        </div>
+        <a href="https://x.com/Reuters/status/2100267887655067811" class="tweet-link" target="_blank" rel="noreferrer">查看原文 ↗</a>
+      </div>
+    </div>
+    </main>
+
+    <footer class="footer">
+      <p>由 Twitter 日报 Skill 自动生成 · 2026-09-17 07:15 (UTC+8)</p>
+    </footer>
+  </div>
+</body>
+</html>
